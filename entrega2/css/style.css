@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+body{
+    background-color: #04031D;
+    font-family: 'Inter', sans-serif;
+    color: #DEDEDE;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0%;
+}
+
+h1{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+h2{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+h3{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+p{
+    font-size: 12px;
+}
+
+.link{
+    font-size: 12px;
+    font-weight: bold;
+    color: #5E68DE;
+}
+
+.tituloMenu{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.botonTexto{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.label{
+    font-size: 15px;
+}
+
+.card{
+    width: 300px;
+    height: 200px;
+}
+
+.imgCard{
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+footer{
+        background: linear-gradient(to right, #1E2039, #363962, #1E2039);
+        justify-content:center; /* Centra el contenido */
+        margin-top: auto;
+    }
+    
+.linksFooter{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.descripcionFooter{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding-left: 20%;
+    padding-right: 20%;
+}
