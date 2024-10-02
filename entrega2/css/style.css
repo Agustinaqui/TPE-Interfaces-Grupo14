@@ -35,8 +35,81 @@
 body{
     background-color: #04031D;
     color:white;
+    margin: 0px;
+    padding: 0px;
 }
 
 nav{
-    background: linear-gradient();
+    background: linear-gradient(90deg, #1E2039 5%, #520060 25%, #AF00CD 35%, #FFFFFF 50%, #AF00CD 65%,#520060 75%,#1E2039 95% );
+    height: 90px;
+}
+
+nav ul.navigation{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style-type: none;
+    margin: 0px;
+    padding: 5px 0px 0px 0px;
+}
+
+ul svg{
+    width: 40px;
+    height: 40px;
+}
+
+ul img{
+    padding-right: 200px;
+    width: 219px;
+    height: 76px;;
+}
+
+input::placeholder{
+    font-size: 15px;
+}
+
+.conteiner-izquierda{
+    display: flex;
+    align-items: center;
+    padding-right: 250px;
+
+}
+.conteiner-izquierda .logoMenu{
+    padding-right: 10px;
+    
+}
+.logoMenu svg{
+    width: 50px;
+    height: 50px;
+}
+
+.conteiner-derecha{
+    display: flex;
+    align-items: center;
+    padding-left: 250px;
+}
+
+.conteiner-derecha .logoUsuario{
+    padding-left: 30px;
+}
+
+.busqueda{
+    position: relative;
+}
+
+.busqueda input{
+    background-color: #DEDEDE;
+    border: none;
+    border-radius: 10px;
+    width: 240px;
+    height: 35px;;
+    padding-left: 10px;
+}
+
+.busqueda svg{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 10px;
+    top: 5px;
 }
