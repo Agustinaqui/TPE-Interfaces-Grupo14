@@ -26,12 +26,28 @@ h3{
 
 p{
     font-size: 12px;
+    margin: 5px;
+}
+
+.textoLabel{
+    font-size: 15px;
+    width: 100%;
+    text-align: start;
 }
 
 .link{
-    font-size: 12px;
     font-weight: bold;
     color: #5E68DE;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.link2{
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .tituloMenu{
@@ -52,6 +68,119 @@ p{
 .card{
     width: 300px;
     height: 200px;
+}
+
+header{
+    background: linear-gradient(to right, #1E2039, #520060, #DEDEDE, #520060, #1E2039);
+    height: 90px;
+    padding: 0px;
+}
+
+.contenedorFormulario{
+    display: flex;
+    justify-content: center;
+    width: 50%;  
+    align-items: center;
+}
+
+.formulario{
+    display: flex;
+    background-color: #1E2039;
+    width: 300px;
+    border-radius: 18px;
+    padding: 40px;
+    flex-direction: column;
+    align-items: center;
+}
+.formularioRegistro{    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+    width: 85%;
+}
+
+.contenedorBajoForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.botonRegistrar{
+    background-color: #800096;
+    color: white; 
+    border-radius: 18px; 
+    border: none;
+    padding: 10px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    margin: 10px;
+}
+
+.contenedorRedesRegistrar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.iconoUser{
+    width:50px;
+    height: 50px;
+}
+
+.iconoRedesForm{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.seccionLogIn{
+    display: flex;
+    flex-direction: row;
+}
+
+.contenedorImgLogIn{
+    overflow: hidden;
+    width: 50%;
+    position: relative;
+    
+
+}
+.imgForm{
+    filter: blur(5px);
+    width: 100%;
+    height: auto;
+}
+
+.logoImgRegistro{
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    top: 50%; /* Se posiciona en el 50% del contenedor (mitad vertical) */
+    left: 50%; /* Se posiciona en el 50% del contenedor (mitad horizontal) */
+    transform: translate(-50%, -50%); /* Centra la imagen superpuesta */
+ 
+}
+
+.recaptcha{
+    width: 200px;
+    height: 50px;
+}
+
+.contenedorRecaptcha{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.inputRegistro{
+    width: 100%;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 5px;
 }
 
 .imgCard{
@@ -80,4 +209,26 @@ footer{
     align-items: center;
     padding-left: 20%;
     padding-right: 20%;
+}
+
+.logoFooter{
+    width: 123px;
+    height: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.iconoFooter{
+    width: 40px;
+    height: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.IconosRedesFooter{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
