@@ -1,36 +1,236 @@
-.hidden {
-    display: none;
-}
-.menu-opciones, .menu-categorias {
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+body{
+    background-color: #04031D;
+    font-family: 'Inter', sans-serif;
+    color: #DEDEDE;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    margin: 0%;
 }
 
-.input-buscar,.menu-opciones, .menu-categorias{
-    margin: 10px 0px;
+h1{
+    font-size: 30px;
+    font-weight: bold;
 }
 
-.menu-opciones button {
-    display: flex;
-    flex-direction: row;
+h2{
+    font-size: 25px;
+    font-weight: bold;
 }
-.menu-categoria {
+
+h3{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+p{
+    font-size: 12px;
+    margin: 5px;
+}
+
+.textoLabel{
+    font-size: 15px;
+    width: 100%;
+    text-align: start;
+}
+
+.link{
+    font-weight: bold;
+    color: #5E68DE;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.link2{
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tituloMenu{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.botonTexto{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.label{
+    font-size: 15px;
+}
+
+.card{
+    width: 300px;
+    height: 200px;
+}
+
+header{
+    background: linear-gradient(to right, #1E2039, #520060, #DEDEDE, #520060, #1E2039);
+    height: 90px;
+    padding: 0px;
+}
+
+.contenedorFormulario{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    width: 50%;  
+    align-items: center;
+}
+
+.formulario{
+    display: flex;
+    background-color: #1E2039;
+    width: 300px;
+    border-radius: 18px;
+    padding: 40px;
+    flex-direction: column;
+    align-items: center;
+}
+.formularioRegistro{    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+    width: 85%;
+}
+
+.contenedorBajoForm{
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-
+    align-items: center;
 }
 
-.menu-categoria button {
+.botonRegistrar{
+    background-color: #800096;
+    color: white; 
+    border-radius: 18px; 
+    border: none;
+    padding: 10px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    margin: 10px;
+}
+
+.contenedorRedesRegistrar{
     display: flex;
     flex-direction: row;
     align-items: center;
-    width:100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.iconoUser{
+    width:50px;
+    height: 50px;
+}
+
+.iconoRedesForm{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.seccionLogIn{
+    display: flex;
+    flex-direction: row;
+}
+
+.contenedorImgLogIn{
+    overflow: hidden;
+    width: 50%;
+    position: relative;
+    
 
 }
-.button-label {
+.imgForm{
+    filter: blur(5px);
+    width: 100%;
+    height: auto;
+}
+
+.logoImgRegistro{
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    top: 50%; /* Se posiciona en el 50% del contenedor (mitad vertical) */
+    left: 50%; /* Se posiciona en el 50% del contenedor (mitad horizontal) */
+    transform: translate(-50%, -50%); /* Centra la imagen superpuesta */
+ 
+}
+
+.recaptcha{
+    width: 200px;
+    height: 50px;
+}
+
+.contenedorRecaptcha{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.inputRegistro{
+    width: 100%;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 5px;
+}
+
+.imgCard{
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+footer{
+        background: linear-gradient(to right, #1E2039, #363962, #1E2039);
+        justify-content:center; /* Centra el contenido */
+        margin-top: auto;
+    }
+    
+.linksFooter{
     display: flex;
-    width: 55%;
+    flex-direction: column;
+    text-align: center;
+}
+
+.descripcionFooter{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.logoFooter{
+    width: 123px;
+    height: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.iconoFooter{
+    width: 40px;
+    height: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.IconosRedesFooter{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 body{
     background-color: #04031D;
