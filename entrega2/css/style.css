@@ -196,18 +196,7 @@ img.card-tag-fav-icono {
   height: 25px;
 }
 
-header {
-  background: linear-gradient(
-    to right,
-    #1e2039,
-    #520060,
-    #dedede,
-    #520060,
-    #1e2039
-  );
-  height: 90px;
-  padding: 0px;
-}
+
 
 .contenedorFormulario {
   position: absolute;
@@ -487,12 +476,12 @@ ul img {
 .conteiner-izquierda {
   display: flex;
   align-items: center;
-  padding-right: 0px;
+  
 }
 
 .conteiner-derecha {
   display: flex;
-  
+  padding: 0px;
 }
 
 .conteiner-derecha .logoUsuario {
@@ -535,7 +524,6 @@ ul img {
   .conteiner-izquierda {
     display: flex;
     align-items: center;
-    padding-right: 250px;
   }
 
   .conteiner-izquierda .logoMenu {
