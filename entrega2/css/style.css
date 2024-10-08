@@ -73,7 +73,7 @@ p {
 
 .tituloMenu {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 15px;
+    font-size: 15;
     font-weight: bold;
 }
 
@@ -98,8 +98,8 @@ p {
 
 .card-imagen {
     border-radius: 18px;
-    width: 300px;
-    height: 200px;
+    width: 25em;
+    height: 16.6em;
     object-fit: cover;
     object-position: center;
 }
