@@ -8,6 +8,7 @@ body {
 main {
   padding: 0px 50px;
 }
+
 body {
   background-color: #04031d;
   font-family: "Inter", sans-serif;
@@ -92,7 +93,10 @@ p {
 
 .carrousel {
   display: flex;
+  overflow: hidden;
+  padding: 1rem 0px;
 }
+
 .card {
   width: fit-content;
   height: fit-content;
@@ -101,44 +105,54 @@ p {
 }
 
 .card-imagen {
-    border-radius: 18px;
-    width: 18.75em;
-    height: 12.5em;
-    object-fit: cover;
-    object-position: center;
+  border-radius: 18px;
+  width: 18.75em;
+  height: 12.5em;
+  object-fit: cover;
+  object-position: center;
 }
 
 .card-tag-fav {
-    width: 2.875em;
-    height: 2.875em;
-    position: absolute;
-    top:-0.3125em;
-    left:14.375em;
+  width: 2.875em;
+  height: 2.875em;
+  position: absolute;
+  top: -0.3125em;
+  left: 14.375em;
 }
 
 .card-tag-disp {
-    width: 6.875em;
-    height: 2.875em;
-    position: absolute;
-    top:0.625em;
-    left:-0.875em;
+  width: 6.875em;
+  height: 2.875em;
+  position: absolute;
+  top: 0.625em;
+  left: -0.875em;
 }
-.card-tag-disp img,
+
+.card-tag-disp .card-tag-disp-fondo,
 .card-tag-fav img {
   width: 100%;
   height: auto;
 }
-.cardTagDispText{
-    position: absolute;
-    top: 0.4375em;
+
+.cardTagDispText {
+  position: absolute;
+  top: 0.4375em;
 }
-img.card-tag-fav-icono{
-    width: 1.25em;    
-    height: 1.1875em;
-    position:absolute;
-    top:0.84375em;
-    left:0.84375em;
+
+img.card-tag-fav-icono {
+  width: 1.25em;
+  height: 1.1875em;
 }
+
+img.card-tag-fav-icono {
+  width: 1.25em;
+  height: 1.1875em;
+  position: absolute;
+  top: 0.84375em;
+  left: 0.84375em;
+}
+
+
 .card-top {
   display: flex;
   justify-content: space-between;
@@ -147,11 +161,10 @@ img.card-tag-fav-icono{
   width: 300px;
   position: absolute;
 
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.35),
-    rgba(0, 0, 0, 0)
-  ); /* Gradiente de negro a transparente */
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0));
+  /* Gradiente de negro a transparente */
 }
 
 .card-bottom {
@@ -164,16 +177,17 @@ img.card-tag-fav-icono{
   align-items: center;
 
   position: absolute;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.35),
-    rgba(0, 0, 0, 0)
-  ); /* Gradiente de negro a transparente */
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0));
+  /* Gradiente de negro a transparente */
   top: 140px;
 }
+
 .card-bottom * {
   margin: 0px 10px;
 }
+
 .card-bottom h3 {
   overflow: hidden;
   height: fit-content;
@@ -190,19 +204,30 @@ img.card-tag-fav-icono{
   justify-content: center;
 }
 
+.cardBotonPlay {
+  background-color: #800096;
+}
+
+.card-free .card-tag-disp .card-tag-disp-icono,
+.card-venta .card-tag-disp .card-tag-disp-icono,
+.card-owned .card-tag-disp p {
+  display: none;
+}
+
 .card-venta .cardBotonPlay {
   background-color: #000078;
 }
 
-.card-free .cardBotonPlay {
-  background-color: #800096;
-}
-
-.cardBotonPlay img {
+.cardBotonPlay img, .card-tag-disp-icono {
   width: 25px;
   height: 25px;
 }
 
+.card-tag-disp-icono {
+  position: absolute;
+  left: 40px;
+  top: 4px;
+}
 .contenedorFormulario {
   position: absolute;
   right: 10%;
@@ -388,7 +413,7 @@ footer {
   height: auto;
   padding: 0px;
 }
- 
+
 
 .logoFooter {
   width: 254px;
@@ -425,11 +450,11 @@ footer {
 }
 
 .contenedorRedSocial:hover {
-  background-color: #6f74a7; 
+  background-color: #6f74a7;
 }
 
 .contenedorRedSocial:active {
-  transform: scale(1.2); 
+  transform: scale(1.2);
   background-color: #363962;
 }
 
@@ -441,16 +466,14 @@ body {
 }
 
 nav {
-  background: linear-gradient(
-    90deg,
-    #1e2039 5%,
-    #520060 25%,
-    #af00cd 35%,
-    #ffffff 50%,
-    #af00cd 65%,
-    #520060 75%,
-    #1e2039 95%
-  );
+  background: linear-gradient(90deg,
+      #1e2039 5%,
+      #520060 25%,
+      #af00cd 35%,
+      #ffffff 50%,
+      #af00cd 65%,
+      #520060 75%,
+      #1e2039 95%);
   height: 45px;
 }
 
@@ -480,9 +503,7 @@ ul img {
   margin-left: 30px;
 }
 
-.conteiner-medio{
-
-}
+.conteiner-medio {}
 
 .conteiner-izquierda .logoMenu {
   padding-right: 10px;
@@ -492,7 +513,7 @@ ul img {
 .conteiner-izquierda {
   display: flex;
   align-items: center;
-  
+
 }
 
 .conteiner-derecha {
@@ -504,13 +525,14 @@ ul img {
   padding-left: 10px;
   padding-right: 10px;
 }
+
 .logoCarrito {
-  position:relative;
+  position: relative;
 
 }
 
 #carrito-text {
-  display:inline;
+  display: inline;
   position: absolute;
   left: 1.7rem;
   text-align: center;
@@ -520,8 +542,9 @@ ul img {
   border-radius: 100%;
   padding: 0.1rem;
   margin: 0px;
-  
+
 }
+
 .logoMenu svg {
   width: 32px;
   height: 32px;
@@ -637,7 +660,7 @@ ul img {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    
+
   }
 
   .conteiner-jugando-centro h1 {
@@ -645,7 +668,7 @@ ul img {
     margin: 0px;
     color: #dedede;
     text-decoration: underline;
-  
+
   }
 
   .img-jugando {
@@ -688,14 +711,14 @@ ul img {
     color: #dedede;
   }
 
-  .container-comentarios{
+  .container-comentarios {
     display: flex;
     flex-direction: column;
     padding-left: 20%;
     padding-right: 20%;
   }
 
-  .tituloComentarios{
+  .tituloComentarios {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -706,25 +729,25 @@ ul img {
     border-radius: 18px;
   }
 
-  .casillaComentar{
+  .casillaComentar {
     background-color: #520060;
     border-radius: 18px;
     border: 1px solid #892b9c;
     margin-bottom: 20px;
     margin-top: 20px;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.123); 
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.123);
   }
 
-  .casillaComentario{
+  .casillaComentario {
     background-color: #1e2039;
     border-radius: 18px;
     border: 1px solid #383b66;
     margin-bottom: 20px;
     height: 138px;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.123); 
-}
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.123);
+  }
 
-  .seccionIzquierdaComentario{
+  .seccionIzquierdaComentario {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -733,7 +756,7 @@ ul img {
     padding-left: 40px;
   }
 
-  .seccionDerechaComentario{
+  .seccionDerechaComentario {
     display: flex;
     width: 50%;
     flex-direction: row;
@@ -742,7 +765,7 @@ ul img {
     padding-left: 25%;
   }
 
-  .valoracionComentario{
+  .valoracionComentario {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -756,67 +779,67 @@ ul img {
     transition: transform 0.2s ease, background-color 0.2s ease;
   }
 
- .valoracionComentario:hover {
-    background-color: rgb(105, 112, 179); 
- }
- 
- .valoracionComentario:active {
-    transform: scale(1.2); 
+  .valoracionComentario:hover {
+    background-color: rgb(105, 112, 179);
+  }
+
+  .valoracionComentario:active {
+    transform: scale(1.2);
     background-color: #1e2039;
- }
- 
-  .numeroLikes{
+  }
+
+  .numeroLikes {
     margin: 0px;
     padding-left: 5px;
   }
 
-  .textoComentario{
+  .textoComentario {
     font-size: 15px;
     margin-top: 2px;
   }
 
-  .fechaComentario{
+  .fechaComentario {
     font-size: 13px;
     font-style: italic;
     margin-bottom: 2px;
   }
 
-  .iconoLikes{
+  .iconoLikes {
     width: 20px;
     height: 20px;
   }
 
-  .iconoComentario{
+  .iconoComentario {
     width: 32px;
     height: 32px;
     padding-right: 10px;
   }
 
-  .casillaTop{
+  .casillaTop {
     display: flex;
     height: 50%;
     flex-direction: row;
     border-bottom: 1px solid #892b9c;
   }
 
-  .casillaBottom{
+  .casillaBottom {
     height: 50%;
     width: 80%;
   }
 
-  .casillaTopComentario{
+  .casillaTopComentario {
     display: flex;
     height: 50%;
     flex-direction: row;
     border-bottom: 1px solid #383b66;
   }
 
-  .casillaBottomComentario{
+  .casillaBottomComentario {
     height: 50%;
     width: 100%;
   }
 
-  .botonComentario{
+  .botonComentario {
     height: 30px;
     background-color: #912eb8;
     color: rgb(248, 248, 248);
@@ -827,32 +850,32 @@ ul img {
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
   }
-  
+
   .botonComentario:hover {
     background-color: #a559b3;
     transform: scale(1.1);
     color: #ffffff;
   }
-  
+
   .botonComentario:active {
     transform: scale(1.05);
   }
 
-  .comentar{
+  .comentar {
     display: flex;
     width: 100%;
     height: 100%;
     align-items: center;
   }
 
-  .usuarioCasilla{
+  .usuarioCasilla {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-left: 30px;
   }
 
-  .inputComentario{
+  .inputComentario {
     width: 100%;
     height: 30px;
     margin: 20px;
@@ -861,13 +884,14 @@ ul img {
     border: 0px;
   }
 
-  .casillaComentarTopDerecha{
+  .casillaComentarTopDerecha {
     display: flex;
     align-items: center;
     padding-left: 55%;
   }
 
 }
+
 @media (max-width: 600px) {
   footer {
     display: flex;
