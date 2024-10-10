@@ -34,15 +34,15 @@
                     </div>
                     <div class="conteiner-medio">
                         <li class="logoHeader">
-                            <a href="index.html"><img src="../entrega2/images/logo-header.png" alt="logoPixelGames"></li>
+                            <a href="index.html">
+                                <img src="../entrega2/images/logo-header.png" alt="logoPixelGames">
+                            </a>
+                        </li>
                     </div>
                     <div class="conteiner-derecha">
                         <li class="logoCarrito">
-                            <svg viewBox="0 0 46 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M0 1.53571C0 1.12842 0.161549 0.737803 0.449107 0.449801C0.736666 0.161798 1.12668 0 1.53335 0H6.13339C6.47542 9.46352e-05 6.8076 0.11472 7.07711 0.325647C7.34661 0.536575 7.53796 0.831693 7.62074 1.16407L8.86275 6.14286H44.4671C44.7 6.14292 44.9298 6.19613 45.1391 6.29843C45.3485 6.40074 45.5318 6.54946 45.6751 6.73331C45.8185 6.91715 45.9181 7.13129 45.9665 7.35947C46.0149 7.58765 46.0108 7.82388 45.9544 8.05021L41.3544 26.4788C41.2716 26.8112 41.0803 27.1063 40.8108 27.3172C40.5412 27.5281 40.2091 27.6428 39.867 27.6429H12.2668C11.9247 27.6428 11.5926 27.5281 11.3231 27.3172C11.0536 27.1063 10.8622 26.8112 10.7794 26.4788L4.93738 3.07143H1.53335C1.12668 3.07143 0.736666 2.90963 0.449107 2.62163C0.161549 2.33363 0 1.94301 0 1.53571ZM9.62942 9.21429L13.4628 24.5714H38.671L42.5044 9.21429H9.62942ZM15.3335 33.7857C14.5201 33.7857 13.7401 34.1093 13.165 34.6853C12.5899 35.2613 12.2668 36.0425 12.2668 36.8571C12.2668 37.6717 12.5899 38.453 13.165 39.029C13.7401 39.605 14.5201 39.9286 15.3335 39.9286C16.1468 39.9286 16.9268 39.605 17.502 39.029C18.0771 38.453 18.4002 37.6717 18.4002 36.8571C18.4002 36.0425 18.0771 35.2613 17.502 34.6853C16.9268 34.1093 16.1468 33.7857 15.3335 33.7857ZM9.20008 36.8571C9.20008 35.228 9.84628 33.6655 10.9965 32.5135C12.1467 31.3615 13.7068 30.7143 15.3335 30.7143C16.9602 30.7143 18.5202 31.3615 19.6704 32.5135C20.8207 33.6655 21.4669 35.228 21.4669 36.8571C21.4669 38.4863 20.8207 40.0488 19.6704 41.2008C18.5202 42.3528 16.9602 43 15.3335 43C13.7068 43 12.1467 42.3528 10.9965 41.2008C9.84628 40.0488 9.20008 38.4863 9.20008 36.8571ZM36.8003 33.7857C35.987 33.7857 35.207 34.1093 34.6319 34.6853C34.0567 35.2613 33.7336 36.0425 33.7336 36.8571C33.7336 37.6717 34.0567 38.453 34.6319 39.029C35.207 39.605 35.987 39.9286 36.8003 39.9286C37.6137 39.9286 38.3937 39.605 38.9688 39.029C39.5439 38.453 39.867 37.6717 39.867 36.8571C39.867 36.0425 39.5439 35.2613 38.9688 34.6853C38.3937 34.1093 37.6137 33.7857 36.8003 33.7857ZM30.667 36.8571C30.667 35.228 31.3131 33.6655 32.4634 32.5135C33.6136 31.3615 35.1737 30.7143 36.8003 30.7143C38.427 30.7143 39.9871 31.3615 41.1373 32.5135C42.2875 33.6655 42.9337 35.228 42.9337 36.8571C42.9337 38.4863 42.2875 40.0488 41.1373 41.2008C39.9871 42.3528 38.427 43 36.8003 43C35.1737 43 33.6136 42.3528 32.4634 41.2008C31.3131 40.0488 30.667 38.4863 30.667 36.8571Z"
-                                    fill="#DEDEDE" />
-                            </svg>
+                            <img id="imgCarrito" src="./images/iconos/carritoVacio.png" alt="">
+                            <p id="carrito-text"></p>
                         </li>
                         <li class="logoUsuario">
                             <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,7 @@
                 </h2>
                 <div class="carrousel">
 
-                    <div class="card">
+                    <div class="card card-venta" >
                         <div class="card-top">
                             <div class="card-tag-disp">
                                 <img src="./images/tags/tag-disponible.png" alt="precio">
@@ -103,7 +103,72 @@
                         <div class="card-bottom">
 
                             <h3 class="card-titulo">Titulo del juego largo a proposito</h3>
-                            <div class="cardBotonPlay" >
+                            <div class="cardBotonPlay" id="gamecard-1" >
+
+                                <img src="./images/iconos/carritoCard.png" alt="" >
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="card card-free">
+                        <div class="card-top">
+                            <div class="card-tag-disp">
+                                <img src="./images/tags/tag-disponible.png" alt="precio">
+                                <p class="textoLabel cardTagDispText">
+                                    Free
+                                </p>
+
+                            </div>
+
+                            <div class="card-tag-fav">
+
+                                <img src="./images/tags/tag-fav-gris.png" alt="favorito">
+                                <img class="card-tag-fav-icono" src="./images/iconos/favorito.png" alt="">
+                            </div>
+
+                        </div>
+
+                        <img class="card-imagen" src="./images/4lineas.jpeg" alt="imagen del juego">
+
+                        <div class="card-bottom">
+
+                            <h3 class="card-titulo">Titulo del juego largo a proposito</h3>
+                            <div class="cardBotonPlay">
+
+                                <img src="./images/iconos/playIcon.png" alt="">
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="card card-owned">
+                        <div class="card-top">
+                            <div class="card-tag-disp">
+                                <img src="./images/tags/tag-disponible.png" alt="precio">
+                                <p class="textoLabel cardTagDispText">
+                                    3 USD
+                                </p>
+
+                            </div>
+
+                            <div class="card-tag-fav">
+
+                                <img src="./images/tags/tag-fav-gris.png" alt="favorito">
+                                <img class="card-tag-fav-icono" src="./images/iconos/favorito.png" alt="">
+                            </div>
+
+                        </div>
+
+                        <img class="card-imagen" src="./images/4lineas.jpeg" alt="imagen del juego">
+
+                        <div class="card-bottom">
+
+                            <h3 class="card-titulo">Titulo del juego largo a proposito</h3>
+                            <div class="cardBotonPlay">
 
                                 <img src="./images/iconos/carritoCard.png" alt="">
                             </div>
@@ -112,8 +177,7 @@
 
 
                     </div>
-
-                    <div class="card">
+                    <div class="card card-venta">
                         <div class="card-top">
                             <div class="card-tag-disp">
                                 <img src="./images/tags/tag-disponible.png" alt="precio">
@@ -136,71 +200,7 @@
                         <div class="card-bottom">
 
                             <h3 class="card-titulo">Titulo del juego largo a proposito</h3>
-                            <div class="cardBotonPlay" >
-
-                                <img src="./images/iconos/carritoCard.png" alt="">
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="card">
-                        <div class="card-top">
-                            <div class="card-tag-disp">
-                                <img src="./images/tags/tag-disponible.png" alt="precio">
-                                <p class="textoLabel cardTagDispText">
-                                    3 USD
-                                </p>
-
-                            </div>
-
-                            <div class="card-tag-fav">
-
-                                <img src="./images/tags/tag-fav-gris.png" alt="favorito">
-                                <img class="card-tag-fav-icono" src="./images/iconos/favorito.png" alt="">
-                            </div>
-
-                        </div>
-
-                        <img class="card-imagen" src="./images/4lineas.jpeg" alt="imagen del juego">
-
-                        <div class="card-bottom">
-
-                            <h3 class="card-titulo">Titulo del juego largo a proposito</h3>
-                            <div class="cardBotonPlay" >
-
-                                <img src="./images/iconos/carritoCard.png" alt="">
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="card">
-                        <div class="card-top">
-                            <div class="card-tag-disp">
-                                <img src="./images/tags/tag-disponible.png" alt="precio">
-                                <p class="textoLabel cardTagDispText">
-                                    3 USD
-                                </p>
-
-                            </div>
-
-                            <div class="card-tag-fav">
-
-                                <img src="./images/tags/tag-fav-gris.png" alt="favorito">
-                                <img class="card-tag-fav-icono" src="./images/iconos/favorito.png" alt="">
-                            </div>
-
-                        </div>
-
-                        <img class="card-imagen" src="./images/4lineas.jpeg" alt="imagen del juego">
-
-                        <div class="card-bottom">
-
-                            <h3 class="card-titulo">Titulo del juego largo a proposito</h3>
-                            <div class="cardBotonPlay" >
+                            <div class="cardBotonPlay">
 
                                 <img src="./images/iconos/carritoCard.png" alt="">
                             </div>
@@ -308,10 +308,12 @@
             </div>
             <div class="textoFooter" id="textoFooterHidden">
                 <h2>Juega en Línea los Juegos del Momento</h2>
-                <p>¿Estás listo para sumergirte en la acción? Conéctate y disfruta de los <a href=""
-                        class="link2">juegos más populares del momento</a>, desde emocionantes batallas multijugador
+                <p>¿Estás listo para sumergirte en la acción? Conéctate y disfruta de los
+                    <a href="" class="link2">juegos más populares del momento </a>, desde emocionantes batallas
+                    multijugador
                     hasta aventuras épicas que te mantendrán al borde del asiento. Nuestro catálogo está repleto de
-                    títulos que dominan las listas de tendencias, ¡y todos están a solo un clic de distancia!</p>
+                    títulos que dominan las listas de tendencias, ¡y todos están a solo un clic de distancia!
+                </p>
             </div>
             <div class="textoFooter" id="textoFooterHidden">
                 <h2>Ofertas y Descuentos Exclusivos</h2>
@@ -346,6 +348,7 @@
         </div>
     </footer>
 
+    <script src="./js/main.js"></script>
 </body>
 
 </html>

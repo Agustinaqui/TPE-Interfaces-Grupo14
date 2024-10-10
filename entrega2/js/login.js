@@ -26,4 +26,3 @@ recaptchas.forEach((recaptcha) => {
     });
 });
 
-
