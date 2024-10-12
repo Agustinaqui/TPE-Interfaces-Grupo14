@@ -250,20 +250,20 @@ img.card-tag-fav-icono{
 .card-categoria-bottom {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Empuja el contenido hacia abajo inicialmente */
+  justify-content: flex-end;
   align-items: center;
   border-radius: 18px;
   width: 100%;
   position: absolute;
   bottom: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.877), rgba(0, 0, 0, 0));
-  padding: 20px 0; /* Agrega espacio interno */
+  padding: 20px 0;
   transition: all 0.3s ease;
   z-index: 2;
 }
 
 .card-categoria:hover .card-categoria-bottom {
-  justify-content: center; /* Centra el contenido verticalmente al hacer hover */
+  justify-content: center; 
 }
 
 .card-categoria-titulo {
@@ -274,7 +274,7 @@ img.card-tag-fav-icono{
 
 .card-categoria:hover .card-categoria-titulo {
   font-size: 1.8rem;
-  transform: translateY(0); /* Centra el título */
+  transform: translateY(0); 
 }
 
 .cantidad-juegos {
@@ -1051,4 +1051,85 @@ ul img {
     padding-top: 5px;
     padding-bottom: 0px;
   }
+
+  /*GALERIA CATEGORIAS*/
+.card-categoria {
+  display: flex;
+  width: 300px;
+  height: 166px;
+  flex-direction: row;
+  overflow: hidden;
+  position: relative;
+  border-radius: 18px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.card-categoria:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.img-categoria-izquierda,
+.img-categoria-medio,
+.img-categoria-derecha {
+  display: flex;
+  width: 33.3%;
+  height: 100%;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.img-categoria-izquierda img,
+.img-categoria-medio img,
+.img-categoria-derecha img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.card-categoria:hover .img-categoria-izquierda img,
+.card-categoria:hover .img-categoria-medio img,
+.card-categoria:hover .img-categoria-derecha img {
+  transform: scale(1.05);
+}
+
+.card-categoria-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Empuja el contenido hacia abajo inicialmente */
+  align-items: center;
+  border-radius: 18px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.877), rgba(0, 0, 0, 0));
+  padding: 20px 0; /* Agrega espacio interno */
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.card-categoria:hover .card-categoria-bottom {
+  justify-content: center; /* Centra el contenido verticalmente al hacer hover */
+}
+
+.card-categoria-titulo {
+  color: white;
+  font-size: 1.5rem;
+  transition: font-size 0.3s ease, transform 0.3s ease;
+}
+
+.card-categoria:hover .card-categoria-titulo {
+  font-size: 1.8rem;
+  transform: translateY(0); /* Centra el título */
+}
+
+.fila-categorias{
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+}
 }
