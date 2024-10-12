@@ -91,14 +91,63 @@ p {
   font-size: 15px;
 }
 
+.carrousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  user-select: none;
+}
+
 .carrousel {
   display: flex;
-  overflow: hidden;
   padding: 1rem 0px;
+  overflow-x: auto;
+  /* Ocultar barra de scroll */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE y Edge */
+}
+
+/* Para Chrome, Safari y Opera */
+.carrousel::-webkit-scrollbar {
+  display: none;
+  /* Oculta la barra de scroll */
+}
+
+
+.carousel img {
+  -webkit-user-drag: none;
+}
+
+.flecha-l,
+.flecha-r {
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0));
+
+  position: absolute;
+  top: 2.2rem;
+  z-index: 1;
+  width: 4.5rem;
+  height: 13.75rem;
+}
+
+.flecha-r {
+  left: 94.8%;
+  background: linear-gradient(to left,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0));
 }
 
 .card {
   width: fit-content;
+  pointer-events: none;
   height: fit-content;
   position: relative;
   margin: 0px 10px;
@@ -201,6 +250,7 @@ img.card-tag-fav-icono {
   border-radius: 25px;
   display: flex;
   align-items: center;
+  pointer-events: all;
   justify-content: center;
 }
 
@@ -218,7 +268,8 @@ img.card-tag-fav-icono {
   background-color: #000078;
 }
 
-.cardBotonPlay img, .card-tag-disp-icono {
+.cardBotonPlay img,
+.card-tag-disp-icono {
   width: 25px;
   height: 25px;
 }
@@ -228,6 +279,7 @@ img.card-tag-fav-icono {
   left: 40px;
   top: 4px;
 }
+
 /*GALERIA CATEGORIAS*/
 .card-categoria {
   display: flex;
@@ -275,20 +327,23 @@ img.card-tag-fav-icono {
 .card-categoria-bottom {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Empuja el contenido hacia abajo inicialmente */
+  justify-content: flex-end;
+  /* Empuja el contenido hacia abajo inicialmente */
   align-items: center;
   border-radius: 18px;
   width: 100%;
   position: absolute;
   bottom: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.877), rgba(0, 0, 0, 0));
-  padding: 20px 0; /* Agrega espacio interno */
+  padding: 20px 0;
+  /* Agrega espacio interno */
   transition: all 0.3s ease;
   z-index: 2;
 }
 
 .card-categoria:hover .card-categoria-bottom {
-  justify-content: center; /* Centra el contenido verticalmente al hacer hover */
+  justify-content: center;
+  /* Centra el contenido verticalmente al hacer hover */
 }
 
 .card-categoria-titulo {
@@ -299,7 +354,8 @@ img.card-tag-fav-icono {
 
 .card-categoria:hover .card-categoria-titulo {
   font-size: 1.8rem;
-  transform: translateY(0); /* Centra el título */
+  transform: translateY(0);
+  /* Centra el título */
 }
 
 .cantidad-juegos {
@@ -312,12 +368,13 @@ img.card-tag-fav-icono {
 
 .card-categoria:hover .cantidad-juegos {
   opacity: 1;
-  transform: translateY(0); /* Centra el párrafo */
+  transform: translateY(0);
+  /* Centra el párrafo */
 }
 
 
 
-.fila-categorias{
+.fila-categorias {
   display: flex;
   flex-direction: row;
   width: 100%;
