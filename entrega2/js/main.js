@@ -117,7 +117,8 @@ async function inicializarCarrouseles() {
 
     let currentIndex = [0, 0, 0]
 
-    const cardWidth = 214.4;
+    const cardWidth = 240;
+    
     const moveBy = 3; // Avanzar o retroceder 3 cards
 
     let startX = [0, 0, 0];
