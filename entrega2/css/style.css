@@ -196,8 +196,6 @@ img.card-tag-fav-icono {
   height: 25px;
 }
 
-
-
 .contenedorFormulario {
   position: absolute;
   right: 10%;
@@ -413,11 +411,11 @@ footer {
 }
 
 .contenedorRedSocial:hover {
-  background-color: #6f74a7; 
+  background-color: #6f74a7;
 }
 
 .contenedorRedSocial:active {
-  transform: scale(1.2); 
+  transform: scale(1.2);
   background-color: #363962;
 }
 
@@ -467,8 +465,7 @@ ul img {
   margin-left: 30px;
 }
 
-.conteiner-medio{
-
+.conteiner-medio {
 }
 
 .conteiner-izquierda .logoMenu {
@@ -479,7 +476,6 @@ ul img {
 .conteiner-izquierda {
   display: flex;
   align-items: center;
-  
 }
 
 .conteiner-derecha {
@@ -533,15 +529,89 @@ ul img {
     padding-right: 10px;
   }
 
+  button {
+    background-color: transparent; /* Sin fondo */
+    border: none;
+    margin: 0px 10px;
+    margin-top: 2px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil al pasar el cursor */
+    border-radius: 10px;
+}
   .logoMenu svg {
     width: 50px;
     height: 50px;
   }
 
+  .menu {
+    /*display: none;*/
+    position: absolute;  
+    width: 275px;
+    top:90px;            
+    left: 0;     
+    background-color: #04031d;
+    border-right: 1px solid #343434;
+    z-index: 1;     
+    height: 100%;
+  }
+
+.menu svg{
+  width: 25px;
+  height: 25px;
+}
+.menu-list{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  border-bottom: 1px solid #343434;
+}
+
+.category-list{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+.menu-list li, .category-list li{
+  list-style-type: none;
+  font-size: 15px;
+  font-family:monospace;
+  padding: 5px;
+
+}
+.menu-list li a, .category-list li a{
+  text-decoration: none;
+  color: #DEDEDE;
+  padding-left: 10px;
+}
+.menu-list li a span, .category-list li a span, .ver-categorias{
+  text-decoration: underline;
+  color: #DEDEDE;
+}
+}
+.ver-categorias{
+  font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
   .conteiner-derecha {
     display: flex;
     align-items: center;
-    padding-left: 180px;
+    margin-left: 180px;
   }
 
   .conteiner-derecha .logoUsuario {
@@ -585,21 +655,19 @@ ul img {
   .bredcrumbs a {
     color: #dedede;
     padding-right: 5px;
+    font-size: 12px;
   }
 
   .bredcrumbs a {
     text-decoration: underline;
   }
 
-  .bredcrumbs .cuatroLinea {
-    color: #3a3b4d;
-  }
-
   .bredcrumbs {
     display: flex;
     align-items: center;
-    margin-left: 222px;
     margin-top: 30px;
+    width: 100%;
+    justify-content: left;
   }
 
   .conteiner-jugando-centro {
@@ -609,10 +677,19 @@ ul img {
     align-items: center;
   }
 
+  .titulo-juego {
+    margin-top: 20px;
+    border-radius: 18px;
+    border: 1px solid #383b66;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.123);
+    margin-bottom: 10px;
+    width: fit-content;
+    padding: 0px 10px;
+  }
+
   .conteiner-jugando-centro h1 {
     margin: 10px 0px;
     color: #dedede;
-    text-decoration: underline;
   }
 
   .img-jugando {
@@ -622,15 +699,18 @@ ul img {
 
   .conteiner-jugando-izquierda,
   .conteiner-jugando-derecha {
-    margin-top: 150px;
-    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 160px;
     margin-right: 20px;
-    padding: 0px 20px;
-    padding-bottom: 10px;
-    color: #dedede;
-    background-color: #1e2039;
-    border-radius: 20px;
+    margin-left: 20px;
+    padding: 10px 20px;
     height: fit-content;
+    width: 170px;
+    border-radius: 18px;
+    border: 1px solid #383b66;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.123);
   }
 
   .conteiner-jugando-izquierda h3,
@@ -642,27 +722,161 @@ ul img {
   .conteiner-jugando-izquierda p,
   .conteiner-jugando-derecha p {
     margin-bottom: 5px;
+    text-align: left;
   }
 
   .linea-horizontal hr {
-    margin-top: 50px;
-    text-align: center;
-    color: #ffffff;
-    width: 759px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-color: #ffffff73;
+    width: 60%;
   }
 
   .descripcion h2 {
     color: #dedede;
   }
 
-  .container-comentarios{
+  .container-gral {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .container-gral a {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .conteiner-izq-carrousel,
+  .conteiner-der-descripcion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px;
+  }
+
+
+
+  .conteiner-der-descripcion {
+    margin-right: 0px;
+    margin-left: 20px;
+  }
+  .img-carrousel-jugando img{
+    opacity: 0.8;
+  }
+  .img-carrousel-jugando{
+  position: relative;
+  }
+  .icono-play{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+    transition:transform 0.2s ease-in-out;
+  }
+
+  .icono-play:hover{
+    transform: translate(-50%,-50%) scale(1.3);
+  }
+  
+  .carousel {
+    position: relative;
+    margin: 20px auto;
+  }
+
+  .flecha-left, .flecha-right{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 1;
+    
+  }
+
+  .flecha-left{
+    left: 0;
+  }
+  .flecha-right{
+    right: 0;
+  }
+  .slides {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 420px;
+ 
+  }
+
+  .slides::-webkit-scrollbar{
+    display: none;
+  }
+
+  .slide {
+    flex: 0 0 30%;
+  }
+
+  .slide img {
+    width: 108.15px;
+    height: 72.1px;
+    display: block;
+  }
+
+  .game-description {
+    display: grid;
+    place-items: center;
+  }
+
+  .game-description h2 {
+    margin-bottom: 10px;
+  }
+
+  .game-description p {
+    text-align: center;
+    max-width: 232px;
+  }
+
+  .social-media {
+    text-align: center;
+  }
+
+  .social-media h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .social-icon img,
+  .social-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .social-icon:hover {
+    transform: scale(1.3);
+  }
+
+  .img-carrousel-jugando img {
+    width: 420px;
+    height: 272px;
+  }
+
+  .container-comentarios {
     display: flex;
     flex-direction: column;
     padding-left: 20%;
     padding-right: 20%;
+    margin-bottom: 50px;
   }
 
-  .tituloComentarios{
+  .tituloComentarios {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -673,25 +887,25 @@ ul img {
     border-radius: 18px;
   }
 
-  .casillaComentar{
+  .casillaComentar {
     background-color: #520060;
     border-radius: 18px;
     border: 1px solid #892b9c;
     margin-bottom: 20px;
     margin-top: 20px;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.123); 
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.123);
   }
 
-  .casillaComentario{
+  .casillaComentario {
     background-color: #1e2039;
     border-radius: 18px;
     border: 1px solid #383b66;
     margin-bottom: 20px;
     height: 138px;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.123); 
-}
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.123);
+  }
 
-  .seccionIzquierdaComentario{
+  .seccionIzquierdaComentario {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -700,7 +914,7 @@ ul img {
     padding-left: 40px;
   }
 
-  .seccionDerechaComentario{
+  .seccionDerechaComentario {
     display: flex;
     width: 50%;
     flex-direction: row;
@@ -709,7 +923,7 @@ ul img {
     padding-left: 25%;
   }
 
-  .valoracionComentario{
+  .valoracionComentario {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -723,67 +937,67 @@ ul img {
     transition: transform 0.2s ease, background-color 0.2s ease;
   }
 
- .valoracionComentario:hover {
-    background-color: rgb(105, 112, 179); 
- }
- 
- .valoracionComentario:active {
-    transform: scale(1.2); 
+  .valoracionComentario:hover {
+    background-color: rgb(105, 112, 179);
+  }
+
+  .valoracionComentario:active {
+    transform: scale(1.2);
     background-color: #1e2039;
- }
- 
-  .numeroLikes{
+  }
+
+  .numeroLikes {
     margin: 0px;
     padding-left: 5px;
   }
 
-  .textoComentario{
+  .textoComentario {
     font-size: 15px;
     margin-top: 2px;
   }
 
-  .fechaComentario{
+  .fechaComentario {
     font-size: 13px;
     font-style: italic;
     margin-bottom: 2px;
   }
 
-  .iconoLikes{
+  .iconoLikes {
     width: 20px;
     height: 20px;
   }
 
-  .iconoComentario{
+  .iconoComentario {
     width: 32px;
     height: 32px;
     padding-right: 10px;
   }
 
-  .casillaTop{
+  .casillaTop {
     display: flex;
     height: 50%;
     flex-direction: row;
     border-bottom: 1px solid #892b9c;
   }
 
-  .casillaBottom{
+  .casillaBottom {
     height: 50%;
     width: 80%;
   }
 
-  .casillaTopComentario{
+  .casillaTopComentario {
     display: flex;
     height: 50%;
     flex-direction: row;
     border-bottom: 1px solid #383b66;
   }
 
-  .casillaBottomComentario{
+  .casillaBottomComentario {
     height: 50%;
     width: 100%;
   }
 
-  .botonComentario{
+  .botonComentario {
     height: 30px;
     background-color: #912eb8;
     color: rgb(248, 248, 248);
@@ -794,32 +1008,32 @@ ul img {
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
   }
-  
+
   .botonComentario:hover {
     background-color: #a559b3;
     transform: scale(1.1);
     color: #ffffff;
   }
-  
+
   .botonComentario:active {
     transform: scale(1.05);
   }
 
-  .comentar{
+  .comentar {
     display: flex;
     width: 100%;
     height: 100%;
     align-items: center;
   }
 
-  .usuarioCasilla{
+  .usuarioCasilla {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-left: 30px;
   }
 
-  .inputComentario{
+  .inputComentario {
     width: 100%;
     height: 30px;
     margin: 20px;
@@ -828,12 +1042,11 @@ ul img {
     border: 0px;
   }
 
-  .casillaComentarTopDerecha{
+  .casillaComentarTopDerecha {
     display: flex;
     align-items: center;
     padding-left: 55%;
   }
-
 }
 @media (max-width: 600px) {
   footer {
