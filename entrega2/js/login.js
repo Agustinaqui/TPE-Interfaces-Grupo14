@@ -3,11 +3,15 @@ const formularioRegistro = document.getElementById('contenedorFormularioRegistro
 const formularioLogin = document.getElementById('contenedorFormularioLogin');
 const switchToLogin = document.getElementById('switchToLogin');
 const switchToRegister = document.getElementById('switchToRegister');
+const flechaLeft = document.querySelector('.flecha-left');
+const flechaRight = document.querySelector('.flecha-right');
+const slideS = document.querySelector('.slides');
+const menuButton = document.getElementById('menu-button');
+const menu = document.getElementById('menu');
 
-switchToLogin.addEventListener("click" , () => {
-    formularioLogin.classList.remove("hidden")
-    formularioRegistro.classList.add("hidden")
-})
+menuButton.addEventListener('click', () => {
+    menu.classList.toggle('show-menu'); 
+});
 
 switchToRegister.addEventListener("click" , () => {
     formularioRegistro.classList.remove("hidden")
