@@ -30,20 +30,3 @@ recaptchas.forEach((recaptcha) => {
     });
 });
 
-slideS.addEventListener("wheel", (e) => {
-    slideS.scrollLeft += e.deltaY;
-});
-
-flechaLeft.addEventListener("click", () => {
-    console.log('click');
-    slideS.scrollLeft -= 100;
-});
-
-flechaRight.addEventListener("click", () => {
-    slideS.scrollLeft += 100;
-});
-
-
-
-
-
