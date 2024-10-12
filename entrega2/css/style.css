@@ -243,6 +243,7 @@ img.card-tag-fav-icono {
 .card-categoria:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 25px rgba(88, 88, 172, 0.418); 
 }
 
 .img-categoria-izquierda,
@@ -312,7 +313,7 @@ img.card-tag-fav-icono {
 
 .card-categoria:hover .cantidad-juegos {
   opacity: 1;
-  transform: translateY(0); /* Centra el párrafo */
+  transform: translateY(0); 
 }
 
 
@@ -1092,6 +1093,7 @@ ul img {
 .card-categoria:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 25px rgba(88, 88, 172, 0.418); 
 }
 
 .img-categoria-izquierda,
@@ -1124,20 +1126,20 @@ ul img {
 .card-categoria-bottom {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Empuja el contenido hacia abajo inicialmente */
+  justify-content: flex-end; 
   align-items: center;
   border-radius: 18px;
   width: 100%;
   position: absolute;
   bottom: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.877), rgba(0, 0, 0, 0));
-  padding: 20px 0; /* Agrega espacio interno */
+  padding: 20px 0; 
   transition: all 0.3s ease;
   z-index: 2;
 }
 
 .card-categoria:hover .card-categoria-bottom {
-  justify-content: center; /* Centra el contenido verticalmente al hacer hover */
+  justify-content: center; 
 }
 
 .card-categoria-titulo {
@@ -1148,7 +1150,7 @@ ul img {
 
 .card-categoria:hover .card-categoria-titulo {
   font-size: 1.8rem;
-  transform: translateY(0); /* Centra el título */
+  transform: translateY(0);
 }
 
 .fila-categorias{
