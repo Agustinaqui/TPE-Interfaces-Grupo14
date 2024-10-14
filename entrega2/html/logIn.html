@@ -8,6 +8,12 @@
 <link rel="stylesheet" href="../css/style.css">
     </head>
 <body>
+
+    <div id="loader">
+        <div class="spinner"></div>
+        <div id="progress">0%</div>
+    </div>
+
     <header>
 
         <div>
@@ -68,8 +74,8 @@
 
     </header>
 
-
-    <div class="seccionLogIn">
+    
+    <div class="seccionLogIn"  >
         <div class="contenedorImgLogIn">
             <img src="../images/ImgLogIn.jpg" class="imgForm" alt="">
             <img src="../images/image.png" class="logoImgRegistro" alt="">
@@ -131,6 +137,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="mensajeExito hidden" id="mensajeExito">
+            <p>¡Registro exitoso!</p>
         </div>
 
     </div>

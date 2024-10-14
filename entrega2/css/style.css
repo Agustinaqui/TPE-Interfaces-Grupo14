@@ -374,6 +374,42 @@ img.card-tag-fav-icono {
   margin-bottom: 40px;
 }
 
+
+
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #04031d;
+  z-index: 1000; 
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #800096;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#progress {
+  font-size: 24px;
+}
+
 .contenedorFormulario {
   position: absolute;
   right: 10%;
@@ -501,6 +537,44 @@ form:not(.hidden) {
   visibility: visible;
   transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
+
+/* Estilo para el mensaje de éxito */
+.mensajeExito {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2ecc71;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+/* Mostrar el mensaje de éxito */
+.mensajeExito.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Animación del formulario al desaparecer */
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+/* Transición suave al mostrar el formulario */
+form:not(.hidden) {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
 
 .imgCard {
   border-top-left-radius: 18px;
