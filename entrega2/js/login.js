@@ -3,20 +3,16 @@ const formularioRegistro = document.getElementById('contenedorFormularioRegistro
 const formularioLogin = document.getElementById('contenedorFormularioLogin');
 const switchToLogin = document.getElementById('switchToLogin');
 const switchToRegister = document.getElementById('switchToRegister');
-const flechaLeft = document.querySelector('.flecha-left');
-const flechaRight = document.querySelector('.flecha-right');
-const slideS = document.querySelector('.slides');
-const menuButton = document.getElementById('menu-button');
-const menu = document.getElementById('menu');
-
-menuButton.addEventListener('click', () => {
-    menu.classList.toggle('show-menu'); 
-});
 
 switchToRegister.addEventListener("click" , () => {
     formularioRegistro.classList.remove("hidden")
     formularioLogin.classList.add("hidden")
 })
+
+switchToLogin.addEventListener("click", () => {
+    formularioRegistro.classList.add("hidden");
+    formularioLogin.classList.remove("hidden");
+});
 
 const recaptchas = document.querySelectorAll('.recaptcha');
 
@@ -27,6 +23,13 @@ recaptchas.forEach((recaptcha) => {
         } else {
             recaptcha.src = "../images/recaptcha.jpg"; 
         }
+    });
+});
+
+const botonesIngreso = document.querySelectorAll('.botonRegistrar');
+botonesIngreso.forEach((boton) => {
+    boton.addEventListener("click", () => {
+        window.location.href = "../index.html"; 
     });
 });
 
