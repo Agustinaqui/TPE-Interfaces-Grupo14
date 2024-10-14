@@ -1,22 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Loader: Simular progreso de carga
-    const loader = document.getElementById('loader');
-    const content = document.querySelector('.seccionLogIn');
-    const progressText = document.getElementById('progress');
-
-    let progress = 0;
-    const loadingInterval = setInterval(() => {
-        progress++;
-        progressText.textContent = `${progress}%`; // Actualiza el texto correctamente
-
-        if (progress >= 100) {
-            clearInterval(loadingInterval);
-            loader.style.display = 'none'; // Oculta el loader
-            content.style.display = 'block'; // Muestra el contenido
-        }
-    }, 50); // 50ms por incremento
-
-    // Obtener los elementos de los formularios y botones para cambiar de formulario
+// Obtener los elementos de los formularios y botones para cambiar de formulario
     const botonRegistrar = document.querySelector('.botonRegistrar');
     const formularioRegistro = document.getElementById('contenedorFormularioRegistro');
     const formularioLogin = document.getElementById('contenedorFormularioLogin');
@@ -63,7 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+const botonesIngreso = document.querySelectorAll('.botonRegistrar');
+botonesIngreso.forEach((boton) => {
+    boton.addEventListener("click", () => {
+        window.location.href = "../index.html"; 
+    });
 });
-
-
 
