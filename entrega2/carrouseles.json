@@ -49,22 +49,22 @@
                     "nombre": "Damas Deluxe",
                     "precio": 0,
                     "jugable": true,
-                    "img": "ajedrez.jpg",
-                    "fav": true
+                    "img": "damasdeluxe.jfif",
+                    "fav": false
                 },
                 {
                     "nombre": "Monster Inc Run",
                     "precio": 2,
                     "jugable": false,
-                    "img": "ajedrez.jpg",
+                    "img": "monsterinc.jpg",
                     "fav": true
                 },
                 {
                     "nombre": "Five Nights at Freddy's",
                     "precio": 0,
                     "jugable": true,
-                    "img": "ajedrez.jpg",
-                    "fav": true
+                    "img": "fivenigth.jpg",
+                    "fav": false
                 }
             ]
         },
@@ -72,67 +72,60 @@
             "titulo": "Recomendados para ti",
             "juegos": [
                 {
-                    "nombre": "4 en linea",
+                    "nombre": "Monkey Mart",
                     "precio": 0,
                     "jugable": true,
-                    "img": "4lineas.jpeg",
+                    "img": "monkeymart.jfif",
                     "fav": true
                 },
                 {
-                    "nombre": "Free Fire",
+                    "nombre": "Super Mario Bros",
                     "precio": 4,
                     "jugable": false,
-                    "img": "freefire.jpg",
+                    "img": "supermario.jfif",
                     "fav": false
                 },
                 {
-                    "nombre": "GTA San Andreas",
+                    "nombre": "Moto X3M",
                     "precio": 3,
                     "jugable": true,
-                    "img": "gta.jpg",
+                    "img": "motox3m.jpg",
                     "fav": false
                 },
                 {
-                    "nombre": "League of Legends",
+                    "nombre": "Epic Mickey",
                     "precio": 0,
                     "jugable": true,
-                    "img": "LOL.webp",
+                    "img": "epicmickey.jpg",
                     "fav": false
                 },
                 {
-                    "nombre": "UNO",
+                    "nombre": "Enredados - Mas problemas",
                     "precio": 0,
                     "jugable": true,
-                    "img": "uno.webp",
+                    "img": "enredados.jpg",
                     "fav": false
                 },
                 {
-                    "nombre": "Real Chess",
+                    "nombre": "Style Like Bratz",
                     "precio": 0,
                     "jugable": true,
-                    "img": "ajedrez.jpg",
+                    "img": "bratz.jfif",
+                    "fav": false
+                },
+                {
+                    "nombre": "Zombie Tsunami",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "zombietsunami.jpg",
                     "fav": true
                 },
                 {
-                    "nombre": "Damas Deluxe",
-                    "precio": 0,
-                    "jugable": true,
-                    "img": "ajedrez.jpg",
-                    "fav": true
-                },
-                {
-                    "nombre": "Monster Inc Run",
+                    "nombre": "Pacman Classic",
                     "precio": 2,
                     "jugable": false,
-                    "img": "ajedrez.jpg",
-                    "fav": true
-                },
-                {
-                    "nombre": "Five Nights at Freddy's",
-                    "precio": 0,
-                    "jugable": true,
-                    "img": "ajedrez.jpg",
-                    "fav": true
+                    "img": "pacman.jpg",
+                    "fav": false
                 }
             ]
         },
@@ -140,66 +133,66 @@
             "titulo": "Recientemente añadidos",
             "juegos": [
                 {
-                    "nombre": "4 en linea",
+                    "nombre": "Minecraft",
                     "precio": 0,
                     "jugable": true,
-                    "img": "4lineas.jpeg",
+                    "img": "minecraft.jfif",
                     "fav": true
                 },
                 {
-                    "nombre": "Free Fire",
+                    "nombre": "The Sims 4",
                     "precio": 4,
-                    "jugable": false,
-                    "img": "freefire.jpg",
-                    "fav": false
+                    "jugable": true,
+                    "img": "sims4.jpeg",
+                    "fav": true
                 },
                 {
-                    "nombre": "GTA San Andreas",
+                    "nombre": "Subway Surfers",
                     "precio": 3,
                     "jugable": true,
-                    "img": "gta.jpg",
+                    "img": "subwaysurfers.jpg",
                     "fav": false
                 },
                 {
-                    "nombre": "League of Legends",
+                    "nombre": "Fireboy & Watergirl",
                     "precio": 0,
                     "jugable": true,
-                    "img": "LOL.webp",
+                    "img": "fuegoyagua.webp",
                     "fav": false
                 },
                 {
-                    "nombre": "UNO",
+                    "nombre": "Avatar",
                     "precio": 0,
                     "jugable": true,
-                    "img": "uno.webp",
+                    "img": "avatar.jfif",
                     "fav": false
                 },
                 {
-                    "nombre": "Real Chess",
+                    "nombre": "Plants vs Zombies",
                     "precio": 0,
                     "jugable": true,
-                    "img": "ajedrez.jpg",
+                    "img": "plantsvszombies.jfif",
                     "fav": true
                 },
                 {
-                    "nombre": "Damas Deluxe",
+                    "nombre": "Stranger Things",
                     "precio": 0,
                     "jugable": true,
-                    "img": "ajedrez.jpg",
+                    "img": "strangerthings.jpg",
                     "fav": true
                 },
                 {
-                    "nombre": "Monster Inc Run",
+                    "nombre": "PollyPocket",
                     "precio": 2,
                     "jugable": false,
-                    "img": "ajedrez.jpg",
+                    "img": "pollypocket.jfif",
                     "fav": true
                 },
                 {
-                    "nombre": "Five Nights at Freddy's",
+                    "nombre": "Rabbids Wild Race",
                     "precio": 0,
                     "jugable": true,
-                    "img": "ajedrez.jpg",
+                    "img": "rabbids.jfif",
                     "fav": true
                 }
             ]
