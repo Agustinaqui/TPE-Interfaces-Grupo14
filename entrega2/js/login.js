@@ -1,5 +1,5 @@
 // Obtener los elementos de los formularios y botones para cambiar de formulario
-    const botonRegistrar = document.querySelector('.botonRegistrar');
+    const botonRegistrar = document.querySelectorAll('.botonRegistrar');
     const formularioRegistro = document.getElementById('contenedorFormularioRegistro');
     const formularioLogin = document.getElementById('contenedorFormularioLogin');
     const mensajeExito = document.getElementById('mensajeExito');
@@ -7,11 +7,11 @@
     const switchToRegister = document.getElementById('switchToRegister');
 
     // Simular registro exitoso
-    botonRegistrar.addEventListener('click', (event) => {
-        event.preventDefault();
-
-
-        formularioRegistro.classList.add('hidden');
+    botonRegistrar.forEach((btn) => {
+        btn.addEventListener('click', (event) => {
+            event.preventDefault();
+            formularioRegistro.classList.add('hidden');
+            formularioLogin.classList.add('hidden');
         setTimeout(() => {
                 mensajeExito.classList.add('show'); 
             setTimeout(() => {
@@ -19,6 +19,11 @@
             }, 2000); 
         }, 500); 
     });
+    })
+    
+
+
+        
     // Cambiar entre formularios de Login y Registro
     switchToLogin.addEventListener('click', () => {
         formularioRegistro.classList.add("hidden");

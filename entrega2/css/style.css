@@ -872,14 +872,19 @@ ul img {
   height: 32px;
 }
 
+.tituloCategorias{
+  padding-bottom: 10px;
+}
+
 .menu {
   position: absolute;
   top: 45px;
   width: 100vw;
   padding-bottom: 36px;
-  border-bottom: 1px solid #343434;
+  border-bottom: 1px solid #140633;
   background-color: #04031d;
   z-index: 1000;
+  box-shadow: 0px 8px 16px 0px rgba(32, 8, 99, 0.404);
 }
 
 .menu svg {
@@ -888,12 +893,11 @@ ul img {
 }
 
 .menu-list {
-  box-shadow: 0px 8px 16px 0px rgba(32, 8, 99, 0.404);
   border-color: #140633;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
-  border-bottom: 1px solid #343434;
+  border-bottom: 1px solid #140633;
 }
 
 .category-list {
@@ -1018,7 +1022,7 @@ button {
     top: 90px;
     left: 0;
     padding-bottom: 36px;
-    border-right: 1px solid #343434;
+    border-right: 1px solid #140633;
     z-index: 1000;
   }
 
