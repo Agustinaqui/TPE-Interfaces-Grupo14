@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Loader: Simular progreso de carga
     const loader = document.getElementById('loader');
     const content = document.querySelector('.indexLoad');
     const progressText = document.getElementById('progress');

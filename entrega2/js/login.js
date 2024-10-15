@@ -8,19 +8,16 @@
 
     // Simular registro exitoso
     botonRegistrar.addEventListener('click', (event) => {
-        event.preventDefault(); // Evitar el envío real del formulario
+        event.preventDefault();
 
-        // Animación de fade out del formulario de registro
+
         formularioRegistro.classList.add('hidden');
-
-        // Mostrar mensaje de éxito después de que se desvanezca el formulario
         setTimeout(() => {
-            mensajeExito.classList.add('show'); // Muestra el mensaje de éxito
-            // Redirigir a index.html después de 2 segundos
+                mensajeExito.classList.add('show'); 
             setTimeout(() => {
-                window.location.href = "../index.html"; // Cambia la ruta según tu estructura de carpetas
-            }, 2000); // 2000 ms = 2 segundos
-        }, 500); // Tiempo sincronizado con la duración de la animación
+                window.location.href = "../index.html";
+            }, 2000); 
+        }, 500); 
     });
     // Cambiar entre formularios de Login y Registro
     switchToLogin.addEventListener('click', () => {
@@ -46,10 +43,5 @@
         });
     });
 
-const botonesIngreso = document.querySelectorAll('.botonRegistrar');
-botonesIngreso.forEach((boton) => {
-    boton.addEventListener("click", () => {
-        window.location.href = "../index.html"; 
-    });
-});
+
 
