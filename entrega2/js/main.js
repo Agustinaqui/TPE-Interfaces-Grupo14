@@ -3,122 +3,46 @@
 let carritoCount = 0;
 
 inicializarCarrouseles()
+let juegosCount = 0;
+let carrouselesCount = 0;
 
 async function inicializarCarrouseles() {
 
     const carrouselRecomendadosNode = document.getElementById("carrouseles-recomendados");
+    const carrouselCategoriasNode = document.getElementById("carrouseles-categorias");
+
     const data = await (await fetch("./carrouseles.json")).json();
-    const carrouselesData = data.carrouselesRecomendados;
+    const carrouselesRecomendadosData = data.carrouselesRecomendados;
 
-    let juegosCount = 0;
-    let carrouselesCount = 0;
+    carrouselesRecomendadosData.forEach(carr => {
 
-    carrouselesData.forEach(carr => {
+        const carrousel = crearCarrousel(carr);
 
-        const carrDiv = document.createElement("div");
-        carrDiv.classList.add(`carrousel-container`);
-
-        const titulo = document.createElement("h2");
-        titulo.innerText = carr.nombre;
-        carrDiv.appendChild(titulo);
-
-        const flechaL = document.createElement("div");
-        const flechaR = document.createElement("div");
-
-        flechaL.classList.add("flecha-l");
-        flechaL.classList.add("hidden");
-        flechaL.id = `flechaL-${carrouselesCount}`
-        flechaR.classList.add("flecha-r");
-        flechaR.id = `flechaR-${carrouselesCount}`
-
-        flechaL.innerHTML = "<p>&lt;</p>";
-        flechaR.innerHTML = "<p>&gt;</p>";
-
-        const carrJuegos = document.createElement("div");
-
-        carrDiv.appendChild(flechaL)
-        carrDiv.appendChild(flechaR)
-
-        carrJuegos.id = `carrousel-recomendado-${carrouselesCount++}`;
-        carrJuegos.classList.add("carrousel");
-
-        carr.juegos.forEach(juego => {
-
-            let cardType = "card-free";
-            if (juego.precio > 0) {
-                cardType = juego.jugable ? "card-owned" : "card-venta";
-            }
-
-            let btnVentaClass = " ";
-            if (juego.precio > 0 && !juego.jugable) {
-                btnVentaClass = "btn-venta";
-            }
-
-            let priceText = juego.precio > 0 ? "$" + juego.precio : "Free";
-
-            let favTagFondo = juego.fav ? "tag-fav-blanco.png" : "tag-fav-gris.png"
-
-            let favTagIcono = juego.fav ? "favoritoSeleccionado.png" : "favorito.png"
-
-            let topTagFondo = juego.jugable ? "tag-disponible.png" : "tag-precio.png";
-
-            let playBotonIcon = juego.jugable ? "playIcon.png" : "carritoCard.png";
-
-            let card = `<div class="card ${cardType}">
-                            <div class="card-top">
-                                <div class="card-tag-disp">
-                                    <img class="card-tag-disp-fondo" src="./images/tags/${topTagFondo}" alt="fondo de etiqueta superior">
-                                    <img class="card-tag-disp-icono" src="./images/iconos/comprado.png" alt="fondo de etiqueta superior">
-                                    <p class="textoLabel cardTagDispText">
-                                        ${priceText}
-                                    </p>
-                                </div>
-    
-                                <div class="card-tag-fav">
-    
-                                    <img src="./images/tags/${favTagFondo}" alt="favorito">
-                                    <img class="card-tag-fav-icono" src="./images/iconos/${favTagIcono}" alt="">
-                                </div>
-    
-                            </div>
-    
-                            <img class="card-imagen" src="./images/${juego.img}" alt="imagen del juego">
-    
-                            <div class="card-bottom">
-    
-                                <h3 class="card-titulo">${juego.nombre}</h3>
-                                <div class="cardBotonPlay ${btnVentaClass}" id="gamecard-${juegosCount++}">
-    
-                                    <img src="./images/iconos/${playBotonIcon}" alt="">
-                                </div>
-    
-                            </div>
-    
-    
-                        </div>`;
-
-            carrJuegos.innerHTML += card;
-
-        });
-
-        carrDiv.appendChild(carrJuegos);
-
-        carrouselRecomendadosNode.appendChild(carrDiv);
-
-
+        carrouselRecomendadosNode.appendChild(carrousel);
     });
+
+    
+
+    const carrouselesCategoriasData = data.carrouselesCategorias;
+
+    carrouselesCategoriasData.forEach(carr => {
+
+        const carrousel = crearCarrousel(carr);
+
+        carrouselCategoriasNode.appendChild(carrousel);
+    });
+
 
     inicializarCarritoFuncionalidad();
 
+    inicializarFavoritosFuncionalidad();
 
     const tracks = document.getElementsByClassName('carrousel');
     const flechasL = document.getElementsByClassName('flecha-l');
     const flechasR = document.getElementsByClassName('flecha-r');
 
-    let currentIndex = [0, 0, 0]
-
     const cardWidth = 240;
-    
+
     const moveBy = 3; // Avanzar o retroceder 3 cards
 
     let startX = [0, 0, 0];
@@ -145,6 +69,16 @@ async function inicializarCarrouseles() {
 
             if (tracks[i].scrollLeft == 0) {
                 flechasL[i].classList.add("hidden")
+            } else {
+                flechasL[i].classList.remove("hidden")
+
+            }
+
+            if (tracks[i].scrollLeft < (tracks[i].scrollWidth - tracks[i].clientWidth)) {
+                flechasR[i].classList.remove("hidden")
+            } else {
+                flechasR[i].classList.add("hidden")
+
             }
 
             const x = e.pageX - tracks[i].offsetLeft;
@@ -157,21 +91,13 @@ async function inicializarCarrouseles() {
 
             const j = e.target.id.split("-")[1];
 
-            //const nextIndex = currentIndex[j] + moveBy
-
-            //currentIndex[j] = nextIndex <= 0 ? nextIndex : currentIndex[j];
-
-            /* if (currentIndex[j] == 0) {
-                flechasL[j].classList.add("hidden")
-            } */
-
-            if (tracks[i].scrollLeft == 0) {
-                flechasL[j].classList.add("hidden")
-            }
-
             flechasR[j].classList.remove("hidden");
 
             const walk = cardWidth * moveBy
+
+            if (tracks[i].scrollLeft - walk <= 0) {
+                flechasL[j].classList.add("hidden")
+            }
 
             moveCarousel(tracks[j], -walk);
 
@@ -179,17 +105,16 @@ async function inicializarCarrouseles() {
 
         flechasR[i].addEventListener('click', (e) => {
 
-            const j = e.target.id.split("-")[1];
-            if (tracks[j].scrollLeft <= 0) {
-                flechasL[j].classList.remove("hidden")
-            }
 
-            // const nextIndex = currentIndex[j] - moveBy;
+            const j = e.target.id.split("-")[1];
+
+            flechasL[j].classList.remove("hidden")
+
             const walk = cardWidth * moveBy
 
-            /* if (-currentIndex[j] < tracks[j].children.length) {
-                currentIndex[j] = nextIndex;
-            } */
+            if (tracks[i].scrollLeft + walk >= (tracks[i].scrollWidth - tracks[i].clientWidth)) {
+                flechasR[j].classList.add("hidden")
+            }
 
             moveCarousel(tracks[j], walk);
         });
@@ -226,8 +151,6 @@ async function inicializarCarrouseles() {
 
         let walkAmount = walk;
 
-        console.log(track.scrollWidth - track.clientWidth);
-
         if (walk > 0 && walk > track.scrollWidth - track.clientWidth - track.scrollLeft) {
 
             walkAmount = track.scrollWidth - track.clientWidth - track.scrollLeft;
@@ -255,7 +178,7 @@ async function inicializarCarrouseles() {
 
         /* moveAmount = moveAmount < -(containerWidth - trackWidth) ? moveAmount : -(containerWidth - trackWidth);
         if (moveAmount == -(containerWidth - trackWidth)) {
-            document.getElementById(`flechaR-${track.id.split("-")[2]}`).classList.add("hidden")
+            document.getElementById(`flechaR_div-${track.id.split("-")[2]}`).classList.add("hidden")
         } */
         // Si el movimiento se pasa del límite, ajusta para que no haya espacio vacío
 
@@ -274,6 +197,23 @@ function inicializarCarritoFuncionalidad() {
         const btnVenta = botonesNodes[i];
         if (btnVenta.classList.contains("btn-venta")) {
             btnVenta.addEventListener("click", addToCart)
+        }
+    }
+
+}
+
+function inicializarFavoritosFuncionalidad() {
+
+
+    const favoritoNodes = document.getElementsByClassName("card-tag-fav");
+
+
+    for (let i = 0; i < favoritoNodes.length; i++) {
+        const fav = favoritoNodes[i];
+        if (fav.classList.contains("favorito")) {
+            fav.addEventListener("click", removeFavorito);
+        } else {
+            fav.addEventListener("click", addFavorito);
         }
     }
 
@@ -344,4 +284,138 @@ function changeIconBack(gameId) {
     let img = cardButton.children[0]
     img.src = "./images/iconos/carritoCard.png";
 
+}
+
+function addFavorito(e) {
+
+    const favNode = document.getElementById(`card-fav-${e.target.offsetParent.id.split("-")[2]}`);
+
+    favNode.removeEventListener("click", addFavorito)
+    favNode.addEventListener("click", removeFavorito)
+
+    favNode.children[0].src = "./images/tags/tag-fav-blanco.png"
+    favNode.children[1].src = "./images/iconos/favoritoSeleccionado.png";
+}
+
+function removeFavorito(e) {
+
+    const favNode = document.getElementById(`card-fav-${e.target.offsetParent.id.split("-")[2]}`);
+
+    favNode.removeEventListener("click", removeFavorito)
+    favNode.addEventListener("click", addFavorito)
+
+    favNode.children[0].src = "./images/tags/tag-fav-gris.png"
+    favNode.children[1].src = "./images/iconos/favorito.png";
+}
+
+function crearCarrousel(carr) {
+
+    const carrDiv = document.createElement("div");
+    carrDiv.classList.add(`carrousel-container`);
+
+    const titulo = document.createElement("h2");
+    titulo.innerText = carr.titulo;
+    carrDiv.appendChild(titulo);
+
+    const flechaL_div = document.createElement("div");
+    const flechaR_div = document.createElement("div");
+
+    flechaL_div.classList.add("flecha-l");
+    flechaL_div.classList.add("hidden");
+
+    const flechaL_img = document.createElement("img");
+    flechaL_img.id = `imgFlechaL-${carrouselesCount}`
+    flechaL_img.classList.add("img_flecha_carrousel");
+    flechaL_img.src = "./images/iconos/flecha.png";
+    flechaL_div.appendChild(flechaL_img);
+
+    const flechaR_img = document.createElement("img");
+    flechaR_img.id = `imgFlechaR-${carrouselesCount}`
+    flechaR_img.classList.add("img_flecha_carrousel");
+    flechaR_img.classList.add("img-invertida");
+    flechaR_img.src = "./images/iconos/flecha.png";
+    flechaR_div.appendChild(flechaR_img);
+
+    flechaL_div.id = `flechaL-${carrouselesCount}`
+    flechaR_div.classList.add("flecha-r");
+
+    flechaR_div.id = `flechaR-${carrouselesCount}`
+
+    const carrJuegos = document.createElement("div");
+
+    carrDiv.appendChild(flechaL_div)
+    carrDiv.appendChild(flechaR_div)
+
+    carrJuegos.id = `carrousel-recomendado-${carrouselesCount++}`;
+    carrJuegos.classList.add("carrousel");
+
+    carr.juegos.forEach(juego => {
+
+        const card = crearCard(juego);
+
+        carrJuegos.innerHTML += card;
+
+    });
+
+    carrDiv.appendChild(carrJuegos);
+
+    return carrDiv;
+
+}
+
+function crearCard(juego) {
+    let cardType = "card-free";
+    if (juego.precio > 0) {
+        cardType = juego.jugable ? "card-owned" : "card-venta";
+    }
+
+    let btnVentaClass = " ";
+    if (juego.precio > 0 && !juego.jugable) {
+        btnVentaClass = "btn-venta";
+    }
+
+    let priceText = juego.precio > 0 ? "$" + juego.precio : "Free";
+
+    let favTagFondo = juego.fav ? "tag-fav-blanco.png" : "tag-fav-gris.png"
+
+    let favTagIcono = juego.fav ? "favoritoSeleccionado.png" : "favorito.png"
+
+    let topTagFondo = juego.jugable ? "tag-disponible.png" : "tag-precio.png";
+
+    let playBotonIcon = juego.jugable ? "playIcon.png" : "carritoCard.png";
+
+    let card = `<div class="card ${cardType}">
+                        <div class="card-top">
+                            <div class="card-tag-disp">
+                                <img class="card-tag-disp-fondo" src="./images/tags/${topTagFondo}" alt="fondo de etiqueta superior">
+                                <img class="card-tag-disp-icono" src="./images/iconos/comprado.png" alt="fondo de etiqueta superior">
+                                <p class="textoLabel cardTagDispText">
+                                    ${priceText}
+                                </p>
+                            </div>
+
+                            <div id="card-fav-${juegosCount}" class="card-tag-fav ${juego.fav ? "favorito" : ""} ">
+
+                                <img src="./images/tags/${favTagFondo}" alt="favorito">
+                                <img class="card-tag-fav-icono" src="./images/iconos/${favTagIcono}" alt="">
+                            </div>
+
+                        </div>
+
+                        <img class="card-imagen" src="./images/${juego.img}" alt="imagen del juego">
+
+                        <div class="card-bottom">
+
+                            <h3 class="card-titulo">${juego.nombre}</h3>
+                            <div class="cardBotonPlay ${btnVentaClass}" id="gamecard-${juegosCount++}">
+
+                                <img src="./images/iconos/${playBotonIcon}" alt="">
+                            </div>
+
+                        </div>
+
+
+                    </div>`;
+
+    return card;
 }
