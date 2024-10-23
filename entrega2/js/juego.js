@@ -83,8 +83,7 @@ btn_menos.addEventListener("click", () => {
 })
 
 btn_jugar.addEventListener("click", () => {
-    console.log("player 1 preparado :" + player1_selected);
-    console.log("player 2 preparado :" + player2_selected);
+    
     if (!player1_selected || !player2_selected) {
         return;
     }
@@ -105,8 +104,8 @@ class Juego {
 
     constructor(x, jug1, jug2, ficha1 = "", ficha2 = "") {
         this.tablero = new Tablero(x, canvas, ctx);
-        this.fichero1 = new Fichero(jug1, ficha1, true, ctx);
-        this.fichero2 = new Fichero(jug2, ficha2, false, ctx);
+        this.fichero1 = new Fichero(80,30,jug1, ficha1, true, ctx);
+        this.fichero2 = new Fichero(80,650,jug2, ficha2, false, ctx);
     }
 
     jugar() {
@@ -115,6 +114,7 @@ class Juego {
 
         this.tablero.draw();
         this.fichero1.draw();
+        this.fichero2.draw();
 
     }
 

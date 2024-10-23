@@ -1,7 +1,7 @@
 
 class Fichero {
 
-    constructor(nombre,fichaImg, turno,ctx){
+    constructor(posx, posy, nombre, fichaImg, turno, ctx){
         this.nombre = nombre;
         this.fichaImg = fichaImg;
         this.turno = turno;
@@ -12,4 +12,8 @@ class Fichero {
         this.turno = turno;
     }
     
+    draw(){
+        
+    }
+
 }
