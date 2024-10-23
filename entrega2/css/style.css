@@ -585,6 +585,7 @@ img.card-tag-fav-icono {
 }
 
 .hidden {
+  display: none;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
@@ -1141,8 +1142,8 @@ button {
 }
 
 .juego-div{
-  width:800;
-  height: 500;
+  width:900px;
+  height: 500px;
 }
 
 #menu-inicial{
@@ -1216,7 +1217,7 @@ button {
 
 .start-button {
   position: absolute;
-    top:40%;
+    top:80%;
     left: 50%;
     transform: translateX(-50%); 
     background-color: #ff5733;
