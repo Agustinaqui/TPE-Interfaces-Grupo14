@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Loader: Simular progreso de carga 
     const loader = document.getElementById('loader');
     const content = document.querySelector('.indexLoad');
     const progressText = document.getElementById('progress');
@@ -11,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (progress >= 100) {
             clearInterval(loadingInterval);
             loader.style.display = 'none'; 
-            content.style.display = 'block'; 
+            //content.style.display = 'block'; 
         }
     }, 50); 
 });

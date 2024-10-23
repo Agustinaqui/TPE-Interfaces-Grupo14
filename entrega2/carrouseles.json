@@ -1,7 +1,7 @@
 {
     "carrouselesRecomendados": [
         {
-            "nombre": "Seguir jugando",
+            "titulo": "Seguir jugando",
             "juegos": [
                 {
                     "nombre": "4 en linea",
@@ -69,7 +69,7 @@
             ]
         },
         {
-            "nombre": "Recomendados para ti",
+            "titulo": "Recomendados para ti",
             "juegos": [
                 {
                     "nombre": "4 en linea",
@@ -137,7 +137,7 @@
             ]
         },
         {
-            "nombre": "Recientemente añadidos",
+            "titulo": "Recientemente añadidos",
             "juegos": [
                 {
                     "nombre": "4 en linea",
@@ -204,5 +204,280 @@
                 }
             ]
         }
+    ],
+    "carrouselesCategorias": [
+        {
+            "titulo" : "Accion",
+            "juegos": [
+                {
+                    "nombre": "4 en linea",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "4lineas.jpeg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Free Fire",
+                    "precio": 4,
+                    "jugable": false,
+                    "img": "freefire.jpg",
+                    "fav": false
+                },
+                {
+                    "nombre": "GTA San Andreas",
+                    "precio": 3,
+                    "jugable": true,
+                    "img": "gta.jpg",
+                    "fav": false
+                },
+                {
+                    "nombre": "League of Legends",
+                    "precio": 3,
+                    "jugable": false,
+                    "img": "LOL.webp",
+                    "fav": false
+                },
+                {
+                    "nombre": "UNO",
+                    "precio": 1,
+                    "jugable": false,
+                    "img": "uno.webp",
+                    "fav": false
+                },
+                {
+                    "nombre": "Real Chess",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Damas Deluxe",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Monster Inc Run",
+                    "precio": 2,
+                    "jugable": false,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Five Nights at Freddy's",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                }
+            ]
+        },
+        {
+            "titulo" : "Aventura",
+            "juegos": [
+                {
+                    "nombre": "4 en linea",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "4lineas.jpeg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Free Fire",
+                    "precio": 4,
+                    "jugable": false,
+                    "img": "freefire.jpg",
+                    "fav": false
+                },
+                {
+                    "nombre": "GTA San Andreas",
+                    "precio": 3,
+                    "jugable": true,
+                    "img": "gta.jpg",
+                    "fav": false
+                },
+                {
+                    "nombre": "League of Legends",
+                    "precio": 3,
+                    "jugable": false,
+                    "img": "LOL.webp",
+                    "fav": false
+                },
+                {
+                    "nombre": "UNO",
+                    "precio": 1,
+                    "jugable": false,
+                    "img": "uno.webp",
+                    "fav": false
+                },
+                {
+                    "nombre": "Real Chess",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Damas Deluxe",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Monster Inc Run",
+                    "precio": 2,
+                    "jugable": false,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Five Nights at Freddy's",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                }
+            ]
+        },
+        {
+            "titulo" : "Basquet",
+            "juegos": [
+                {
+                    "nombre": "4 en linea",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "4lineas.jpeg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Free Fire",
+                    "precio": 4,
+                    "jugable": false,
+                    "img": "freefire.jpg",
+                    "fav": false
+                },
+                {
+                    "nombre": "GTA San Andreas",
+                    "precio": 3,
+                    "jugable": true,
+                    "img": "gta.jpg",
+                    "fav": false
+                },
+                {
+                    "nombre": "League of Legends",
+                    "precio": 3,
+                    "jugable": false,
+                    "img": "LOL.webp",
+                    "fav": false
+                },
+                {
+                    "nombre": "UNO",
+                    "precio": 1,
+                    "jugable": false,
+                    "img": "uno.webp",
+                    "fav": false
+                },
+                {
+                    "nombre": "Real Chess",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Damas Deluxe",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Monster Inc Run",
+                    "precio": 2,
+                    "jugable": false,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Five Nights at Freddy's",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                }
+            ]
+        },
+        {
+            "titulo" : "Carreras",
+            "juegos": [
+                {
+                    "nombre": "4 en linea",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "4lineas.jpeg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Free Fire",
+                    "precio": 4,
+                    "jugable": false,
+                    "img": "freefire.jpg",
+                    "fav": false
+                },
+                {
+                    "nombre": "GTA San Andreas",
+                    "precio": 3,
+                    "jugable": true,
+                    "img": "gta.jpg",
+                    "fav": false
+                },
+                {
+                    "nombre": "League of Legends",
+                    "precio": 3,
+                    "jugable": false,
+                    "img": "LOL.webp",
+                    "fav": false
+                },
+                {
+                    "nombre": "UNO",
+                    "precio": 1,
+                    "jugable": false,
+                    "img": "uno.webp",
+                    "fav": false
+                },
+                {
+                    "nombre": "Real Chess",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Damas Deluxe",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Monster Inc Run",
+                    "precio": 2,
+                    "jugable": false,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                },
+                {
+                    "nombre": "Five Nights at Freddy's",
+                    "precio": 0,
+                    "jugable": true,
+                    "img": "ajedrez.jpg",
+                    "fav": true
+                }
+            ]
+        }
+
     ]
 }
