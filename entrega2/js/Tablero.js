@@ -21,7 +21,7 @@ class Tablero {
     draw() {
 
         const cellImage = new Image();
-        cellImage.src = '../images/iconos/CasilleroImg.png';
+        cellImage.src = '../images/iconos/CasilleroRosa.png';
 
         cellImage.onload = () => {
             // Dibujar el tablero con la imagen de casillero
@@ -35,12 +35,12 @@ class Tablero {
                     // Dibujar la imagen del casillero
                     ctx.drawImage(cellImage, x, y, this.cellSize, this.cellSize);
 
-                    //// Crear casillero transparente (si es necesario)
-                    //ctx.globalCompositeOperation = 'destination-out';
-                    //ctx.beginPath();
-                    //ctx.arc(x + this.cellSize / 2, y + this.cellSize / 2, this.cellSize / 2.5, 0, Math.PI * 2);
-                    //ctx.fill();
-                    //ctx.globalCompositeOperation = 'source-over';
+                    // Crear casillero transparente (si es necesario)
+                    ctx.globalCompositeOperation = 'destination-out';
+                    ctx.beginPath();
+                    ctx.arc(x + this.cellSize / 2, y + this.cellSize / 2, this.cellSize / 2.5, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.globalCompositeOperation = 'source-over';
                 }
             }
         };

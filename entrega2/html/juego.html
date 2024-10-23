@@ -387,10 +387,11 @@
                     <h1>4 en Línea Súperheroes</h1>
                 </div>
                 <div class="juego-div">
-                    <canvas id="canvas-juego" width="900" height="500">
-
+                    <div id="pantalla-inicial"> <button onclick="comenzar()">COMENZAR</button> </div>
+                    <canvas id="canvas-juego" width="900" height="500" class="hidden">
                     </canvas>
-                    <div id="menu-inicial">
+
+                    <div id="menu-inicial" class="hidden">
                         <div>
                             <button class="X-en-linea-button" id="X_en_linea_+">+</button>
                             <h2> <strong id="X-en-linea">4</strong> en linea</h2>
@@ -401,30 +402,30 @@
                             <div class="menu-ficha-seleccion">
                                 <input id="player-1-name" type="text" placeholder="Jugador 1">
                                 <span>Seleccionar ficha</span>
-                                <img src="../images/iconos/Superman" alt="" id="player-1-ficha" class="player-ficha">
-                                <div>
-                                    <img src="../images/iconos/Superman" alt=""
-                                        class="player-ficha ficha-seleccionable ficha-selected">
-                                    <img src="../images/iconos/Superman" alt=""
+                                <img src="../images/iconos/nadie.jpg" alt="" id="player-1-ficha" class="player-ficha">
+                                <div id="ficha-seleccionables-1">
+                                    <img src="../images/iconos/superman.jpg" alt=""
                                         class="player-ficha ficha-seleccionable ">
-                                    <img src="../images/iconos/Superman" alt=""
+                                    <img src="../images/iconos/flash.jpg" alt=""
                                         class="player-ficha ficha-seleccionable ">
-                                    <img src="../images/iconos/Superman" alt=""
+                                    <img src="../images/iconos/capitanAmerica.jpg" alt=""
+                                        class="player-ficha ficha-seleccionable ">
+                                    <img src="../images/iconos/hulk.jpg" alt=""
                                         class="player-ficha ficha-seleccionable ">
                                 </div>
                             </div>
                             <div class="menu-ficha-seleccion">
                                 <input id="player-2-name" type="text" placeholder="Jugador 2">
                                 <span>Seleccionar ficha</span>
-                                <img src="../images/iconos/Superman" alt="" id="player-2-ficha" class="player-ficha">
-                                <div>
-                                    <img src="../images/iconos/Superman" alt=""
-                                        class="player-ficha ficha-seleccionable ficha-selected">
-                                    <img src="../images/iconos/Superman" alt=""
+                                <img src="../images/iconos/nadie.jpg" alt="" id="player-2-ficha" class="player-ficha">
+                                <div id="ficha-seleccionables-2">
+                                    <img src="../images/iconos/superman.jpg" alt=""
                                         class="player-ficha ficha-seleccionable ">
-                                    <img src="../images/iconos/Superman" alt=""
+                                    <img src="../images/iconos/flash.jpg" alt=""
                                         class="player-ficha ficha-seleccionable ">
-                                    <img src="../images/iconos/Superman" alt=""
+                                    <img src="../images/iconos/capitanAmerica.jpg" alt=""
+                                        class="player-ficha ficha-seleccionable ">
+                                    <img src="../images/iconos/hulk.jpg" alt=""
                                         class="player-ficha ficha-seleccionable ">
                                 </div>
                             </div>
