@@ -1,11 +1,12 @@
+
 // Clase Ficha
+
 class Ficha {
     constructor(x, y, radio, color, jugador) {
         this.x = x;
         this.y = y;
         this.radio = radio;
         this.color = color;
-        this.jugador = jugador;
         this.isDragging = false;
     }
 

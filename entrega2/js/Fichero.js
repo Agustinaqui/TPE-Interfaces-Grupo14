@@ -1,9 +1,11 @@
 
 class Fichero {
 
-    constructor(ficha, turno){
-        this.ficha = ficha;
+    constructor(nombre,fichaImg, turno,ctx){
+        this.nombre = nombre;
+        this.fichaImg = fichaImg;
         this.turno = turno;
+        this.ctx = ctx;
     }
 
     setTurno(turno){
