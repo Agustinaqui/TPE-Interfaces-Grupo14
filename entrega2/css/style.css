@@ -1000,9 +1000,35 @@ font-size: 7px;
 }
 
 .img-jugando {
-  width: 825px;
-  height: 502px;
+  width: 900px;
+  height: 500px;
 }
+
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+
+.start-button {
+  position: absolute;
+    top:120%;
+    left: 50%;
+    transform: translateX(-50%); 
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #c4451f;
+}
+
 
 .conteiner-jugando-izquierda,
 .conteiner-jugando-derecha {
