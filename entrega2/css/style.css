@@ -1137,13 +1137,19 @@ button {
   height: 5rem;
   align-items: center;
   margin-top: 30px;
+  margin-bottom: 0px;
   width: 100%;
   justify-content: left;
 }
 
 .juego-div{
+  margin-top: 0px;
   width:900px;
   height: 500px;
+}
+
+.img-principal{
+  border: 3px solid red;
 }
 
 #menu-inicial{
@@ -1153,10 +1159,79 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 .player-ficha{
   width: 50px;
   height: 50px;
+}
+
+.container-players{
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 900px;
+  top: 25%;
+
+}
+
+.container-players h2{
+  color: rgb(141, 14, 14);
+}
+
+#container-player1 h1, #container-player2 h1{
+  color: rgb(141, 14, 14);
+  background-color: rgba(255, 255, 0, 0.767);
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+#container-player1 h1{
+  margin-left: 20px;
+}
+#container-player2 h1{
+  margin-right: 15px;
+}
+
+#container-player1 h2, #container-player2 h2{
+  width: 180px;
+  height: 260px;
+  text-align: center;
+  padding-top: 10px;
+  background-color: #fdfdfd96;
+  border-radius: 20px;
+}
+
+#container-player1 h2{
+  margin-left: 25px;
+}
+
+#container-player2 h2{
+  margin-left: 5px;
+}
+
+#container-player1{
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+#container-player2{
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+
+
+
+#canvas-juego{
+  background-image: url(../images/fondoTablero1.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 3px solid red;
 }
 
 .menu-seleccion{
@@ -1220,18 +1295,18 @@ button {
     top:80%;
     left: 50%;
     transform: translateX(-50%); 
-    background-color: #ff5733;
+    background-color: #e4320a;
     color: white;
     border: none;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: background-color 0.3s ease;
 }
 
 .start-button:hover {
-  background-color: #c4451f;
+  background-color: #e44d2bfb;
 }
 
 
@@ -1240,7 +1315,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 195px;
+  margin-top: 110px;
   margin-right: 20px;
   margin-left: 20px;
   padding: 10px 20px;

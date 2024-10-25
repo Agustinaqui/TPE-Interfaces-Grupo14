@@ -383,16 +383,24 @@
                     <h4>➜</h4>
                     <h4 class="cuatroLinea">4 en Línea Súperheroes</h4>
                 </div>
-                <div class="titulo-juego">
-                    <h1>4 en Línea Súperheroes</h1>
-                </div>
+                
                 <div class="juego-div">
                     <div class="container-juego" id="pantalla-inicial">
-                    <img src="../images/Diseño sin título (1).png">
+                    <img class="img-principal" src="../images/Diseño sin título (1).png">
                     <button onclick="comenzar()" class="start-button">Comenzar el juego</button>
                     </div>
-                    <canvas id="canvas-juego" width="900" height="500" class="hidden">
-                    </canvas>
+                    <div class="container-players">
+                        <div id="container-player1" class="hidden">
+                            <h1>Turno de P1</h1>
+                            <h2>Player 1</h2>
+                        </div>
+                        <div id="container-player2" class="hidden">
+                            <h1>Turno de P2</h1>
+                            <h2>Player 2</h2>
+                        </div>
+                    </div>
+                        <canvas id="canvas-juego" width="900" height="500" class="hidden">
+                        </canvas>
 
                     <div id="menu-inicial" class="hidden">
                         <div>
