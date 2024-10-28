@@ -1,46 +1,42 @@
 class Tablero {
 
-    constructor(x, canvas, ctx) {
+    constructor(x, img, canvas, ctx) {
         this.x = x;
         this.canvas = canvas;
         this.MAXCOLS = x + 3;
         this.MAXFILAS = x + 2;
         this.fichasCount = this.MAXCOLS * this.MAXFILAS
         this.casillas = [];
+        this.cellImage = img;
         this.ctx = ctx;
 
         // Calcular el tamaño de los casilleros
         this.cellSize = 380 / this.MAXFILAS;
-        
+
         // Calculo cuanto corro el tablero dentro del canvas
         this.offSetX = (this.canvas.width - this.MAXCOLS * this.cellSize) / 2;
         this.offSetY = 110;
     }
-    
-    getFichasCount(){
+
+    getFichasCount() {
         return this.fichasCount;
     }
-    
+
 
     draw() {
 
-        const cellImage = new Image();
-        cellImage.src = '../images/iconos/casilleroNaranja.png';
 
-        cellImage.onload = () => {
-            // Dibujar el tablero con la imagen de casillero
-            for (let fila = 0; fila < this.MAXFILAS; fila++) {
+        // Dibujar el tablero con la imagen de casillero
+        for (let fila = 0; fila < this.MAXFILAS; fila++) {
 
-                for (let col = 0; col < this.MAXCOLS; col++) {
-                    // Posición de cada casillero
-                    const x = (col * this.cellSize) + this.offSetX;
-                    const y = (fila * this.cellSize) + this.offSetY;
+            for (let col = 0; col < this.MAXCOLS; col++) {
+                // Posición de cada casillero
+                const x = (col * this.cellSize) + this.offSetX;
+                const y = (fila * this.cellSize) + this.offSetY;
 
-                    // Dibujar la imagen del casillero
-                    ctx.drawImage(cellImage, x, y, this.cellSize, this.cellSize);
+                // Dibujar la imagen del casillero
+                ctx.drawImage(this.cellImage, x, y, this.cellSize, this.cellSize);
 
-                    
-                }
             }
         };
         /*

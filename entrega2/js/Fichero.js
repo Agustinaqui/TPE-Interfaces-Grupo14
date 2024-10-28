@@ -1,13 +1,13 @@
 
 class Fichero {
 
-    constructor(player, x, nombre, fichaImg, fichasCount, turno, posx, posy, width, height, ctx) {
+    constructor(player, x, nombre, fichaImg, fichasCount, turno, posx, posy, ctx) {
         this.x = x;
         this.player = player;
         this.posx = posx;
         this.posy = posy;
-        this.width = width;
-        this.height = height;
+        this.width =  175; 
+        this.height = 225;
         this.nombre = nombre;
         this.fichaImg = fichaImg;
         this.turno = turno;
@@ -17,7 +17,7 @@ class Fichero {
 
         /* Inicializo las fichas */
 
-        let fichaX = this.posx + this.width / 2 - 25
+        let fichaX = this.posx + this.width / 2
 
         //let fichaVerticalGap = (this.height /( this.fichasCount+1)) - 25
         let fichaVerticalGap = 8;
@@ -48,12 +48,12 @@ class Fichero {
 
         //        fichaVerticalGap = fichaVerticalGap >= 2 ? fichaVerticalGap : 2;
 
-        let fichaY = this.posy + this.height - 55
+        let fichaY = this.posy + this.height - 30
+
         for (let fichaIndex = 0; fichaIndex < this.fichasCount; fichaIndex++) {
             /* fichero width / 2 - ficha width /2 para encontrar la posicion x correcta */
 
-            const ficha = new Ficha(player,fichaX, fichaY, 25, this,fichaIndex);
-            ficha.draw();
+            const ficha = new Ficha(fichaX, fichaY, 25, this, fichaIndex);
             
             this.fichas.push(ficha);
 
@@ -68,11 +68,7 @@ class Fichero {
 
     draw() {
 
-        const width = 300;
-        const height = 100;
-        const radius = 20;
         const fillColor = 'rgba(255, 239, 114, 0.9)'; // Naranja con transparencia (rgba)
-
 
         // Rellenar el rectángulo con el color y transparencia
         this.ctx.fillStyle = fillColor;
