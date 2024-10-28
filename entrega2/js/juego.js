@@ -171,8 +171,6 @@ class Juego {
                 offSetX = fichaActivaNodo.offsetWidth / 2; // Desplazamiento desde el centro
                 offSetY = fichaActivaNodo.offsetHeight / 2;
 
-                //ficha.isDragging = true;
-
                 fichaActiva.x = e.clientX - fichaNodo1.offsetLeft
                 fichaActiva.y = e.clientY - fichaNodo1.offsetTop
             })
@@ -182,8 +180,11 @@ class Juego {
                     return;
                 }
 
+
+
+
                 const x = e.clientX - juegoDivNodoContainer.left - offSetX;
-                const y = e.clientY - juegoDivNodoContainer.top  - offSetY;
+                const y = e.clientY - juegoDivNodoContainer.top - offSetY;
 
                 fichaActivaNodo.style.left = `${x}px`;
                 fichaActivaNodo.style.top = `${y}px`;
@@ -192,22 +193,22 @@ class Juego {
 
             document.addEventListener('mouseup', (e) => {
 
-                if(!fichaActivaNodo){
+                if (!fichaActivaNodo) {
                     return
                 }
                 mouseDown = false;
 
-                if(inDropArea){
+                if (inDropArea) {
 
                     return
                 }
-                
-                fichaActivaNodo.style.left = `${fichaActiva.initialX}px` 
+
+                fichaActivaNodo.style.left = `${fichaActiva.initialX}px`
                 fichaActivaNodo.style.top = `${fichaActiva.initialY}px`
 
                 fichaActiva = null;
                 fichaActivaNodo = null;
-                
+
             });
 
             /* ficha1.addEventListener("mouseup", (e)=> {
