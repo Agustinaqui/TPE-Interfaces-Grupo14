@@ -10,11 +10,9 @@ let player2_selected = false;
 const Xenlinea = document.getElementById("X-en-linea");
 Xenlinea.innerText = x;
 
-// 
 let mouseDown = false;
 let inDropArea = false;
 let fichaActiva = null;
-let fichaActivaNodo = null;
 let offSetX;
 let offSetY;
 
@@ -100,12 +98,21 @@ btn_jugar.addEventListener("click", () => {
     }
 
     menu_inicial_node.classList.add("hidden");
+
     const name1 = document.getElementById("player-1-name").value;
     const name2 = document.getElementById("player-2-name").value;
+
     const img1 = player_1_ficha_node.src;
     const img2 = player_2_ficha_node.src;
-    const game = new Juego(x, name1, name2, img1, img2);
-    game.jugar();
+
+    const tableroImage = new Image();
+    tableroImage.src = '../images/iconos/casilleroNaranja1.png';
+
+    tableroImage.onload = () => {
+        const game = new Juego(x,tableroImage, name1, name2, img1, img2);
+
+        game.jugar();
+    }
 })
 
 function comenzar() {
@@ -115,112 +122,109 @@ function comenzar() {
 
 class Juego {
 
-    constructor(x, jug1, jug2, ficha1 = "", ficha2 = "") {
+    constructor(x, tableroImage, jug1, jug2, ficha1, ficha2) {
         this.x = x;
-        this.tablero = new Tablero(x, canvas, ctx);
+
+        this.tablero = new Tablero(x, tableroImage, canvas, ctx);
+
         /* calcula cuantas fichas le corresponde a cada fichero */
         let fichasCount = Math.ceil(this.tablero.getFichasCount() / 2);
 
-        this.fichero1 = new Fichero(1, x, jug1, ficha1, fichasCount, true, 25, 250, 175, 225, ctx);
-        this.fichero2 = new Fichero(2, x, jug2, ficha2, fichasCount, false, 700, 250, 175, 225, ctx);
+        this.fichero1 = new Fichero(1, x, jug1, ficha1, fichasCount, true, 25, 250, ctx);
+        this.fichero2 = new Fichero(2, x, jug2, ficha2, fichasCount, false, 700, 250, ctx);
     }
 
 
     jugar() {
 
-        document.getElementById("canvas-juego").classList.remove("hidden");
+
+        const canvas = document.getElementById("canvas-juego");
+        canvas.classList.remove("hidden");
         //document.getElementById("container-player1").classList.remove("hidden");
         //document.getElementById("container-player2").classList.remove("hidden");
+        this.redibujarCanvas(ctx);
 
-        this.tablero.draw();
-        this.fichero1.draw();
-        this.fichero2.draw();
 
-        const fichasPlayer1 = document.querySelectorAll(".ficha-1");
-        const fichasPlayer2 = document.querySelectorAll(".ficha-2");
+        canvas.addEventListener("mousedown", (e) => {
 
-        for (let i = 0; i < fichasPlayer1.length; i++) {
-            const fichaNodo1 = fichasPlayer1[i];
-            const fichaNodo2 = fichasPlayer2[i];
+            const { offsetX: mouseX, offsetY: mouseY } = e;
 
-            fichaNodo1.addEventListener("mousedown", (e) => {
-                /* acabo de clickear una ficha, debe ahora moverse */
-                const index = e.target.id.split("-")[2];
+            // Buscar si se hizo clic en alguna ficha del jugador 1 o 2
+            const fichasAll = [...this.fichero1.fichas, ...this.fichero2.fichas];
 
-                fichaActiva = this.fichero1.fichas[index];
-                fichaActivaNodo = fichasPlayer1[index];
+            let i = fichasAll.length - 1;
 
-                mouseDown = true;
-                offSetX = fichaActivaNodo.offsetWidth / 2; // Desplazamiento desde el centro
-                offSetY = fichaActivaNodo.offsetHeight / 2;
-
-                //ficha.isDragging = true;
-
-                fichaActiva.x = e.clientX - fichaNodo1.offsetLeft
-                fichaActiva.y = e.clientY - fichaNodo1.offsetTop
-            })
-
-            fichaNodo2.addEventListener("mousedown", (e) => {
-                /* acabo de clickear una ficha, debe ahora moverse */
-                const index = e.target.id.split("-")[2];
-
-                fichaActiva = this.fichero2.fichas[index];
-                fichaActivaNodo = fichasPlayer2[index];
-
-                mouseDown = true;
-                offSetX = fichaActivaNodo.offsetWidth / 2; // Desplazamiento desde el centro
-                offSetY = fichaActivaNodo.offsetHeight / 2;
-
-                fichaActiva.x = e.clientX - fichaNodo1.offsetLeft
-                fichaActiva.y = e.clientY - fichaNodo1.offsetTop
-            })
-            document.addEventListener('mousemove', (e) => {
-
-                if (!mouseDown || !fichaActiva) {
-                    return;
+            while (i >= 0 && !fichaActiva) {
+                const ficha = fichasAll[i];
+                if (ficha.contienePunto(mouseX, mouseY)) {
+                    fichaActiva = ficha;
+                    offSetX = mouseX - ficha.x; // Diferencia X entre el clic y el centro de la ficha
+                    offSetY = mouseY - ficha.y; // Diferencia Y entre el clic y el centro de la ficha
+                    ficha.isDragging = true;    // Marcar que la ficha está siendo arrastrada
                 }
+                i--;
+            }
+            
+        })
 
 
+        // Evento mousemove (mover el mouse)
+        canvas.addEventListener('mousemove', (e) => {
+            if (fichaActiva) { // Si hay una ficha arrastrada
+                const { offsetX: mouseX, offsetY: mouseY } = e;
+                // Mover la ficha
+                fichaActiva.x = mouseX - offSetX;
+                fichaActiva.y = mouseY - offSetY;
+                this.redibujarCanvas(); // Redibujar el tablero con las nuevas posiciones
+            }
+        });
 
 
-                const x = e.clientX - juegoDivNodoContainer.left - offSetX;
-                const y = e.clientY - juegoDivNodoContainer.top - offSetY;
+        canvas.addEventListener('mouseup', () => {
+            if ( /* si esta fuera de drop area */ true) {
+                fichaActiva.x = fichaActiva.initialX
+                fichaActiva.y = fichaActiva.initialY
+            }
 
-                fichaActivaNodo.style.left = `${x}px`;
-                fichaActivaNodo.style.top = `${y}px`;
-
-            });
-
-            document.addEventListener('mouseup', (e) => {
-
-                if (!fichaActivaNodo) {
-                    return
-                }
-                mouseDown = false;
-
-                if (inDropArea) {
-
-                    return
-                }
-
-                fichaActivaNodo.style.left = `${fichaActiva.initialX}px`
-                fichaActivaNodo.style.top = `${fichaActiva.initialY}px`
-
+            if (fichaActiva) {
+                fichaActiva.isDragging = false;
                 fichaActiva = null;
-                fichaActivaNodo = null;
+            }
 
-            });
+            this.redibujarCanvas();
+        });
 
-            /* ficha1.addEventListener("mouseup", (e)=> {
-                console.log(e.target);
-                
-            })
-            ficha2.addEventListener("click", (e)=> {
-                console.log(e.target);
-                
-            }) */
-        }
+
+        /* ficha1.addEventListener("mouseup", (e)=> {
+            console.log(e.target);
+            
+        })
+        ficha2.addEventListener("click", (e)=> {
+            console.log(e.target);
+            
+        }) */
 
     }
 
+    redibujarCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        this.fichero1.draw();
+        this.fichero2.draw();
+
+        [...this.fichero1.fichas, ...this.fichero2.fichas].forEach(ficha => {
+            if(ficha.colocada){
+                ficha.draw(ctx)
+            }
+        });
+
+        this.tablero.draw();
+
+        [...this.fichero1.fichas, ...this.fichero2.fichas].forEach(ficha => {
+            if( ! ficha.colocada){
+                ficha.draw(ctx)
+            }
+        });
+        
+    }
 }
