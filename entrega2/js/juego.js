@@ -1,5 +1,7 @@
 
 const canvas = document.getElementById("canvas-juego");
+const contPlayer1 = document.getElementById("container-player1");
+const contPlayer2 = document.getElementById("container-player2");
 const ctx = canvas.getContext("2d");
 
 let x = 4;
@@ -127,6 +129,8 @@ class Juego {
     jugar() {
 
         document.getElementById("canvas-juego").classList.remove("hidden");
+        //document.getElementById("container-player1").classList.remove("hidden");
+        //document.getElementById("container-player2").classList.remove("hidden");
 
         this.tablero.draw();
         this.fichero1.draw();

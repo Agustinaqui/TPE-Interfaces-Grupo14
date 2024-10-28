@@ -71,7 +71,7 @@ class Fichero {
         const width = 300;
         const height = 100;
         const radius = 20;
-        const fillColor = 'rgba(255, 165, 0, 0.5)'; // Naranja con transparencia (rgba)
+        const fillColor = 'rgba(255, 239, 114, 0.9)'; // Naranja con transparencia (rgba)
 
 
         // Rellenar el rectángulo con el color y transparencia
