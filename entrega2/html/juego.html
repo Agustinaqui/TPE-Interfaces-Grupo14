@@ -386,7 +386,7 @@
                 <div class="titulo-juego">
                     <h1>4 en Línea Súperheroes</h1>
                 </div>
-                <div class="juego-div">
+                <div id="juego-div" class="juego-div">
                     <div class="container-juego" id="pantalla-inicial">
                         <img src="../images/Diseño sin título (1).png">
                         <button onclick="comenzar()" class="start-button">Comenzar el juego</button>
@@ -405,30 +405,30 @@
                             <div class="menu-ficha-seleccion">
                                 <input id="player-1-name" type="text" placeholder="Jugador 1">
                                 <span>Seleccionar ficha</span>
-                                <img src="../images/iconos/nadie.jpg" alt="" id="player-1-ficha" class="player-ficha">
+                                <img src="../images/iconos/nadie.png" alt="" id="player-1-ficha" class="player-ficha">
                                 <div id="ficha-seleccionables-1">
-                                    <img src="../images/iconos/superman.jpg" alt=""
+                                    <img src="../images/iconos/superman.png" alt=""
                                         class="player-ficha ficha-seleccionable ">
-                                    <img src="../images/iconos/flash.jpg" alt=""
+                                    <img src="../images/iconos/flash.png" alt=""
                                         class="player-ficha ficha-seleccionable ">
-                                    <img src="../images/iconos/capitanAmerica.jpg" alt=""
+                                    <img src="../images/iconos/capitanAmerica.png" alt=""
                                         class="player-ficha ficha-seleccionable ">
-                                    <img src="../images/iconos/hulk.jpg" alt=""
+                                    <img src="../images/iconos/hulk.png" alt=""
                                         class="player-ficha ficha-seleccionable ">
                                 </div>
                             </div>
                             <div class="menu-ficha-seleccion">
                                 <input id="player-2-name" type="text" placeholder="Jugador 2">
                                 <span>Seleccionar ficha</span>
-                                <img src="../images/iconos/nadie.jpg" alt="" id="player-2-ficha" class="player-ficha">
+                                <img src="../images/iconos/nadie.png" alt="" id="player-2-ficha" class="player-ficha">
                                 <div id="ficha-seleccionables-2">
-                                    <img src="../images/iconos/superman.jpg" alt=""
+                                    <img src="../images/iconos/superman.png" alt=""
                                         class="player-ficha ficha-seleccionable ">
-                                    <img src="../images/iconos/flash.jpg" alt=""
+                                    <img src="../images/iconos/flash.png" alt=""
                                         class="player-ficha ficha-seleccionable ">
-                                    <img src="../images/iconos/capitanAmerica.jpg" alt=""
+                                    <img src="../images/iconos/capitanAmerica.png" alt=""
                                         class="player-ficha ficha-seleccionable ">
-                                    <img src="../images/iconos/hulk.jpg" alt=""
+                                    <img src="../images/iconos/hulk.png" alt=""
                                         class="player-ficha ficha-seleccionable ">
                                 </div>
                             </div>
@@ -584,7 +584,8 @@
                                         xlink:href="data:image/png;base64,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" />
                                 </defs>
                             </svg></a>
-                        <a href="#" class="social-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                        <a href="#" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <g clip-path="url(#clip0_853_1171)">
                                     <rect width="20" height="20" fill="url(#pattern0_853_1171)" />

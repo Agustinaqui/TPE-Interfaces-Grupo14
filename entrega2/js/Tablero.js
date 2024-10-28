@@ -5,16 +5,22 @@ class Tablero {
         this.canvas = canvas;
         this.MAXCOLS = x + 3;
         this.MAXFILAS = x + 2;
+        this.fichasCount = this.MAXCOLS * this.MAXFILAS
         this.casillas = [];
         this.ctx = ctx;
-        
+
         // Calcular el tamaño de los casilleros
-        this.cellSize = 450 / this.MAXCOLS;
+        this.cellSize = 380 / this.MAXFILAS;
         
         // Calculo cuanto corro el tablero dentro del canvas
         this.offSetX = (this.canvas.width - this.MAXCOLS * this.cellSize) / 2;
         this.offSetY = 90;
     }
+    
+    getFichasCount(){
+        return this.fichasCount;
+    }
+    
 
     draw() {
 
