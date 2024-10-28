@@ -1,4 +1,6 @@
 /* HEADER MOBILE*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -956,6 +958,137 @@ button {
   width: 25px;
   height: 25px;
 }
+
+/*MENU JUEGO*/
+.start-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  background-color: #f26d22; /* Color vibrante para el botón */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.start-button:hover {
+  background-color: #ff6518; /* Color más oscuro al pasar el mouse */
+  
+}
+.X-en-linea-button {
+  font-size: 24px;
+  color: #fff;
+  background-color: #252525; /* Azul */
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background-color 0.3s;
+}
+
+.X-en-linea-button:hover{
+  background-color: #ff5c2a; 
+  border-radius: 18px;
+
+}
+
+#menu-inicial{
+  position: absolute;
+  width: 900px;
+  top:30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.elegirJuego{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #00000093;
+  border-radius: 18px;
+  padding: 7px;
+}
+
+.tituloMenuJuego{
+  margin-bottom: 10px;
+  background-color: #a02500ce;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.menu-ficha-seleccion {
+  background-color: #00000093;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px;
+  border-radius: 18px;
+}
+
+input {
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.player-ficha {
+  width: 60px; /* Tamaño de las fichas */
+  height: 60px;
+  border-radius: 30px;
+  margin: 5px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.player-ficha:hover {
+  transform: scale(1.1); /* Efecto de hover */
+}
+
+.ficha-seleccionable {
+  border: 2px solid transparent; /* Borde por defecto */
+}
+
+.ficha-seleccionable:hover {
+  border: 2px solid #ff9900; /* Borde al pasar el mouse */
+}
+
+.ficha1{
+  background-color: #414141;
+}
+.ficha2{
+  background-color: rgb(180, 154, 35);
+}
+.ficha3{
+  background-color: #04031d;
+}
+.ficha4{
+  background-color: rgb(70, 0, 0);
+}
+
+/* Estilo para el botón jugar */
+#btn-jugar {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 10px 20px;
+  background-color: #da3300; /* Verde */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#btn-jugar:hover {
+  background-color: #9b2400; /* Verde oscuro al pasar el mouse */
+}
+
 /*HEADER DESKTOP*/
 @media screen and (min-width: 600px) {
 
@@ -1144,16 +1277,13 @@ button {
 .juego-div{
   width:900px;
   height: 500px;
+  background-image: url(../images/superheroes2.jpg);
+  background-repeat: no-repeat;  /* Evita que la imagen se repita */
+  background-size: cover;        /* Ajusta la imagen al tamaño del contenedor */
+  background-position: center;
+  
 }
 
-#menu-inicial{
-  position: absolute;
-  width: 900px;
-  top:70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .player-ficha{
   width: 50px;
   height: 50px;

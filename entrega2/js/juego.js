@@ -112,7 +112,6 @@ class Juego {
     jugar() {
 
         document.getElementById("canvas-juego").classList.remove("hidden");
-
         this.tablero.draw();
         this.fichero1.draw();
 
