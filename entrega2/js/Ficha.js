@@ -20,7 +20,7 @@ class Ficha {
         
         document.getElementById("juego-div").appendChild(fichaNodo);
         let imagen = this.fichero.fichaImg.split("/");
-        imagen = `../images/iconos/${imagen[imagen.length -1]}` ;
+        imagen = `../images/superheroes/${imagen[imagen.length -1]}` ;
         
         fichaNodo.style.position = "absolute";
         fichaNodo.style.left = `${this.x}px`;

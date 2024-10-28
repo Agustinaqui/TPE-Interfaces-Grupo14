@@ -183,7 +183,7 @@ class Juego {
                 }
 
                 const x = e.clientX - juegoDivNodoContainer.left - offSetX;
-                const y = e.clientY - juegoDivNodoContainer.top - offSetY;
+                const y = e.clientY - juegoDivNodoContainer.top  - offSetY;
 
                 fichaActivaNodo.style.left = `${x}px`;
                 fichaActivaNodo.style.top = `${y}px`;
