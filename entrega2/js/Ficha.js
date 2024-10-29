@@ -7,6 +7,7 @@
                 this.initialY = y;
                 this.y = y;
                 this.radio = radio;
+                this.initialRadio = radio;
                 this.fichero = fichero;
                 this.isDragging = false;
                 this.colocada = false;
