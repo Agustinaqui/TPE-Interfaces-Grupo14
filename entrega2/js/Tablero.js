@@ -1,49 +1,91 @@
 class Tablero {
 
-    constructor(x, canvas, ctx) {
+    constructor(x, img, canvas, ctx) {
         this.x = x;
         this.canvas = canvas;
         this.MAXCOLS = x + 3;
         this.MAXFILAS = x + 2;
+        this.fichasCount = this.MAXCOLS * this.MAXFILAS
         this.casillas = [];
+        this.cellImage = img;
         this.ctx = ctx;
+        this.casillasDrop = [];
 
         // Calcular el tamaño de los casilleros
-        this.cellSize = (400 - (this.MAXFILAS + 1)) / this.MAXFILAS;
-
+        this.cellSize = 350 / this.MAXFILAS;
+        
         // Calculo cuanto corro el tablero dentro del canvas
         this.offSetX = (this.canvas.width - this.MAXCOLS * this.cellSize) / 2;
-        this.offSetY = ((this.canvas.height - this.MAXFILAS * this.cellSize) / 6) * 5;
+        this.offSetY = 140;
+
+        const dropAreaGap = 2.5;
+        const dropAreaSize = this.cellSize - 5;
+        let dropAreaX = this.offSetX+dropAreaGap;
+        const dropAreaY = this.offSetY - dropAreaSize - dropAreaGap;
+
+        for (let i = 0; i < this.MAXCOLS; i++) {
+            
+            const dropArea = new CasillaDrop(dropAreaX,dropAreaY,dropAreaGap,dropAreaSize,dropAreaSize,this.ctx);
+            this.casillasDrop.push(dropArea);
+            dropAreaX+=dropAreaSize + dropAreaGap*2;
+            
+        }
+
+        for (let fila = 0; fila < this.MAXFILAS; fila++) {
+
+            const filaCasillas = [];
+
+            for (let col = 0; col < this.MAXCOLS; col++) {
+                // Posición de cada casillero
+                const x = (col * this.cellSize) + this.offSetX;
+                const y = (fila * this.cellSize) + this.offSetY;
+
+                const casilla = new Casilla(x, y, ctx, this.cellImage, null, this.cellSize);
+
+                filaCasillas.push(casilla);
+                
+            }
+
+            this.casillas.push(filaCasillas);
+        };
     }
 
+    getFichasCount() {
+        return this.fichasCount;
+    }
 
+    
+    drawDropAreas(){
+        this.casillasDrop.forEach(dropArea =>{ 
+            dropArea.draw();
+        })
+    }
+
+    getLowerCasillaByIndex(col){
+        let fila = this.MAXFILAS-1;
+        while(fila >= 0 && this.casillas[fila][col].ficha){
+            fila--;
+        }
+
+        if(fila < 0){
+            return null;
+        }
+
+        return this.casillas[fila][col];
+
+    }
 
     draw() {
 
-        const cellImage = new Image();
-        cellImage.src = '../images/iconos/CasilleroRosa.png';
+        // Dibujar el tablero con la imagen de casillero
+        for (let fila = 0; fila < this.MAXFILAS; fila++) {
 
-        cellImage.onload = () => {
-            // Dibujar el tablero con la imagen de casillero
-            for (let fila = 0; fila < this.MAXFILAS; fila++) {
-
-                for (let col = 0; col < this.MAXCOLS; col++) {
-                    // Posición de cada casillero
-                    const x = (col * this.cellSize) + this.offSetX;
-                    const y = (fila * this.cellSize) + this.offSetY;
-
-                    // Dibujar la imagen del casillero
-                    ctx.drawImage(cellImage, x, y, this.cellSize, this.cellSize);
-
-                    // Crear casillero transparente (si es necesario)
-                    ctx.globalCompositeOperation = 'destination-out';
-                    ctx.beginPath();
-                    ctx.arc(x + this.cellSize / 2, y + this.cellSize / 2, this.cellSize / 2.5, 0, Math.PI * 2);
-                    ctx.fill();
-                    ctx.globalCompositeOperation = 'source-over';
-                }
+            for (let col = 0; col < this.MAXCOLS; col++) {
+                this.casillas[fila][col].draw()
             }
         };
+
+        
         /*
         // Dibujar el tablero
         for (let fila = 0; fila < this.MAXFILAS; fila++) {

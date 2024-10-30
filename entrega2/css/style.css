@@ -125,6 +125,16 @@ p {
   user-select: none;
 }
 
+.ficha {
+  position: absolute;
+  border: 2px solid black;
+  border-radius: 50px;
+  
+  -webkit-user-drag: none;
+  user-select: none;
+
+}
+
 .carrousel {
   display: flex;
   padding: 1rem 0px;
@@ -948,6 +958,7 @@ ul img {
   justify-content: center;
   font-size: 7px;
 }
+
 button {
   background-color: transparent;
   /* Sin fondo */
@@ -958,7 +969,8 @@ button {
   cursor: pointer;
   font-size: 16px;
 }
-.X-en-linea-button{
+
+.X-en-linea-button {
   color: white;
   margin: 0;
   width: 25px;
@@ -1000,14 +1012,6 @@ button {
 
 }
 
-#menu-inicial{
-  position: absolute;
-  width: 900px;
-  top:30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 .elegirJuego{
   display: flex;
@@ -1065,16 +1069,16 @@ input {
 }
 
 .ficha1{
-  background-color: #414141;
+  background-color: #777777;
 }
 .ficha2{
-  background-color: rgb(180, 154, 35);
+  background-color: rgb(241, 207, 51);
 }
 .ficha3{
-  background-color: #04031d;
+  background-color: #1c1a47;
 }
 .ficha4{
-  background-color: rgb(70, 0, 0);
+  background-color: rgb(87, 6, 6);
 }
 
 /* Estilo para el botón jugar */
@@ -1141,7 +1145,7 @@ input {
     padding-right: 10px;
   }
 
-  
+
 
   button:hover {
     background-color: rgba(255,
@@ -1276,11 +1280,13 @@ input {
   height: 5rem;
   align-items: center;
   margin-top: 30px;
+  margin-bottom: 0px;
   width: 100%;
   justify-content: left;
 }
 
 .juego-div{
+  margin-top: 0px;
   width:900px;
   height: 500px;
   background-image: url(../images/superheroes2.jpg);
@@ -1290,9 +1296,93 @@ input {
   
 }
 
-.player-ficha{
+.img-principal{
+  border: 3px solid red;
+}
+
+#menu-inicial{
+  position: absolute;
+  width: 900px;
+  top:40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.player-ficha {
+
+  border-radius: 50px;
   width: 50px;
   height: 50px;
+}
+
+.container-players{
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 900px;
+  top: 25%;
+
+}
+
+.container-players h2{
+  color: rgb(141, 14, 14);
+}
+
+#container-player1 h1, #container-player2 h1{
+  color: rgb(141, 14, 14);
+  background-color: rgba(255, 255, 0, 0.767);
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+#container-player1 h1{
+  margin-left: 20px;
+}
+#container-player2 h1{
+  margin-right: 15px;
+}
+
+#container-player1 h2, #container-player2 h2{
+  width: 180px;
+  height: 260px;
+  text-align: center;
+  padding-top: 10px;
+  background-color: #fdfdfd96;
+  border-radius: 20px;
+}
+
+#container-player1 h2{
+  margin-left: 25px;
+}
+
+#container-player2 h2{
+  margin-left: 5px;
+}
+
+#container-player1{
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+#container-player2{
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+
+
+
+#canvas-juego{
+  background-image: url(../images/fondoTablero1.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 3px solid red;
 }
 
 .menu-seleccion{
@@ -1301,26 +1391,27 @@ input {
   justify-content: space-evenly;
 
 }
-.menu-ficha-seleccion{
+
+.menu-ficha-seleccion {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 
 }
+
 .conteiner-jugando-centro {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
 }
-.juego-div{
-  position:relative;
+
+.juego-div {
+  position: relative;
 }
 
-#btn-jugar{
-  
-}
+#btn-jugar {}
 
 .titulo-juego {
   display: flex;
@@ -1356,18 +1447,18 @@ input {
     top:80%;
     left: 50%;
     transform: translateX(-50%); 
-    background-color: #ff5733;
+    background-color: #e4320a;
     color: white;
     border: none;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: background-color 0.3s ease;
 }
 
 .start-button:hover {
-  background-color: #c4451f;
+  background-color: #e44d2bfb;
 }
 
 
@@ -1376,7 +1467,7 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 195px;
+  margin-top: 110px;
   margin-right: 20px;
   margin-left: 20px;
   padding: 10px 20px;
