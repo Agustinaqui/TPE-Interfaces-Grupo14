@@ -78,7 +78,7 @@ for (let i = 0; i < fichas_seleccionables.length; i++) {
 
 
 btn_mas.addEventListener("click", () => {
-    if (x < 10) {
+    if (x < 7) {
         x++;
         Xenlinea.innerText = x;
     }
@@ -109,10 +109,12 @@ btn_jugar.addEventListener("click", () => {
     tableroImage.src = '../images/iconos/casilleroNaranja1.png';
 
     tableroImage.onload = () => {
-        const game = new Juego(x,tableroImage, name1, name2, img1, img2);
+        const game = new Juego(x, tableroImage, name1, name2, img1, img2);
 
         game.jugar();
+        game.redibujarCanvas()
     }
+    
 })
 
 function comenzar() {
@@ -137,12 +139,10 @@ class Juego {
 
     jugar() {
 
-
         const canvas = document.getElementById("canvas-juego");
         canvas.classList.remove("hidden");
         //document.getElementById("container-player1").classList.remove("hidden");
         //document.getElementById("container-player2").classList.remove("hidden");
-        this.redibujarCanvas(ctx);
 
 
         canvas.addEventListener("mousedown", (e) => {
@@ -164,29 +164,62 @@ class Juego {
                 }
                 i--;
             }
-            
-        })
 
+            if (fichaActiva) {
+                this.tablero.casillasDrop.forEach(dropArea => {
+                    dropArea.visible = true;
+                })
+                // Mover la ficha
+                fichaActiva.x = mouseX ;
+                fichaActiva.y = mouseY ;
+
+            }
+            this.redibujarCanvas()
+
+        })
 
         // Evento mousemove (mover el mouse)
         canvas.addEventListener('mousemove', (e) => {
             if (fichaActiva) { // Si hay una ficha arrastrada
                 const { offsetX: mouseX, offsetY: mouseY } = e;
                 // Mover la ficha
-                fichaActiva.x = mouseX - offSetX;
-                fichaActiva.y = mouseY - offSetY;
-                this.redibujarCanvas(); // Redibujar el tablero con las nuevas posiciones
+                fichaActiva.x = mouseX ;
+                fichaActiva.y = mouseY ;
+
+                let i = 0;
+                let isInside = false;
+
+                while (i < this.tablero.casillasDrop.length && !isInside) {
+                    const dropArea = this.tablero.casillasDrop[i];
+
+                    isInside = dropArea.isPointInsideSquare(mouseX, mouseY);
+
+                    if(!isInside){
+                        i++;
+                    }
+                }
+
+                if (isInside) {
+                    const dropArea =this.tablero.casillasDrop[i];
+                    fichaActiva.x = dropArea.posx +27.5;
+                    fichaActiva.y = dropArea.posy +27.5;
+                }
+            this.redibujarCanvas(); // Redibujar el tablero con las nuevas posiciones
+
             }
+
         });
 
-
         canvas.addEventListener('mouseup', () => {
-            if ( /* si esta fuera de drop area */ true) {
+            if ( /* si esta fuera de drop area */ fichaActiva && true) {
                 fichaActiva.x = fichaActiva.initialX
                 fichaActiva.y = fichaActiva.initialY
             }
 
             if (fichaActiva) {
+                this.tablero.casillasDrop.forEach(dropArea => {
+                    dropArea.visible = false;
+                })
                 fichaActiva.isDragging = false;
                 fichaActiva = null;
             }
@@ -204,6 +237,7 @@ class Juego {
             
         }) */
 
+
     }
 
     redibujarCanvas() {
@@ -213,7 +247,7 @@ class Juego {
         this.fichero2.draw();
 
         [...this.fichero1.fichas, ...this.fichero2.fichas].forEach(ficha => {
-            if(ficha.colocada){
+            if (ficha.colocada) {
                 ficha.draw(ctx)
             }
         });
@@ -221,10 +255,10 @@ class Juego {
         this.tablero.draw();
 
         [...this.fichero1.fichas, ...this.fichero2.fichas].forEach(ficha => {
-            if( ! ficha.colocada){
+            if (!ficha.colocada) {
                 ficha.draw(ctx)
             }
         });
-        
+
     }
 }

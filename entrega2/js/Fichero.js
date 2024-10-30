@@ -6,7 +6,7 @@ class Fichero {
         this.player = player;
         this.posx = posx;
         this.posy = posy;
-        this.width =  175; 
+        this.width = 175;
         this.height = 225;
         this.nombre = nombre;
         this.fichaImg = fichaImg;
@@ -54,7 +54,7 @@ class Fichero {
             /* fichero width / 2 - ficha width /2 para encontrar la posicion x correcta */
 
             const ficha = new Ficha(fichaX, fichaY, 25, this, fichaIndex);
-            
+
             this.fichas.push(ficha);
 
             fichaY -= fichaVerticalGap;
@@ -68,19 +68,39 @@ class Fichero {
 
     draw() {
 
-        const fillColor = 'rgba(255, 239, 114, 0.9)'; // Naranja con transparencia (rgba)
-
+        /* Dibujamos el fichero */
+        const fillColor = 'rgba(255, 239, 114, 0.9)'; // Amarillo con transparencia (rgba)
         // Rellenar el rectángulo con el color y transparencia
         this.ctx.fillStyle = fillColor;
         this.drawRoundedRect(this.posx, this.posy, this.width, this.height, 20);
         this.ctx.fill();
 
+        /* Dibujamos el rectangulo del nombre */
+        
+        const rectX = this.posx; // Posición X del rectángulo
+        const rectY = this.posy - 100; // Posición Y del rectángulo
+        const rectWidth = this.width; // Ancho del rectángulo
+        const rectHeight = 60; // Alto del rectángulo
+        this.drawRoundedRect(rectX, rectY, rectWidth, rectHeight, 20);
+        this.ctx.fillStyle = fillColor;
+        this.ctx.fill();
 
+        
+        /* Dibujamos el texto del nombre */
+        const title = this.nombre; // Texto del título
+        const textWidth = this.ctx.measureText(title).width;
+        const textX = rectX + (rectWidth - textWidth) / 2; // Centra horizontalmente
+        const textY = rectY + (rectHeight / 2) + 10;
+        
+        this.ctx.fillStyle = "#751500"; // Color del texto
+        this.ctx.font = "bold 30px Arial";   // Tamaño y fuente del texto
+        
+        this.ctx.fillText(title, textX, textY);
 
     }
 
     drawRoundedRect(x, y, width, height, radius) {
-
+        
         this.ctx.beginPath();
         this.ctx.moveTo(x + radius, y);
         this.ctx.lineTo(x + width - radius, y);

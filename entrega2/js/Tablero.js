@@ -9,22 +9,36 @@ class Tablero {
         this.casillas = [];
         this.cellImage = img;
         this.ctx = ctx;
+        this.casillasDrop = [];
 
         // Calcular el tamaño de los casilleros
-        this.cellSize = 380 / this.MAXFILAS;
-
+        this.cellSize = 350 / this.MAXFILAS;
+        
         // Calculo cuanto corro el tablero dentro del canvas
         this.offSetX = (this.canvas.width - this.MAXCOLS * this.cellSize) / 2;
-        this.offSetY = 110;
+        this.offSetY = 140;
+
+        const dropAreaGap = 2.5;
+        const dropAreaSize = this.cellSize - 5;
+        let dropAreaX = this.offSetX+dropAreaGap;
+        const dropAreaY = this.offSetY - dropAreaSize - dropAreaGap;
+
+        for (let i = 0; i < this.MAXCOLS; i++) {
+            
+            const dropArea = new CasillaDrop(dropAreaX,dropAreaY,dropAreaSize,dropAreaSize,this.ctx);
+            this.casillasDrop.push(dropArea);
+            dropAreaX+=dropAreaSize + dropAreaGap*2;
+            
+        }
     }
 
     getFichasCount() {
         return this.fichasCount;
     }
 
+    
 
     draw() {
-
 
         // Dibujar el tablero con la imagen de casillero
         for (let fila = 0; fila < this.MAXFILAS; fila++) {
@@ -39,6 +53,11 @@ class Tablero {
 
             }
         };
+
+
+        this.casillasDrop.forEach(dropArea =>{ 
+            dropArea.draw();
+        })
         /*
         // Dibujar el tablero
         for (let fila = 0; fila < this.MAXFILAS; fila++) {

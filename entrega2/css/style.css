@@ -1063,16 +1063,16 @@ input {
 }
 
 .ficha1{
-  background-color: #414141;
+  background-color: #777777;
 }
 .ficha2{
-  background-color: rgb(180, 154, 35);
+  background-color: rgb(241, 207, 51);
 }
 .ficha3{
-  background-color: #04031d;
+  background-color: #1c1a47;
 }
 .ficha4{
-  background-color: rgb(70, 0, 0);
+  background-color: rgb(87, 6, 6);
 }
 
 /* Estilo para el botón jugar */
