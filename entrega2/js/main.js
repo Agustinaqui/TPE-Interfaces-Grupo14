@@ -374,7 +374,9 @@ function crearCard(juego) {
         btnVentaClass = "btn-venta";
     }
 
-    let link = juego.nombre == "4 en linea" ? "./html/juego.html" : "#";
+    let link = juego.nombre == "4 en linea" ? "<a href='./html/juego.html'>" : "";
+    let linkCierre = juego.nombre == "4 en linea" ? "</a>" : "";
+
     let priceText = juego.precio > 0 ? "$" + juego.precio : "Free";
 
     let favTagFondo = juego.fav ? "tag-fav-blanco.png" : "tag-fav-gris.png"
@@ -408,13 +410,13 @@ function crearCard(juego) {
                         <div class="card-bottom">
 
                             <h3 class="card-titulo">${juego.nombre}</h3>
-                            <a href="${link}">
+                            ${link}
                             <div class="cardBotonPlay ${btnVentaClass}" id="gamecard-${juegosCount++}">
                                 
 
                                 <img src="./images/iconos/${playBotonIcon}" alt="">
                             </div>
-                            </a>
+                            ${linkCierre}
                         </div>
 
 
