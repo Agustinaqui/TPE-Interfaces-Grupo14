@@ -509,13 +509,24 @@ img.card-tag-fav-icono {
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: all 0.3s ease-in-out;
+}
+
+.botonRegistrar::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0,.5), rgba(255,255,255,0));
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .botonRegistrar:hover {
   background-color: #c434dd;
-  transform: scale(1.1);
-  color: #ffffff;
+  transform: scale(1.1) rotateY(360deg);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
 }
 
 .botonRegistrar:active {
