@@ -11,6 +11,8 @@ class Fichero {
         this.nombre = nombre;
         this.fichaImg = fichaImg;
         this.turno = turno;
+        this.fillColor = 'rgba(255, 239, 114, 0.9)'; // Amarillo con transparencia (rgba)
+
         this.ctx = ctx;
         this.fichasCount = fichasCount;
         this.fichas = [];
@@ -53,7 +55,7 @@ class Fichero {
         for (let fichaIndex = 0; fichaIndex < this.fichasCount; fichaIndex++) {
             /* fichero width / 2 - ficha width /2 para encontrar la posicion x correcta */
 
-            const ficha = new Ficha(fichaX, fichaY, 25, this, fichaIndex);
+            const ficha = new Ficha(this.player, fichaX, fichaY, 25, this, fichaIndex);
 
             this.fichas.push(ficha);
 
@@ -69,22 +71,20 @@ class Fichero {
     draw() {
 
         /* Dibujamos el fichero */
-        const fillColor = 'rgba(255, 239, 114, 0.9)'; // Amarillo con transparencia (rgba)
         // Rellenar el rectángulo con el color y transparencia
-        this.ctx.fillStyle = fillColor;
+        this.ctx.fillStyle = this.fillColor;
         this.drawRoundedRect(this.posx, this.posy, this.width, this.height, 20);
         this.ctx.fill();
 
-        /* Dibujamos el rectangulo del nombre */
         
+        /* Dibujamos el rectangulo del nombre */
         const rectX = this.posx; // Posición X del rectángulo
         const rectY = this.posy - 100; // Posición Y del rectángulo
         const rectWidth = this.width; // Ancho del rectángulo
         const rectHeight = 60; // Alto del rectángulo
+        this.ctx.fillStyle = this.fillColor;
         this.drawRoundedRect(rectX, rectY, rectWidth, rectHeight, 20);
-        this.ctx.fillStyle = fillColor;
         this.ctx.fill();
-
         
         /* Dibujamos el texto del nombre */
         const title = this.nombre; // Texto del título

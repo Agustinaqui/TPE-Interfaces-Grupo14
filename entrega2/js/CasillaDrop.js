@@ -1,18 +1,19 @@
 class CasillaDrop {
-    constructor(posx, posy, width, height, ctx) {
+    constructor(posx, posy,gap, width, height, ctx) {
         this.posx = posx;
         this.posy = posy;
+        this.gap = gap;
         this.width = width;
         this.height = height;
         this.ctx = ctx;
+        this.fillColor = 'rgba(152, 231, 143, 0.75)';
         this.visible = false;
     }
 
     draw() {
         if (this.visible) {
-            const fillColor = 'rgba(152, 231, 143, 0.75)'
-            
-            this.ctx.fillStyle = fillColor;
+
+            this.ctx.fillStyle = this.fillColor;
             ctx.fillRect(this.posx, this.posy, this.width, this.height)
             this.ctx.fill();
         }

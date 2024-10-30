@@ -25,11 +25,29 @@ class Tablero {
 
         for (let i = 0; i < this.MAXCOLS; i++) {
             
-            const dropArea = new CasillaDrop(dropAreaX,dropAreaY,dropAreaSize,dropAreaSize,this.ctx);
+            const dropArea = new CasillaDrop(dropAreaX,dropAreaY,dropAreaGap,dropAreaSize,dropAreaSize,this.ctx);
             this.casillasDrop.push(dropArea);
             dropAreaX+=dropAreaSize + dropAreaGap*2;
             
         }
+
+        for (let fila = 0; fila < this.MAXFILAS; fila++) {
+
+            const filaCasillas = [];
+
+            for (let col = 0; col < this.MAXCOLS; col++) {
+                // Posición de cada casillero
+                const x = (col * this.cellSize) + this.offSetX;
+                const y = (fila * this.cellSize) + this.offSetY;
+
+                const casilla = new Casilla(x, y, ctx, this.cellImage, null, this.cellSize);
+
+                filaCasillas.push(casilla);
+                
+            }
+
+            this.casillas.push(filaCasillas);
+        };
     }
 
     getFichasCount() {
@@ -37,6 +55,25 @@ class Tablero {
     }
 
     
+    drawDropAreas(){
+        this.casillasDrop.forEach(dropArea =>{ 
+            dropArea.draw();
+        })
+    }
+
+    getLowerCasillaByIndex(col){
+        let fila = this.MAXFILAS-1;
+        while(fila >= 0 && this.casillas[fila][col].ficha){
+            fila--;
+        }
+
+        if(fila < 0){
+            return null;
+        }
+
+        return this.casillas[fila][col];
+
+    }
 
     draw() {
 
@@ -44,20 +81,11 @@ class Tablero {
         for (let fila = 0; fila < this.MAXFILAS; fila++) {
 
             for (let col = 0; col < this.MAXCOLS; col++) {
-                // Posición de cada casillero
-                const x = (col * this.cellSize) + this.offSetX;
-                const y = (fila * this.cellSize) + this.offSetY;
-
-                // Dibujar la imagen del casillero
-                ctx.drawImage(this.cellImage, x, y, this.cellSize, this.cellSize);
-
+                this.casillas[fila][col].draw()
             }
         };
 
-
-        this.casillasDrop.forEach(dropArea =>{ 
-            dropArea.draw();
-        })
+        
         /*
         // Dibujar el tablero
         for (let fila = 0; fila < this.MAXFILAS; fila++) {

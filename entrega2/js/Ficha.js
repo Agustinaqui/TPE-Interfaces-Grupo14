@@ -1,6 +1,7 @@
 
         class Ficha {
-            constructor(x, y, radio, fichero, id) {
+            constructor(player,x, y, radio, fichero, id) {
+                this.player = player
                 this.initialX = x;
                 this.id = id;
                 this.x = x;

@@ -1,19 +1,18 @@
 
-/* class Casilla {
+class Casilla {
 
-    constructor(ficha, ctx) {
-        this.ficha = ficha;
+    constructor(x,y,ctx,imagen,ficha,cellSize) {
+        this.posx = x;
+        this.posy = y;
         this.ctx = ctx
-        this.casilleroImg = "../images/iconos/CasilleroImg.png";
+        this.imagen = imagen;
+        this.ficha = ficha;
+        this.cellSize = cellSize;
     }
 
     draw() {
-
-        let img = new Image();
-        img.src = "../images/iconos/CasilleroRosa.png";
-        let image = this.ctx.createPattern(img, "no-repeat");
-        this.ctx.rect(0, 0, 500, 500);
-        this.ctx.fillStyle = image;
-        this.ctx.fill();
+        // Dibujar la imagen del casillero
+        ctx.drawImage(this.imagen, this.posx, this.posy, this.cellSize, this.cellSize);
+        
     }
-} */
+}

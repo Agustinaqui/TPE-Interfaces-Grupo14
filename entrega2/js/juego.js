@@ -10,11 +10,13 @@ let player2_selected = false;
 const Xenlinea = document.getElementById("X-en-linea");
 Xenlinea.innerText = x;
 
+let playerTurno = 1;
 let mouseDown = false;
-let inDropArea = false;
 let fichaActiva = null;
 let offSetX;
 let offSetY;
+let isInside = false;
+let indiceDropArea = 0;
 
 const menu_inicial_node = document.getElementById("menu-inicial");
 
@@ -106,7 +108,7 @@ btn_jugar.addEventListener("click", () => {
     const img2 = player_2_ficha_node.src;
 
     const tableroImage = new Image();
-    tableroImage.src = '../images/iconos/casilleroNaranja1.png';
+    tableroImage.src = '../images/iconos/CasilleroImg.png';
 
     tableroImage.onload = () => {
         const game = new Juego(x, tableroImage, name1, name2, img1, img2);
@@ -114,7 +116,7 @@ btn_jugar.addEventListener("click", () => {
         game.jugar();
         game.redibujarCanvas()
     }
-    
+
 })
 
 function comenzar() {
@@ -157,10 +159,16 @@ class Juego {
             while (i >= 0 && !fichaActiva) {
                 const ficha = fichasAll[i];
                 if (ficha.contienePunto(mouseX, mouseY)) {
-                    fichaActiva = ficha;
-                    offSetX = mouseX - ficha.x; // Diferencia X entre el clic y el centro de la ficha
-                    offSetY = mouseY - ficha.y; // Diferencia Y entre el clic y el centro de la ficha
-                    ficha.isDragging = true;    // Marcar que la ficha está siendo arrastrada
+                    if (ficha.colocada) {
+                        return;
+                    }
+                    if (playerTurno == ficha.player) {
+
+                        fichaActiva = ficha;
+                        offSetX = mouseX - ficha.x; // Diferencia X entre el clic y el centro de la ficha
+                        offSetY = mouseY - ficha.y; // Diferencia Y entre el clic y el centro de la ficha
+                        ficha.isDragging = true;    // Marcar que la ficha está siendo arrastrada
+                    }
                 }
                 i--;
             }
@@ -170,8 +178,8 @@ class Juego {
                     dropArea.visible = true;
                 })
                 // Mover la ficha
-                fichaActiva.x = mouseX ;
-                fichaActiva.y = mouseY ;
+                fichaActiva.x = mouseX;
+                fichaActiva.y = mouseY;
 
             }
             this.redibujarCanvas()
@@ -183,40 +191,69 @@ class Juego {
             if (fichaActiva) { // Si hay una ficha arrastrada
                 const { offsetX: mouseX, offsetY: mouseY } = e;
                 // Mover la ficha
-                fichaActiva.x = mouseX ;
-                fichaActiva.y = mouseY ;
+                fichaActiva.x = mouseX;
+                fichaActiva.y = mouseY;
 
-                let i = 0;
-                let isInside = false;
 
-                while (i < this.tablero.casillasDrop.length && !isInside) {
-                    const dropArea = this.tablero.casillasDrop[i];
+                //const dropArea = this.tablero.getDropAreaInPoint(mouseX, mouseY)
+                isInside = false;
+                indiceDropArea = 0;
+
+                while (indiceDropArea < this.tablero.casillasDrop.length && !isInside) {
+                    const dropArea = this.tablero.casillasDrop[indiceDropArea];
 
                     isInside = dropArea.isPointInsideSquare(mouseX, mouseY);
 
-                    if(!isInside){
-                        i++;
+                    if (!isInside) {
+                        indiceDropArea++;
                     }
                 }
 
+                const dropArea = this.tablero.casillasDrop[indiceDropArea];
+
                 if (isInside) {
-                    const dropArea =this.tablero.casillasDrop[i];
-                    fichaActiva.x = dropArea.posx +27.5;
-                    fichaActiva.y = dropArea.posy +27.5;
+                    fichaActiva.x = dropArea.posx + (dropArea.width / 2) /* + dropArea.gap */;
+                    fichaActiva.y = dropArea.posy + (dropArea.width / 2) /* + dropArea.gap */;
+                    fichaActiva.radio = dropArea.width / 2;
+                } else {
+                    fichaActiva.radio = fichaActiva.initialRadio;
+
                 }
-            this.redibujarCanvas(); // Redibujar el tablero con las nuevas posiciones
+
+                this.redibujarCanvas(); // Redibujar el tablero con las nuevas posiciones
 
             }
 
         });
 
         canvas.addEventListener('mouseup', () => {
-            if ( /* si esta fuera de drop area */ fichaActiva && true) {
-                fichaActiva.x = fichaActiva.initialX
-                fichaActiva.y = fichaActiva.initialY
-            }
 
             if (fichaActiva) {
+
+                fichaActiva.x = fichaActiva.initialX
+                fichaActiva.y = fichaActiva.initialY
+                fichaActiva.radio = fichaActiva.initialRadio;
+
+                if (isInside) {
+                    /* buscar la fila  */
+                    const casilla = this.tablero.getLowerCasillaByIndex(indiceDropArea);
+
+                    if (casilla) {
+                        const dropArea = this.tablero.casillasDrop[indiceDropArea];
+
+                        fichaActiva.x = casilla.posx + (casilla.cellSize / 2)
+                        fichaActiva.y = casilla.posy + (casilla.cellSize / 2)
+                        fichaActiva.radio = dropArea.width / 2;
+
+                        fichaActiva.colocada = true;
+                        casilla.ficha = fichaActiva;
+
+                        //console.log(this.checkWin());
+
+                        playerTurno = playerTurno == 1 ? 2 : 1;
+                    }
+                }
+
                 this.tablero.casillasDrop.forEach(dropArea => {
                     dropArea.visible = false;
                 })
@@ -240,8 +277,42 @@ class Juego {
 
     }
 
+    checkWin(row, col) {
+        return this.checkDirection(row, col, 1, 0) || // Horizontal
+           this.checkDirection(row, col, 0, 1) || // Vertical
+           this.checkDirection(row, col, 1, 1) || // Diagonal ↘
+           this.checkDirection(row, col, 1, -1) || // Diagonal ↙
+           this.checkDirection(row, col, -1, 1) ||
+           this.checkDirection(row, col, -1, -1);
+    }
+
+    checkDirection(row, col, rowIncrement, colIncrement) {
+        let count = 1; // Cuenta la ficha inicial
+
+        for (let i = 1; i < x; i++) {
+            const newRow = row + i * rowIncrement;
+            const newCol = col + i * colIncrement;
+            if (newRow < 0 || newRow >= this.tablero.MAXFILAS || newCol < 0 || newCol >= this.tablero.MAXCOLS || this.tablero.casillas[newRow][newCol].ficha || isNaN(this.tablero.casillas[newRow][newCol].ficha.player)  ) break;
+            
+            if(this.tablero.casillas[newRow][newCol].ficha && this.tablero.casillas[newRow][newCol].ficha.player == playerTurno){
+                count++;
+            }
+        }
+        for (let i = 1; i < x; i++) {
+            const newRow = row - i * rowIncrement;
+            const newCol = col - i * colIncrement;
+            if (newRow < 0 || newRow >= this.tablero.MAXFILAS || newCol < 0 || newCol >= this.tablero.MAXCOLS || this.tablero.casillas[newRow][newCol].ficha || isNaN(this.tablero.casillas[newRow][newCol].ficha.player)  ) break;
+            
+            if(this.tablero.casillas[newRow][newCol].ficha && this.tablero.casillas[newRow][newCol].ficha.player == playerTurno){
+                count++;
+            }
+        }
+        return count >= x;
+    }
     redibujarCanvas() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        this.tablero.drawDropAreas();
 
         this.fichero1.draw();
         this.fichero2.draw();
