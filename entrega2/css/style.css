@@ -789,18 +789,17 @@ ul img {
 .conteiner-izquierda {
   display: flex;
   align-items: center;
-  width: 20%;
 }
 
 .conteiner-derecha {
   display: flex;
   padding: 0px;
-  width: 20%;
+  margin-left: 80px;
+  margin-right: 30px;
 }
 
 .conteiner-medio {
   display: flex;
-  width: 60%;
   align-items: center;
   justify-content: center;
 }
@@ -889,11 +888,10 @@ ul img {
   padding-bottom: 10px;
 }
 
-.menu {
+.menu{
   position: absolute;
   top: 45px;
   width: 100vw;
-  padding-bottom: 36px;
   border-bottom: 1px solid #140633;
   background-color: #04031d;
   z-index: 1000;
@@ -904,6 +902,7 @@ ul img {
   width: 15px;
   height: 15px;
 }
+
 
 .menu-list {
   border-color: #140633;
@@ -946,6 +945,16 @@ ul img {
   display: flex;
   align-items: center;
   margin-bottom: 8px;
+}
+
+
+.category-item{
+  transition: transform 0.3s ease-in-out;
+}
+
+.category-item:hover{
+  transform: scale(1.1);
+  
 }
 
 .category-item span {
@@ -1164,8 +1173,10 @@ input {
   .menu {
     width: 275px;
     top: 90px;
+    
+    margin: 0;
+    padding: 0;
     left: 0;
-    padding-bottom: 36px;
     border-right: 1px solid #140633;
     z-index: 1000;
   }
