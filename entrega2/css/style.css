@@ -19,6 +19,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0%;
+  
 }
 
 h1 {
@@ -792,6 +793,9 @@ ul img {
   width: 20%;
 }
 
+form{
+  position: relative;
+}
 .conteiner-derecha {
   display: flex;
   padding: 0px;
@@ -824,7 +828,7 @@ ul img {
 #carrito-text {
   display: inline;
   position: absolute;
-  left: 1.7rem;
+  left: 3.5rem;
   text-align: center;
   width: 1rem;
   height: 1rem;
@@ -891,6 +895,7 @@ ul img {
 
 .menu {
   position: absolute;
+  height: calc(100vh-90px-573.14px);
   top: 45px;
   width: 100vw;
   padding-bottom: 36px;

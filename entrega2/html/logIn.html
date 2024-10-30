@@ -260,27 +260,27 @@
             <div class="formulario">
                 <img src="../images/iconoUser-removebg-preview.png" class="iconoUser" alt="">
                 <h1>Registrate</h1>
-                <form class="formularioRegistro" id="formRegister">
+                <form  class="formularioRegistro" id="form-registro">
                     <label for="nombre" class="textoLabel">Nombre:</label>
-                    <input type="text" title="nombre" class="inputRegistro">
+                    <input type="text" title="Nombre" class="inputRegistro">
                     <label for="apellido" class="textoLabel">Apellido:</label>
-                    <input type="text" title="apellido" class="inputRegistro">
+                    <input type="text" title="Apellido" class="inputRegistro">
                     <label for="nickname" class="textoLabel">Nickname:</label>
-                    <input type="text" title="nickname" class="inputRegistro">
-                    <label for="edad" class="textoLabel">Edad:</label>
-                    <input type="number" title="edad" class="inputRegistro">
+                    <input type="text" required title="Nickname" class="inputRegistro">
+                    <label for="edad"  class="textoLabel">Edad:</label>
+                    <input type="number" required title="Edad" class="inputRegistro">
                     <label for="Email" class="textoLabel">Email:</label>
-                    <input type="email" title="Email" class="inputRegistro">
-                    <label for="contraseña" class="textoLabel">Contraseña:</label>
-                    <input type="password" title="contraseña" class="inputRegistro">
+                    <input type="email" required title="Email" class="inputRegistro">
+                    <label for="paswword" class="textoLabel">Contraseña:</label>
+                    <input type="password" required title="Password" class="inputRegistro">
                     <label for="repetirContraseña" class="textoLabel">Repetir contraseña:</label>
-                    <input type="password" title="repetirContraseña" class="inputRegistro">
+                    <input type="password" required title="RepetirPassword" class="inputRegistro">
                 </form>
                 <div class="contenedorBajoForm">
                     <div class="contenedorRecaptcha">
                         <img src="../images/recaptcha.jpg" class="recaptcha" alt="" style="cursor: pointer">
                     </div>
-                    <button class="botonRegistrar">Registrarse</button>
+                    <button class="botonRegistrar" id="btn-registro">Registrarse</button>
                     <p class="link2" id="switchToLogin">Inicia Sesión</p>
                     <p>O ingresa con tus redes</p>
                     <div class="contenedorRedesRegistrar">
@@ -291,20 +291,20 @@
             </div>
         </div>
         <div class="contenedorFormulario hidden" id="contenedorFormularioLogin">
-            <div class="formulario" id="formLogin">
+            <div class="formulario" >
                 <img src="../images/iconoUser-removebg-preview.png" class="iconoUser" alt="">
                 <h1>Inicia Sesión</h1>
-                <form class="formularioRegistro">
-                    <label for="email" class="textoLabel">Email:</label>
-                    <input type="email" title="email" class="inputRegistro">
-                    <label for="contraseña" class="textoLabel">Contraseña:</label>
-                    <input type="password" title="contraseña" class="inputRegistro">
+                <form id="form-login" class="formularioRegistro">
+                    <label for="email"  class="textoLabel">Email:</label>
+                    <input type="email" required title="email" class="inputRegistro">
+                    <label for="paswword" class="textoLabel">Contraseña:</label>
+                    <input type="password" required title="Paswword" class="inputRegistro">
                 </form>
                 <div class="contenedorBajoForm">
                     <div class="contenedorRecaptcha">
                         <img src="../images/recaptcha.jpg" class="recaptcha" alt="" style="cursor: pointer">
                     </div>
-                    <button class="botonRegistrar">Iniciar Sesión</button>
+                    <button class="botonRegistrar" id="btn-login">Iniciar Sesión</button>
                     <p class="link2" id="switchToRegister">Registrate</p>
                     <p>O ingresa con tus redes</p>
                     <div class="contenedorRedesRegistrar">
