@@ -42,7 +42,7 @@
                     <div class="conteiner-derecha">
                         <li class="logoCarrito">
                             <img id="imgCarrito" src="../images/iconos/carritoVacio.png" alt="">
-                            <p id="carrito-text"></p>
+                            <p id="carrito-text" class="hidden"></p>
                         </li>
                         <li class="logoUsuario">
                             <div class="botonMenuPerfil">
@@ -94,7 +94,7 @@
                     <img class="iconoMenuPerfil" src="../images/menuPerfil/redes-sociales.png" alt="">
                 </div>
                 <div class="elementoMenuPerfil">
-                    <a class="tituloMenu" href="./html/logIn.html">Cerrar Sesión</a>
+                    <a class="tituloMenu" href="./logIn.html">Cerrar Sesión</a>
                     <img class="iconoMenuPerfil" src="../images/menuPerfil/cerrar-sesion.png" alt="">
                 </div>
             </div>
@@ -359,7 +359,15 @@
             </div>
         </div>
     </header>
-
+    <div class="bredcrumbs">
+        <h4><a id="breadcrumbTitulo1" href="../index.html">Inicio</a></h4>
+        <h4>/</h4>
+        <h4><a id="breadcrumbTitulo1" href="../index.html">Categoría</a></h4>
+        <h4>/</h4>
+        <h4><a id="breadcrumbTitulo1" href="../index.html">Estrategia</a></h4>
+        <h4>/</h4>
+        <h4 id="breadcrumbTitulo2" class="cuatroLinea">4 en Línea Superhéroes</h4>
+    </div>
         <div class="jugando">
             <div class="conteiner-jugando-izquierda">
 
@@ -375,15 +383,6 @@
                 <p>• Turnos alternos: Espera a que el otro jugador realice su movimiento para continuar.</p>
             </div>
             <div class="conteiner-jugando-centro">
-                <div class="bredcrumbs">
-                    <h4><a href="../index.html">Inicio</a></h4>
-                    <h4>➜</h4>
-                    <h4><a href="../index.html">Categoria</a></h4>
-                    <h4>➜</h4>
-                    <h4><a href="../index.html">Estrategia</a></h4>
-                    <h4>➜</h4>
-                    <h4 class="cuatroLinea">4 en Línea Súperheroes</h4>
-                </div>
                 <div class="titulo-juego">
                     <h1>4 en Línea Súperheroes</h1>
                 </div>
@@ -764,6 +763,7 @@
             </div>
 
             <div class="seccionFooterMedia">
+                <div class="seccionInfo">
                 <div class="textoFooter">
                     <h2>Acerca de Pixel Games</h2>
                     <p>En Pixel Games, nos apasionan los videojuegos retro y modernos. Ofrecemos una amplia colección de
@@ -772,27 +772,33 @@
                         los icónicos juegos pixelados hasta los más recientes lanzamientos, nuestra misión es brindarte
                         horas de entretenimiento sin límites.</p>
                 </div>
+                <div class="links2Footer">
                 <div class="textoFooter" id="textoFooterHidden">
-                    <h2>Juega en Línea los Juegos del Momento</h2>
-                    <p>¿Estás listo para sumergirte en la acción? Conéctate y disfruta de los <a href=""
-                            class="link2">juegos más populares del momento</a>, desde emocionantes batallas multijugador
-                        hasta aventuras épicas que te mantendrán al borde del asiento. Nuestro catálogo está repleto de
-                        títulos que dominan las listas de tendencias, ¡y todos están a solo un clic de distancia!</p>
-                </div>
-                <div class="textoFooter" id="textoFooterHidden">
-                    <h2>Ofertas y Descuentos Exclusivos</h2>
-                    <p>¡No dejes pasar nuestras increíbles <a href="" class="link2">ofertas!</a> En nuestra plataforma,
-                        siempre encontrarás descuentos especiales en tus juegos favoritos, contenido adicional, y
-                        artículos
-                        exclusivos. Desde paquetes con precios reducidos hasta promociones temporales, cada semana
-                        tenemos
-                        algo nuevo para ofrecerte.</p>
-                    <p>Si eres fanático de los juegos, esta es tu oportunidad para obtener el mejor contenido al mejor
-                        precio. Únete a nuestra comunidad de jugadores que ya están disfrutando de estos beneficios y
-                        mantente al tanto de todas las promociones exclusivas que tenemos preparadas para ti.</p>
+                    <h2>Información Relevante</h2>
+                    <div class="linksFooter" id="linksFooter2">
+                        <div class="links2">
+                        <a href="" class="link">Asistencia Técnica</a>
+                        <a href="" class="link">Chat en Vivo</a>
+                        <a href="" class="link">Enviar un Ticket</a>
+                        <a href="" class="link">Comunidad/Foro</a>
+                        <a href="" class="link">Blog</a>
+                        <a href="" class="link">Accesibilidad</a>
+                        <a href="" class="link">Guías y Tutoriales</a>
+                    </div>
+                    
+                    <div class="links2">
+                        <a href="" class="link">Inversionistas</a>
+                        <a href="" class="link">Casos de Éxito</a>
+                        <a href="" class="link">Gestionar preferencias</a>
+                        <a href="" class="link">Nuestro equipo</a>
+                        <a href="" class="link">Relaciones de la Empresa</a>
+                        <a href="" class="link">Gestión de Cuentas Externas</a>
+                        <a href="" class="link">Propiedad Intelectual</a>
+                    </div>
+                    </div>
                 </div>
             </div>
-
+        </div>
             <div class="seccionFooterIzquierda">
                 <div class="IconosRedesFooter">
                     <div class="contenedorRedSocial">
