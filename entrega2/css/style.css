@@ -1348,7 +1348,7 @@ text-decoration: underline;
   margin-top: 0px;
   width:900px;
   height: 500px;
-  background-image: url(../images/superheroes2.jpg);
+  background-image: url(../images/fondoFuego.webp);
   background-repeat: no-repeat;  /* Evita que la imagen se repita */
   background-size: cover;        /* Ajusta la imagen al tamaño del contenedor */
   background-position: center;
@@ -1356,7 +1356,9 @@ text-decoration: underline;
 }
 
 .img-principal{
-  border: 3px solid red;
+  border: 1px solid black;
+  width: 900px;
+  height: 500px;
 }
 
 #menu-inicial{
@@ -1437,11 +1439,11 @@ text-decoration: underline;
 
 
 #canvas-juego{
-  background-image: url(../images/fondoTablero1.png);
+  background-image: url(../images/fondoFuego.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border: 3px solid red;
+  border: 1px solid rgba(255, 255, 255, 0.445);
 }
 
 .menu-seleccion{
@@ -1469,8 +1471,6 @@ text-decoration: underline;
 .juego-div {
   position: relative;
 }
-
-#btn-jugar {}
 
 .titulo-juego {
   display: flex;
