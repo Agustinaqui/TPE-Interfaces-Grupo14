@@ -27,7 +27,8 @@ const btn_menos = document.getElementById("X_en_linea_-");
 
 const player_1_ficha_node = document.getElementById("player-1-ficha");
 const player_2_ficha_node = document.getElementById("player-2-ficha");
-
+const player_1_name_input =document.getElementById("player-1-name")
+const player_2_name_input =document.getElementById("player-2-name")
 const juegoDivNodoContainer = document.getElementById("juego-div").getBoundingClientRect();
 
 
@@ -78,13 +79,14 @@ for (let i = 0; i < fichas_seleccionables.length; i++) {
 
 }
 
-
+/* incrementa x en linea hasta 7 */
 btn_mas.addEventListener("click", () => {
     if (x < 7) {
         x++;
         Xenlinea.innerText = x;
     }
 })
+/* decrementa x en linea hasta 4 */
 
 btn_menos.addEventListener("click", () => {
     if (x > 4) {
@@ -93,6 +95,7 @@ btn_menos.addEventListener("click", () => {
     }
 })
 
+/* Inicia el juego */
 btn_jugar.addEventListener("click", () => {
 
     if (!player1_selected || !player2_selected) {
@@ -101,12 +104,36 @@ btn_jugar.addEventListener("click", () => {
 
     menu_inicial_node.classList.add("hidden");
 
-    const name1 = document.getElementById("player-1-name").value;
-    const name2 = document.getElementById("player-2-name").value;
+    const name1 = player_1_name_input.value;
+    const name2 = player_2_name_input.value;
 
     const img1 = player_1_ficha_node.src;
     const img2 = player_2_ficha_node.src;
 
+    iniciarJuego(x, name1, name2, img1, img2);
+
+})
+
+function volverMenu(){
+    configuracionDefault()
+    
+}
+
+function configuracionDefault(){
+
+    x = 4;
+
+    Xenlinea.innerText = x;
+    player_1_name_input.value = "";
+    player_2_name_input.value = "";
+    player_1_ficha_node.src = "../images/iconos/nadie.jpg";
+    player_2_ficha_node.src = "../images/iconos/nadie.jpg";
+}
+
+/* Ejecuta una partida con los datos cargados */
+function iniciarJuego(x, name1, name2, img1, img2) {
+
+    //prepara imagen de tablero
     const tableroImage = new Image();
     tableroImage.src = '../images/iconos/CasilleroImg.png';
 
@@ -116,8 +143,7 @@ btn_jugar.addEventListener("click", () => {
         game.jugar();
         game.redibujarCanvas()
     }
-
-})
+}
 
 function comenzar() {
     document.getElementById("pantalla-inicial").classList.add("hidden");
@@ -279,11 +305,11 @@ class Juego {
 
     checkWin(row, col) {
         return this.checkDirection(row, col, 1, 0) || // Horizontal
-           this.checkDirection(row, col, 0, 1) || // Vertical
-           this.checkDirection(row, col, 1, 1) || // Diagonal ↘
-           this.checkDirection(row, col, 1, -1) || // Diagonal ↙
-           this.checkDirection(row, col, -1, 1) ||
-           this.checkDirection(row, col, -1, -1);
+            this.checkDirection(row, col, 0, 1) || // Vertical
+            this.checkDirection(row, col, 1, 1) || // Diagonal ↘
+            this.checkDirection(row, col, 1, -1) || // Diagonal ↙
+            this.checkDirection(row, col, -1, 1) ||
+            this.checkDirection(row, col, -1, -1);
     }
 
     checkDirection(row, col, rowIncrement, colIncrement) {
@@ -292,18 +318,18 @@ class Juego {
         for (let i = 1; i < x; i++) {
             const newRow = row + i * rowIncrement;
             const newCol = col + i * colIncrement;
-            if (newRow < 0 || newRow >= this.tablero.MAXFILAS || newCol < 0 || newCol >= this.tablero.MAXCOLS || this.tablero.casillas[newRow][newCol].ficha || isNaN(this.tablero.casillas[newRow][newCol].ficha.player)  ) break;
-            
-            if(this.tablero.casillas[newRow][newCol].ficha && this.tablero.casillas[newRow][newCol].ficha.player == playerTurno){
+            if (newRow < 0 || newRow >= this.tablero.MAXFILAS || newCol < 0 || newCol >= this.tablero.MAXCOLS || this.tablero.casillas[newRow][newCol].ficha || isNaN(this.tablero.casillas[newRow][newCol].ficha.player)) break;
+
+            if (this.tablero.casillas[newRow][newCol].ficha && this.tablero.casillas[newRow][newCol].ficha.player == playerTurno) {
                 count++;
             }
         }
         for (let i = 1; i < x; i++) {
             const newRow = row - i * rowIncrement;
             const newCol = col - i * colIncrement;
-            if (newRow < 0 || newRow >= this.tablero.MAXFILAS || newCol < 0 || newCol >= this.tablero.MAXCOLS || this.tablero.casillas[newRow][newCol].ficha || isNaN(this.tablero.casillas[newRow][newCol].ficha.player)  ) break;
-            
-            if(this.tablero.casillas[newRow][newCol].ficha && this.tablero.casillas[newRow][newCol].ficha.player == playerTurno){
+            if (newRow < 0 || newRow >= this.tablero.MAXFILAS || newCol < 0 || newCol >= this.tablero.MAXCOLS || this.tablero.casillas[newRow][newCol].ficha || isNaN(this.tablero.casillas[newRow][newCol].ficha.player)) break;
+
+            if (this.tablero.casillas[newRow][newCol].ficha && this.tablero.casillas[newRow][newCol].ficha.player == playerTurno) {
                 count++;
             }
         }
