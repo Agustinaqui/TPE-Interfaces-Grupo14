@@ -9,6 +9,7 @@ let player1_selected = false;
 let player2_selected = false;
 const Xenlinea = document.getElementById("X-en-linea");
 Xenlinea.innerText = x;
+let tiempo = 0; 
 
 let playerTurno = 1;
 let mouseDown = false;
@@ -17,6 +18,7 @@ let offSetX;
 let offSetY;
 let isInside = false;
 let indiceDropArea = 0;
+
 
 const menu_inicial_node = document.getElementById("menu-inicial");
 
@@ -124,19 +126,41 @@ function comenzar() {
     document.getElementById("menu-inicial").classList.remove("hidden");
 }
 
+function iniciarContador() {
+    setInterval(() => {
+        tiempo++;
+        redibujarContador(tiempo);
+    }, 1000); // Incrementa cada segundo
+}
+
+function redibujarContador(tiempo) {
+    // Obtén el contexto del canvas
+    const ctx = canvas.getContext("2d");
+    
+    // Limpia el área donde se dibuja el contador
+    ctx.clearRect(0, 0, canvas.width, 50); // Cambia 50 por la altura de tu contador
+
+    // Configura el estilo del texto
+    ctx.fillStyle = "black";
+    ctx.font = "20px Inter, sans serif"; 
+
+    // Dibuja el contador en el canvas
+    ctx.fillText(`Tiempo: ${tiempo} s`, 10, 30); 
+    }
+
+
 class Juego {
 
-    constructor(x, tableroImage, jug1, jug2, ficha1, ficha2) {
-        this.x = x;
-
-        this.tablero = new Tablero(x, tableroImage, canvas, ctx);
-
-        /* calcula cuantas fichas le corresponde a cada fichero */
-        let fichasCount = Math.ceil(this.tablero.getFichasCount() / 2);
-
-        this.fichero1 = new Fichero(1, x, jug1, ficha1, fichasCount, true, 25, 250, ctx);
-        this.fichero2 = new Fichero(2, x, jug2, ficha2, fichasCount, false, 700, 250, ctx);
-    }
+        constructor(x, tableroImage, jug1, jug2, ficha1, ficha2) {
+            iniciarContador(); // Inicia el contador al crear el juego
+            this.x = x;
+            this.tablero = new Tablero(x, tableroImage, canvas, ctx);
+            
+            let fichasCount = Math.ceil(this.tablero.getFichasCount() / 2);
+            
+            this.fichero1 = new Fichero(1, x, jug1, ficha1, fichasCount, true, 25, 250, ctx);
+            this.fichero2 = new Fichero(2, x, jug2, ficha2, fichasCount, false, 700, 250, ctx);
+        }
 
 
     jugar() {
@@ -183,7 +207,6 @@ class Juego {
 
             }
             this.redibujarCanvas()
-
         })
 
         // Evento mousemove (mover el mouse)
@@ -221,9 +244,7 @@ class Juego {
                 }
 
                 this.redibujarCanvas(); // Redibujar el tablero con las nuevas posiciones
-
             }
-
         });
 
         canvas.addEventListener('mouseup', () => {
@@ -247,7 +268,7 @@ class Juego {
 
                         fichaActiva.colocada = true;
                         casilla.ficha = fichaActiva;
-
+                        tiempo = 0;
                         //console.log(this.checkWin());
 
                         playerTurno = playerTurno == 1 ? 2 : 1;
@@ -309,6 +330,14 @@ class Juego {
         }
         return count >= x;
     }
+
+    redibujarContador() {
+        ctx.clearRect(0, 0, 200, 50); // Ajusta el ancho según tu diseño
+        ctx.fillStyle = "black"; 
+        ctx.font = "20px Arial"; 
+        ctx.fillText(`Tiempo: ${tiempo} s`, 10, 30);
+    }
+
     redibujarCanvas() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -331,5 +360,11 @@ class Juego {
             }
         });
 
+        //metodo para dibujar botones y temporizador
+        dibujarUI();
     }
+
+       
+
+    
 }
