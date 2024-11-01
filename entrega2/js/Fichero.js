@@ -47,7 +47,6 @@ class Fichero {
                 break;
         }
 
-
         //        fichaVerticalGap = fichaVerticalGap >= 2 ? fichaVerticalGap : 2;
 
         let fichaY = this.posy + this.height - 30
@@ -55,7 +54,7 @@ class Fichero {
         for (let fichaIndex = 0; fichaIndex < this.fichasCount; fichaIndex++) {
             /* fichero width / 2 - ficha width /2 para encontrar la posicion x correcta */
 
-            const ficha = new Ficha(this.player, fichaX, fichaY, 25, this, fichaIndex);
+            const ficha = new Ficha(this.player, fichaX, fichaY, 20, this, fichaIndex);
 
             this.fichas.push(ficha);
 

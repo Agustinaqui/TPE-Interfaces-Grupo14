@@ -1,6 +1,10 @@
 
         class Ficha {
             constructor(player,x, y, radio, fichero, id) {
+                this.velocidadY = 0;           // Velocidad vertical de la ficha
+                this.gravedad = 0.5;         // Simulación de gravedad
+                this.rebote = -0.5;          // Factor de rebote (negativo para invertir la dirección)
+                this.destinoY = 0;
                 this.player = player
                 this.initialX = x;
                 this.id = id;
@@ -71,47 +75,6 @@
                 return dist <= this.radio;
             }
         
-
-/* 
-        img.onload = function () {
-            console.log("anda? 2 ");
-
-            let imagePattern = ctx.createPattern(img, "repeat");
-
-            ctx.beginPath();                   // Inicia un nuevo camino
-            ctx.arc(this.x, this.y, 25, 0, Math.PI * 2);  // Dibuja un círculo en (75,75) con radio 50
-            ctx.fillStyle = imagePattern;       // Rellena con el patrón de imagen
-            ctx.fill();                         // Llena el círculo
-            ctx.closePath();
-
-        }; */
-
-
-
-        /* const fichaNodo = document.createElement("img");
-        
-        document.getElementById("juego-div").appendChild(fichaNodo);
-        
-        
-        fichaNodo.style.position = "absolute";
-        fichaNodo.style.left = `${this.x}px`;
-        fichaNodo.style.top = `${this.y}px`;
-        fichaNodo.style.width = `${this.radio*2}px`;
-        fichaNodo.style.height = `${this.radio*2}px`;
-        fichaNodo.src = imagen;
-        fichaNodo.id = `ficha-${this.player}-${this.id}`;
-
-        fichaNodo.classList.add("ficha")
-        fichaNodo.classList.add(`ficha-${this.player}`) */
-
-
-        /*  ctx.beginPath();
-         ctx.arc(this.x, this.y, this.radio, 0, Math.PI * 2, false);
-         ctx.fillStyle = this.color;
-         ctx.fill();
-         ctx.closePath(); */
-    
-
 
 
     // Verificar si un punto (x, y) está dentro de la ficha
