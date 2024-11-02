@@ -268,7 +268,6 @@ class Juego {
 
                         fichaActiva.colocada = true;
                         casilla.ficha = fichaActiva;
-                        tiempo = 0;
                         //console.log(this.checkWin());
 
                         playerTurno = playerTurno == 1 ? 2 : 1;
