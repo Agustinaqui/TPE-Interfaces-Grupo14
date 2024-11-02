@@ -11,7 +11,7 @@ class Fichero {
         this.nombre = nombre;
         this.fichaImg = fichaImg;
         this.turno = turno;
-        this.fillColor = 'rgba(255, 239, 114, 0.4)'; // Amarillo con transparencia (rgba)
+        this.fillColor = 'rgba(238, 130, 238, 0.5)'; // Amarillo con transparencia (rgba)
 
         this.ctx = ctx;
         this.fichasCount = fichasCount;
