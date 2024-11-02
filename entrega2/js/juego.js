@@ -179,13 +179,13 @@ class Juego {
         this.fichero2 = new Fichero(2, x, jug2, ficha2, fichasCount, false, 700, 250, ctx);
 
         const imgBtnMenu = new Image();
-        imgBtnMenu.src = "../images/iconos/carritoVacio.png";
+        imgBtnMenu.src = "../images/flecha.png";
         const imgBtnRestart = new Image();
-        imgBtnRestart.src = "../images/iconos/carritoVacio.png";
+        imgBtnRestart.src = "../images/reiniciar.png";
 
         this.UI = new UI(
-            new BotonCircular(25, 25, 25, imgBtnMenu),
-            new BotonCircular(75, 25, 25, imgBtnRestart),
+            new BotonCircular(50, 35, 25, imgBtnMenu),
+            new BotonCircular(105, 35, 25, imgBtnRestart),
             new Temporizador(420, 25, 60, 50, ctx, this)
         )
 
@@ -257,6 +257,7 @@ class Juego {
             game.limpiarEventListeners()
 
             document.getElementById("menu-inicial").classList.remove("hidden");
+            document.getElementById("canvas-juego").classList.add("hidden");
             configuracionDefault()
 
         } else if (game.UI.botonReiniciar.isClicked(mouseX, mouseY)) {

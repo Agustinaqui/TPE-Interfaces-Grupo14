@@ -48,9 +48,9 @@ class Temporizador {
         }
         this.ctx.clearRect(this.posx, this.posy - this.height, this.width, this.height);
         // Configura el estilo del texto
-        this.ctx.fillStyle = "black";
-        this.ctx.font = "20px Inter, sans serif";
-
+        this.ctx.fillStyle = "#FFFFFF"; 
+        this.ctx.font = "bold 20px 'Inter', sans-serif";
+    
         const minutos = Math.floor(this.tiempo / 60);
         const segundos = Math.floor(this.tiempo % 60);
         const mText = minutos > 9 ? `${minutos}` : `0${minutos}`
