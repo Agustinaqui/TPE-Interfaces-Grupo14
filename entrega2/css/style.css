@@ -818,6 +818,35 @@ ul img {
   display: flex;
   align-items: center;
 }
+#elegirTablero {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  background-color: rgba(50, 55, 77, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+#elegirTablero:hover {
+  background-color: rgba(90, 95, 128, 0.9);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+#elegirTablero:focus {
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+#elegirTablero option {
+  background-color: rgba(58, 63, 88, 0.8);
+  color: #ffffff;
+}
 
 form{
   position: relative;
@@ -1036,31 +1065,102 @@ button {
 }
 
 
-.elegirJuego{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #00000093;
-  border-radius: 18px;
-  padding: 7px;
-}
-
 .tituloMenuJuego{
+  padding-top: 20px;
   margin-bottom: 10px;
-  background-color: #a02500ce;
-  border-radius: 12px;
+  background-color: #52020fce;
+  border-radius: 6px;
   padding: 5px;
 }
 
 .menu-ficha-seleccion {
-  background-color: #00000093;
-  display: flex;
+  border-radius: 15px; 
+   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 10px;
-  border-radius: 18px;
+  padding: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
+.elegirJuego {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.X-en-linea-button {
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  color: #ffffff;
+  background-color: rgba(85, 0, 0, 0.8); /* Bordó oscuro */
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.X-en-linea-button:hover {
+  background-color: rgba(120, 0, 0, 0.9); /* Bordó más claro */
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+#X-en-linea {
+  font-size: 28px;
+  color: #ffffff;
+}
+
+.elegirJuego h2 {
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  margin: 0;
+}
+
+.menu-seleccion {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+  border-radius: 12px;
+}
+
+.menu-ficha-seleccion {
+  text-align: center;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.menu-ficha-seleccion input[type="text"] {
+  padding: 8px;
+  width: 160px;
+  font-size: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background-color: rgba(85, 0, 0, 0.8); /* Fondo bordó oscuro */
+  color: #ffffff;
+  text-align: center;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.menu-ficha-seleccion input[type="text"]:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+.menu-ficha-seleccion span {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+
 
 input {
   padding: 10px;
@@ -1084,11 +1184,11 @@ input {
 }
 
 .ficha-seleccionable {
-  border: 2px solid transparent; /* Borde por defecto */
+  border: 1px solid rgb(82, 82, 82); /* Borde por defecto */
 }
 
 .ficha-seleccionable:hover {
-  border: 2px solid #ff9900; /* Borde al pasar el mouse */
+  box-shadow: 0 0 10px 3px #a19e9e; /* Brillo rojo alrededor del elemento */
 }
 
 .ficha1{
@@ -1106,20 +1206,20 @@ input {
 
 /* Estilo para el botón jugar */
 #btn-jugar {
-  margin-top: 20px;
   font-size: 24px;
   font-weight: 600;
   padding: 10px 20px;
-  background-color: #da3300; /* Verde */
+  margin-bottom: 20px;
+  background-color: #6d0000; /* Verde */
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 #btn-jugar:hover {
-  background-color: #9b2400; /* Verde oscuro al pasar el mouse */
+  background-color: #971d1d; /* Verde oscuro al pasar el mouse */
 }
 
 /*HEADER DESKTOP*/
@@ -1326,16 +1426,19 @@ text-decoration: underline;
   border-bottom: 1px solid #191b33d0;
 }
 
-.juego-div{
+.juego-div {
   margin-top: 0px;
-  width:900px;
+  width: 900px;
   height: 500px;
-  background-image: url(../images/fondoFuego.webp);
-  background-repeat: no-repeat;  /* Evita que la imagen se repita */
-  background-size: cover;        /* Ajusta la imagen al tamaño del contenedor */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/ImgBatallaOscura.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
-  
 }
+
+
 
 .img-principal{
   border: 1px solid black;
@@ -1350,11 +1453,9 @@ text-decoration: underline;
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .player-ficha {
-
   border-radius: 50px;
   width: 50px;
   height: 50px;
@@ -1421,11 +1522,11 @@ text-decoration: underline;
 
 
 #canvas-juego{
-  background-image: url(../images/superheroes/imagenCiudad.jfif);
+  background-image: url(../images/ImgBatallaOscura.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border: 1px solid rgba(255, 255, 255, 0.445);
+  border: 1px solid rgba(0, 0, 0, 0.699);
 }
 
 .menu-seleccion{
@@ -1485,27 +1586,43 @@ text-decoration: underline;
 
 .start-button {
   position: absolute;
-    top:80%;
-    left: 50%;
-    transform: translateX(-50%); 
-    background-color: #ec8f03;
-    color: white;
-    font-weight: bold;
-    font-family:monospace;
-    border: none;
-    padding: 10px 20px;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 10px;
-    
-    transition: background-color 0.3s ease;
+  width: 220px;
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #360b12;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 0 rgba(228, 43, 68, 0.5);
 }
 
 .start-button:hover {
-  background-color: #cf8b26;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  background-color: #6e0909fb;
+  animation: bounce 0.3s ease, glow 1.5s ease-in-out infinite;
 }
 
+@keyframes bounce {
+  0%, 100% {
+    transform: translate(-50%, -10%);
+  }
+  50% {
+    transform: translate(-50%, -20%);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(228, 43, 43, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(228, 43, 43, 0.9), 0 0 40px rgba(228, 43, 52, 0.7);
+  }
+}
 
 .conteiner-jugando-izquierda,
 .conteiner-jugando-derecha {

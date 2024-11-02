@@ -374,8 +374,8 @@ function crearCard(juego) {
         btnVentaClass = "btn-venta";
     }
 
-    let link = juego.nombre == "4 en linea" ? "<a href='./html/juego.html'>" : "";
-    let linkCierre = juego.nombre == "4 en linea" ? "</a>" : "";
+    let link = juego.nombre == "4 en Línea Superhéroes" ? "<a href='./html/juego.html'>" : "";
+    let linkCierre = juego.nombre == "4 en Línea Superhéroes" ? "</a>" : "";
 
     let priceText = juego.precio > 0 ? "$" + juego.precio : "Free";
 
