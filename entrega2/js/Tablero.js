@@ -65,7 +65,7 @@ class Tablero {
     //nuevo
     drawDropAreas() {
     this.casillasDrop.forEach(dropArea => {
-        dropArea.draw(ctx); 
+        dropArea.draw(); 
 
     });
 }
