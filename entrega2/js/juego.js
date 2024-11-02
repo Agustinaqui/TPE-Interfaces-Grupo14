@@ -89,7 +89,7 @@ btn_mas.addEventListener("click", () => {
 /* decrementa x en linea hasta 4 */
 
 btn_menos.addEventListener("click", () => {
-    if (x > 2) {
+    if (x > 4) {
         x--;
         Xenlinea.innerText = x;
     }
@@ -127,8 +127,8 @@ function configuracionDefault() {
     Xenlinea.innerText = x;
     player_1_name_input.value = "";
     player_2_name_input.value = "";
-    player_1_ficha_node.src = "../images/iconos/nadie.jpg";
-    player_2_ficha_node.src = "../images/iconos/nadie.jpg";
+    player_1_ficha_node.src = "../images/signo-de-pregunta.png";
+    player_2_ficha_node.src = "../images/signo-de-pregunta.png";
 
     for (let i = 0; i < fichas_seleccionables.length; i++) {
         const fichaNodo = fichas_seleccionables[i];
@@ -257,6 +257,7 @@ class Juego {
             game.limpiarEventListeners()
 
             document.getElementById("menu-inicial").classList.remove("hidden");
+            document.getElementById("canvas-juego").classList.add("hidden");
             configuracionDefault()
 
         } else if (game.UI.botonReiniciar.isClicked(mouseX, mouseY)) {
