@@ -111,7 +111,6 @@ btn_jugar.addEventListener("click", () => {
 /* Deberia traernos al menu principal y permitirnos cambiar valores*/
 function volverMenu() {
     configuracionDefault()
-
 }
 
 /* Restaura la configuración original default */
@@ -142,11 +141,11 @@ function configuracionDefault() {
 /* Ejecuta una partida con los datos cargados */
 function iniciarJuego() {
 
-    const name1 = player_1_name_input.value;
-    const name2 = player_2_name_input.value;
+    name1 = player_1_name_input.value;
+    name2 = player_2_name_input.value;
 
-    const img1 = player_1_ficha_node.src;
-    const img2 = player_2_ficha_node.src;
+    img1 = player_1_ficha_node.src;
+    img2 = player_2_ficha_node.src;
 
     //prepara imagen de tablero
     const tableroImage = new Image();
@@ -170,7 +169,7 @@ class Juego {
 
     constructor(x, tableroImage, jug1, jug2, ficha1, ficha2, ctx) {
         this.gameOver = false;
-        this.ctx = ctx
+        this.ctx = ctx;
         this.x = x;
         this.tablero = new Tablero(x, tableroImage, canvas, ctx);
 
@@ -185,14 +184,18 @@ class Juego {
         imgBtnRestart.src = "../images/iconos/carritoVacio.png";
 
         this.UI = new UI(
-            new BotonCircular(25, 25, 25, imgBtnMenu, volverMenu),
-            new BotonCircular(75, 25, 25, imgBtnRestart, iniciarJuego),
+            new BotonCircular(25, 25, 25, imgBtnMenu),
+            new BotonCircular(75, 25, 25, imgBtnRestart),
             new Temporizador(420, 25, 60, 50, ctx, this)
         )
 
     }
 
+    /* Le aplica la animación a la ficha que recibe por parametro (fichaACtiva deberia ser) */
     animarFicha(ficha) {
+        if (!ficha.animandose) {
+            return;
+        }
         // Actualiza la velocidad con la gravedad en cada cuadro
         ficha.velocidadY += ficha.gravedad;
 
@@ -205,12 +208,12 @@ class Juego {
             ficha.velocidadY *= ficha.rebote; // Invierte la velocidad para el rebote
 
             // Detiene la animación si el rebote es muy pequeño
-            console.log(Math.abs(ficha.velocidadY) < 0.5);
             if (Math.abs(ficha.velocidadY) < 0.5) { // Pequeño umbral para terminar el rebote
-                
+
                 ficha.velocidadY = 0;
                 ficha.y = ficha.destinoY; // Asegura que queda en posición final
                 game.redibujarCanvas();
+                ficha.animandose = false;
                 return; // Detiene la animación
             }
         }
@@ -222,15 +225,17 @@ class Juego {
         requestAnimationFrame(() => this.animarFicha(ficha));
     }
 
-
     /* Finaliza el juego por tiempo */
     endGameTimeUp() {
+        game.gameOver = true;
+        const gameOverScreen = new GameOverScreen(game.UI.botonMenu, game.UI.botonReiniciar)
+        /* Empate */
+        gameOverScreen.text = "SE ACABO EL TIEMPO"
 
+        gameOverScreen.draw()
     }
 
-    empate() {
-
-    }
+    /* Limpia eventListeners para cuando se vuelve al menu */
 
     limpiarEventListeners() {
         canvas.removeEventListener("mousedown", this.mouseDownCallback);
@@ -239,13 +244,13 @@ class Juego {
         canvas.removeEventListener("click", this.clickBotonesCallback);
     }
 
-
-
+    /* Maneja el evento al clickear el mouse y ejecuta la funcionalidad de los botones de menu y reiniciar */
     clickBotonesCallback(e) {
 
         const { offsetX: mouseX, offsetY: mouseY } = e;
 
         if (game.UI.botonMenu.isClicked(mouseX, mouseY)) {
+            /* APRETE MENU */
 
             game.UI.temporizador.stop()
             game.limpiarCanvas()
@@ -254,13 +259,33 @@ class Juego {
             document.getElementById("menu-inicial").classList.remove("hidden");
             configuracionDefault()
 
-        }
-        else if (game.UI.botonReiniciar.isClicked(mouseX, mouseY)) {
-            console.log("REINICIAR");
+        } else if (game.UI.botonReiniciar.isClicked(mouseX, mouseY)) {
+            /* APRETE REINICIAR */
+
+            game.tablero.casillas.forEach(fila => {
+                fila.forEach(casilla => {
+                    casilla.ficha = null;
+                });
+            });
+
+            [...game.fichero1.fichas, ...game.fichero2.fichas].forEach(ficha => {
+                playerTurno = 1;
+                ficha.x = ficha.initialX
+                ficha.y = ficha.initialY
+                ficha.colocada = false;
+                ficha.animandose = false;
+                game.UI.temporizador.restart()
+                game.UI.temporizador.draw()
+            });
+
+            game.redibujarCanvas()
         }
     }
 
+    /* Maneja el evento al apretar el mouse */
     mouseDownCallback(e) {
+
+        game.clickBotonesCallback(e)
 
         if (game.gameOver) {
             return;
@@ -303,6 +328,7 @@ class Juego {
         game.redibujarCanvas()
     }
 
+    /* Maneja el evento al mover el mouse por el canvas */
     mouseMoveCallback(e) {
         if (game.gameOver) {
             return;
@@ -343,19 +369,21 @@ class Juego {
         }
     }
 
+    /* Maneja el evento al soltar el mouse */
     mouseUpCallback(e) {
+
         if (game.gameOver) {
             return;
         }
+
         if (fichaActiva) {
 
             fichaActiva.x = fichaActiva.initialX
             fichaActiva.radio = fichaActiva.initialRadio;
 
             if (isInside) {
-                /* buscar la fila  */
+                // buscar la fila 
                 const fila = game.tablero.getLowerCasillaByIndex(indiceDropArea);
-
                 const casilla = game.tablero.casillas[fila][indiceDropArea]
 
                 if (casilla) {
@@ -363,24 +391,49 @@ class Juego {
 
                     fichaActiva.x = casilla.posx + (casilla.cellSize / 2)
                     fichaActiva.destinoY = casilla.posy + (casilla.cellSize / 2)
-
                     fichaActiva.radio = dropArea.width / 2;
 
                     fichaActiva.colocada = true;
                     casilla.ficha = fichaActiva;
 
+                    fichaActiva.animandose = true;
                     game.animarFicha(fichaActiva)
-                    const espacioCompleto = game.tablero.addFichaAndCheck();
+                    const espacioCompleto = game.tablero.countFichaAndCheck();
                     const hayGanador = game.checkWin(fila, indiceDropArea);
 
-                    console.log("tablero lleno " + espacioCompleto);
-                    console.log("hay ganador " + hayGanador);
+                    if (espacioCompleto || hayGanador) {
+                        game.gameOver = true;
+                        game.UI.temporizador.stop()
+                        /*
+                        let gameOverScreen;
+
+                         if (hayGanador) {
+                            // Uno gano
+                            gameOverScreen = new GameOverScreen(
+                                ctx,
+                                true,
+                                game.UI.botonMenu,
+                                game.UI.botonReiniciar,
+                                `GANADOR-${playerTurno == 1 ? name1 : name2}`
+                            )
+                        } else {
+                            // Empate
+                            gameOverScreen = new GameOverScreen(
+                                false,
+                                game.UI.botonMenu,
+                                game.UI.botonReiniciar,
+                                "EMPATE"
+                            )
+                        } */
+
+                        gameOverScreen.draw()
+                    }
 
                     playerTurno = playerTurno == 1 ? 2 : 1;
                 }
             }
             else {
-            fichaActiva.y = fichaActiva.initialY
+                fichaActiva.y = fichaActiva.initialY
 
             }
 

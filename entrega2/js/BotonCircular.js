@@ -1,12 +1,10 @@
 class BotonCircular {
-    constructor(posx,posy,radio,image,onClick) {
+    constructor(posx,posy,radio,image) {
         this.posx = posx;
         this.posy = posy;
         this.radio = radio;
-        this.onClick = onClick;
 
         this.img = image;
-        console.log(this.img.src);
         
     }
 

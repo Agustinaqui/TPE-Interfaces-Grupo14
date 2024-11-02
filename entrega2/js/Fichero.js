@@ -86,13 +86,15 @@ class Fichero {
         this.ctx.fill();
         
         /* Dibujamos el texto del nombre */
-        const title = this.nombre; // Texto del título
-        const textWidth = this.ctx.measureText(title).width;
-        const textX = rectX + (rectWidth - textWidth) / 2; // Centra horizontalmente
-        const textY = rectY + (rectHeight / 2) + 10;
-        
         this.ctx.fillStyle = "#751500"; // Color del texto
         this.ctx.font = "bold 30px Arial";   // Tamaño y fuente del texto
+        
+        const title = this.nombre; // Texto del título
+        const textWidth = this.ctx.measureText(title).width;
+        
+        
+        const textX = rectX + (rectWidth /2) - (textWidth / 2); // Centra horizontalmente
+        const textY = rectY + (rectHeight / 2) + 10;
         
         this.ctx.fillText(title, textX, textY);
 

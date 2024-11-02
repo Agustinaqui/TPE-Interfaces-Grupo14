@@ -51,7 +51,7 @@ class Tablero {
         };
     }
 
-    addFichaAndCheck(){
+    countFichaAndCheck(){
         if(--this.fichasCount == 0){
             return true;
         }
