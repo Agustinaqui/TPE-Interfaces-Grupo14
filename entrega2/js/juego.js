@@ -320,12 +320,20 @@ class Juego {
             game.tablero.casillasDrop.forEach(dropArea => {
                 dropArea.visible = true;
             })
+            game.animateDropArea();
             // Mover la ficha
             fichaActiva.x = mouseX;
             fichaActiva.y = mouseY;
 
         }
-        game.redibujarCanvas()
+        
+    }
+
+    animateDropArea(){
+        if (game.tablero.casillasDrop[0].visible){
+            game.redibujarCanvas();
+            requestAnimationFrame(() => this.animateDropArea());
+        }
     }
 
     /* Maneja el evento al mover el mouse por el canvas */
