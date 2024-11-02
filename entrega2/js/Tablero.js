@@ -28,8 +28,7 @@ class Tablero {
             
             const dropArea = new CasillaDrop(dropAreaX,dropAreaY,dropAreaGap,dropAreaSize,dropAreaSize,this.ctx);
             this.casillasDrop.push(dropArea);
-            dropAreaX+=dropAreaSize + dropAreaGap*2;
-            
+            dropAreaX += dropAreaSize + dropAreaGap*2;
         }
 
         for (let fila = 0; fila < this.MAXFILAS; fila++) {
@@ -50,7 +49,6 @@ class Tablero {
             this.casillas.push(filaCasillas);
         };
     }
-
     countFichaAndCheck(){
         if(--this.fichasCount == 0){
             return true;
@@ -63,20 +61,12 @@ class Tablero {
     }
 
     
-    drawDropAreas(){
-        this.casillasDrop.forEach(dropArea =>{ 
-            dropArea.draw();
-        })
-    }
+   
     //nuevo
     drawDropAreas() {
     this.casillasDrop.forEach(dropArea => {
-        dropArea.draw(ctx); 
+        dropArea.draw(); 
 
-        // Dibuja la flecha en el área de drop
-        const centerX = dropArea.posx + (dropArea.width / 2);
-        const centerY = dropArea.posy + (dropArea.width / 2);
-        this.dibujarFlecha(ctx, centerX, centerY); 
     });
 }
 
@@ -139,27 +129,5 @@ class Tablero {
             */
     }
 
-    dibujarFlecha(ctx, x, y) {
-        ctx.save();
-        ctx.translate(x, y);
-        ctx.rotate(Math.PI);
-        
-        // Dibuja la línea de la flecha
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.lineTo(0, -20); // Cambia la longitud de la flecha según sea necesario
-        ctx.strokeStyle = "white"; // Color de la línea
-        ctx.lineWidth = 2;
-        ctx.stroke();
-
-        // Dibuja la punta de la flecha
-        ctx.beginPath();
-        ctx.moveTo(-5, -15); // Ajusta la posición de la punta
-        ctx.lineTo(0, -25);
-        ctx.lineTo(5, -15);
-        ctx.fillStyle = "white"; // Color de la punta
-        ctx.fill();
-
-        ctx.restore();
-    }
+   
 }

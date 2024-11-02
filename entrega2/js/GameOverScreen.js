@@ -14,8 +14,12 @@ class GameOverScreen {
         const fontMayor = "bold 55px Arial"
         const fontMenor = "bold 30px Arial"
 
-        if (winner) {
-            [text, ganador] = this.text.split("-")
+        if (this.winner) {
+            console.log(this.text.split("-"));
+            
+            [texto, ganador] = this.text.split("-")
+            console.log(texto, ganador);
+            
             /* Hay ganador por lo tanto hay que dibujar con doble linea */
             this.ctx.font = fontMayor;
 
