@@ -12,11 +12,12 @@ class Tablero {
         this.casillasDrop = [];
 
         // Calcular el tamaño de los casilleros
-        this.cellSize = 350 / this.MAXFILAS;
+        this.cellSize = 45;
+        this.width = this.cellSize * this.MAXFILAS
         
         // Calculo cuanto corro el tablero dentro del canvas
         this.offSetX = (this.canvas.width - this.MAXCOLS * this.cellSize) / 2;
-        this.offSetY = 140;
+        this.offSetY = ( 500 - this.cellSize * (this.MAXFILAS-2) ) / 2 ;
 
         const dropAreaGap = 2.5;
         const dropAreaSize = this.cellSize - 5;
@@ -50,6 +51,13 @@ class Tablero {
         };
     }
 
+    countFichaAndCheck(){
+        if(--this.fichasCount == 0){
+            return true;
+        }
+        
+        return false;
+    }
     getFichasCount() {
         return this.fichasCount;
     }
@@ -82,7 +90,7 @@ class Tablero {
             return null;
         }
 
-        return this.casillas[fila][col];
+        return fila;
 
     }
 
