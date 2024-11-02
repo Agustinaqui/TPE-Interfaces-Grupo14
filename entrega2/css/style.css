@@ -1184,7 +1184,7 @@ input {
 }
 
 .ficha-seleccionable {
-  border: 2px solid rgb(41, 41, 41); /* Borde por defecto */
+  border: 1px solid rgb(82, 82, 82); /* Borde por defecto */
 }
 
 .ficha-seleccionable:hover {
