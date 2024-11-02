@@ -8,15 +8,66 @@ class CasillaDrop {
         this.ctx = ctx;
         this.fillColor = 'rgba(152, 231, 143, 0.75)';
         this.visible = false;
-    }
-
-    draw() {
-        if (this.visible) {
-
-            this.ctx.fillStyle = this.fillColor;
-            ctx.fillRect(this.posx, this.posy, this.width, this.height)
-        }
-    }
+         // Propiedades para el movimiento de la flecha
+         this.arrowOffset = 0; // Desplazamiento de la flecha
+         this.arrowDirection = 1; // Dirección del movimiento (1 = abajo, -1 = arriba)
+     }
+ 
+     draw() {
+         if (this.visible) {
+             // Dibujar el rectángulo del área de drop
+             this.ctx.fillStyle = this.fillColor;
+             this.ctx.fillRect(this.posx, this.posy, this.width, this.height);
+ 
+             // Calcular las coordenadas centrales para la flecha y aplicar el desplazamiento
+             const centerX = this.posx + (this.width / 2);
+             const centerY = this.posy + (this.height / 2) - 10 + this.arrowOffset;
+ 
+             // Dibujar la flecha con desplazamiento animado
+             this.dibujarFlecha(centerX, centerY);
+ 
+             // Actualizar el desplazamiento para animar el movimiento de la flecha
+             this.updateArrowPosition();
+         }
+     }
+ 
+     dibujarFlecha(x, y) {
+         this.ctx.save();
+         this.ctx.translate(x, y);
+         this.ctx.rotate(Math.PI);
+ 
+         // Dibuja la línea de la flecha
+         this.ctx.beginPath();
+         this.ctx.moveTo(0, 0);
+         this.ctx.lineTo(0, -20);
+         this.ctx.strokeStyle = "white";
+         this.ctx.lineWidth = 2;
+         this.ctx.stroke();
+ 
+         // Dibuja la punta de la flecha
+         this.ctx.beginPath();
+         this.ctx.moveTo(-5, -15);
+         this.ctx.lineTo(0, -25);
+         this.ctx.lineTo(5, -15);
+         this.ctx.fillStyle = "white";
+         this.ctx.fill();
+ 
+         this.ctx.restore();
+     }
+ 
+     updateArrowPosition() {
+         // Cambia el valor de arrowOffset para mover la flecha hacia arriba y abajo
+         const maxOffset = 5; // Máximo desplazamiento de la flecha
+         const speed = 0.5;   // Velocidad de la animación
+ 
+         this.arrowOffset += this.arrowDirection * speed;
+ 
+         // Cambia la dirección cuando llega al límite de desplazamiento
+         if (this.arrowOffset >= maxOffset || this.arrowOffset <= -maxOffset) {
+             this.arrowDirection *= -1;
+         }
+     }
+ 
 
     isPointInsideSquare(px, py) {
         
