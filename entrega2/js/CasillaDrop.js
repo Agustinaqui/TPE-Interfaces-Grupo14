@@ -15,7 +15,6 @@ class CasillaDrop {
 
             this.ctx.fillStyle = this.fillColor;
             ctx.fillRect(this.posx, this.posy, this.width, this.height)
-            this.ctx.fill();
         }
     }
 

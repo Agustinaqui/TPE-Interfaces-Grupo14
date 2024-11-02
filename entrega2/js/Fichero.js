@@ -47,7 +47,6 @@ class Fichero {
                 break;
         }
 
-
         //        fichaVerticalGap = fichaVerticalGap >= 2 ? fichaVerticalGap : 2;
 
         let fichaY = this.posy + this.height - 30
@@ -55,7 +54,7 @@ class Fichero {
         for (let fichaIndex = 0; fichaIndex < this.fichasCount; fichaIndex++) {
             /* fichero width / 2 - ficha width /2 para encontrar la posicion x correcta */
 
-            const ficha = new Ficha(this.player, fichaX, fichaY, 25, this, fichaIndex);
+            const ficha = new Ficha(this.player, fichaX, fichaY, 20, this, fichaIndex);
 
             this.fichas.push(ficha);
 
@@ -87,13 +86,15 @@ class Fichero {
         this.ctx.fill();
         
         /* Dibujamos el texto del nombre */
-        const title = this.nombre; // Texto del título
-        const textWidth = this.ctx.measureText(title).width;
-        const textX = rectX + (rectWidth - textWidth) / 2; // Centra horizontalmente
-        const textY = rectY + (rectHeight / 2) + 10;
-        
         this.ctx.fillStyle = "#751500"; // Color del texto
         this.ctx.font = "bold 30px Arial";   // Tamaño y fuente del texto
+        
+        const title = this.nombre; // Texto del título
+        const textWidth = this.ctx.measureText(title).width;
+        
+        
+        const textX = rectX + (rectWidth /2) - (textWidth / 2); // Centra horizontalmente
+        const textY = rectY + (rectHeight / 2) + 10;
         
         this.ctx.fillText(title, textX, textY);
 
