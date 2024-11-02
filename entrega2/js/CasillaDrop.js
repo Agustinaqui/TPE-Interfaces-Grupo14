@@ -6,7 +6,7 @@ class CasillaDrop {
         this.width = width;
         this.height = height;
         this.ctx = ctx;
-        this.fillColor = 'rgba(152, 231, 143, 0.75)';
+        this.fillColor = 'rgba(0,0,0,0.5)';
         this.visible = false;
          // Propiedades para el movimiento de la flecha
          this.arrowOffset = 0; // Desplazamiento de la flecha
