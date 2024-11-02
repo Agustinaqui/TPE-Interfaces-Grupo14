@@ -89,7 +89,7 @@ btn_mas.addEventListener("click", () => {
 /* decrementa x en linea hasta 4 */
 
 btn_menos.addEventListener("click", () => {
-    if (x > 4) {
+    if (x > 2) {
         x--;
         Xenlinea.innerText = x;
     }
@@ -404,7 +404,7 @@ class Juego {
                     if (espacioCompleto || hayGanador) {
                         game.gameOver = true;
                         game.UI.temporizador.stop()
-                        /*
+                        
                         let gameOverScreen;
 
                          if (hayGanador) {
@@ -424,7 +424,7 @@ class Juego {
                                 game.UI.botonReiniciar,
                                 "EMPATE"
                             )
-                        } */
+                        }
 
                         gameOverScreen.draw()
                     }
