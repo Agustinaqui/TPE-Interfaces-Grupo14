@@ -142,7 +142,7 @@ class Tablero {
     dibujarFlecha(ctx, x, y) {
         ctx.save();
         ctx.translate(x, y);
-        ctx.rotate(-Math.PI / 2);
+        ctx.rotate(Math.PI);
         
         // Dibuja la línea de la flecha
         ctx.beginPath();
