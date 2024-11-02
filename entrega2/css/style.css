@@ -1018,24 +1018,6 @@ button {
   height: 25px;
 }
 
-/*MENU JUEGO*/
-.start-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 18px;
-  font-family: 'Montserrat', sans-serif;
-  color: #ffffff;
-  background-color: #f26d22; /* Color vibrante para el botón */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.start-button:hover {
-  background-color: #ff6518; /* Color más oscuro al pasar el mouse */
-  
-}
 .X-en-linea-button {
   font-size: 24px;
   color: #fff;
@@ -1439,7 +1421,7 @@ text-decoration: underline;
 
 
 #canvas-juego{
-  background-image: url(../images/fondoFuego.webp);
+  background-image: url(../images/superheroes/imagenCiudad.jfif);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1506,18 +1488,22 @@ text-decoration: underline;
     top:80%;
     left: 50%;
     transform: translateX(-50%); 
-    background-color: #e4320a;
+    background-color: #ec8f03;
     color: white;
+    font-weight: bold;
+    font-family:monospace;
     border: none;
     padding: 10px 20px;
     font-size: 20px;
     cursor: pointer;
     border-radius: 10px;
+    
     transition: background-color 0.3s ease;
 }
 
 .start-button:hover {
-  background-color: #e44d2bfb;
+  background-color: #cf8b26;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 
