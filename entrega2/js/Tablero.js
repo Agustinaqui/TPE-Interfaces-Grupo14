@@ -28,8 +28,7 @@ class Tablero {
             
             const dropArea = new CasillaDrop(dropAreaX,dropAreaY,dropAreaGap,dropAreaSize,dropAreaSize,this.ctx);
             this.casillasDrop.push(dropArea);
-            dropAreaX+=dropAreaSize + dropAreaGap*2;
-            
+            dropAreaX += dropAreaSize + dropAreaGap*2;
         }
 
         for (let fila = 0; fila < this.MAXFILAS; fila++) {
@@ -50,7 +49,6 @@ class Tablero {
             this.casillas.push(filaCasillas);
         };
     }
-
     countFichaAndCheck(){
         if(--this.fichasCount == 0){
             return true;
@@ -67,7 +65,7 @@ class Tablero {
     //nuevo
     drawDropAreas() {
     this.casillasDrop.forEach(dropArea => {
-        dropArea.draw(ctx); 
+        dropArea.draw(); 
 
     });
 }

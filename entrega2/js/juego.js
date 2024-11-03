@@ -127,8 +127,8 @@ function configuracionDefault() {
     Xenlinea.innerText = x;
     player_1_name_input.value = "";
     player_2_name_input.value = "";
-    player_1_ficha_node.src = "../images/iconos/nadie.jpg";
-    player_2_ficha_node.src = "../images/iconos/nadie.jpg";
+    player_1_ficha_node.src = "../images/signo-de-pregunta.png";
+    player_2_ficha_node.src = "../images/signo-de-pregunta.png";
 
     for (let i = 0; i < fichas_seleccionables.length; i++) {
         const fichaNodo = fichas_seleccionables[i];
@@ -257,6 +257,7 @@ class Juego {
             game.limpiarEventListeners()
 
             document.getElementById("menu-inicial").classList.remove("hidden");
+            document.getElementById("canvas-juego").classList.add("hidden");
             configuracionDefault()
 
         } else if (game.UI.botonReiniciar.isClicked(mouseX, mouseY)) {
@@ -329,13 +330,6 @@ class Juego {
         
     }
 
-    animateDropArea(){
-        if (game.tablero.casillasDrop[0].visible){
-            game.redibujarCanvas();
-            requestAnimationFrame(() => this.animateDropArea());
-        }
-    }
-
     /* Maneja el evento al mover el mouse por el canvas */
     mouseMoveCallback(e) {
         if (game.gameOver) {
@@ -346,7 +340,6 @@ class Juego {
             // Mover la ficha
             fichaActiva.x = mouseX;
             fichaActiva.y = mouseY;
-
 
             //const dropArea = this.tablero.getDropAreaInPoint(mouseX, mouseY)
             isInside = false;
@@ -373,7 +366,7 @@ class Juego {
 
             }
 
-            game.redibujarCanvas(); // Redibujar el tablero con las nuevas posiciones
+            //game.redibujarCanvas(); // Redibujar el tablero con las nuevas posiciones
         }
     }
 
@@ -412,7 +405,7 @@ class Juego {
                     if (espacioCompleto || hayGanador) {
                         game.gameOver = true;
                         game.UI.temporizador.stop()
-                        /*
+                        
                         let gameOverScreen;
 
                          if (hayGanador) {
@@ -432,7 +425,7 @@ class Juego {
                                 game.UI.botonReiniciar,
                                 "EMPATE"
                             )
-                        } */
+                        }
 
                         gameOverScreen.draw()
                     }
@@ -535,6 +528,13 @@ class Juego {
 
 
         return count >= this.x;
+    }
+
+    animateDropArea(){
+        if (game.tablero.casillasDrop[0].visible){
+            game.redibujarCanvas();
+            requestAnimationFrame(() => this.animateDropArea());
+        }
     }
 
     /* Redibuja todo el canvas, primero borra y luego dibuja en orden los elementos */
