@@ -1430,9 +1430,7 @@ text-decoration: underline;
   margin-top: 0px;
   width: 900px;
   height: 500px;
-  background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../images/ImgBatallaOscura.png);
+  background-image: url(../images/fondoBatallaOscuro.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

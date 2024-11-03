@@ -6,12 +6,12 @@ class Fichero {
         this.player = player;
         this.posx = posx;
         this.posy = posy;
-        this.width = 175;
+        this.width = 170;
         this.height = 225;
         this.nombre = nombre;
         this.fichaImg = fichaImg;
         this.turno = turno;
-        this.fillColor = 'rgba(238, 130, 238, 0.5)'; // Amarillo con transparencia (rgba)
+        this.fillColor = '#8500007c';
 
         this.ctx = ctx;
         this.fichasCount = fichasCount;
