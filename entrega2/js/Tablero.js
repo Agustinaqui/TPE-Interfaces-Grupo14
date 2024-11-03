@@ -50,6 +50,8 @@ class Tablero {
         };
     }
     countFichaAndCheck(){
+        
+        console.log(this.getFichasCount());
         if(--this.fichasCount == 0){
             return true;
         }

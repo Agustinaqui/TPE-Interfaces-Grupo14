@@ -92,7 +92,6 @@ class Fichero {
         const title = this.nombre; // Texto del título
         const textWidth = this.ctx.measureText(title).width;
         
-        
         const textX = rectX + (rectWidth /2) - (textWidth / 2); // Centra horizontalmente
         const textY = rectY + (rectHeight / 2) + 10;
         

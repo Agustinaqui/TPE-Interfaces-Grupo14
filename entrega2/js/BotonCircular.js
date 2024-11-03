@@ -1,14 +1,16 @@
 class BotonCircular {
-    constructor(posx,posy,radio,image) {
+    constructor(posx, posy, radio, image) {
         this.posx = posx;
+        this.initialX = posx;
         this.posy = posy;
+        this.initialY = posy;
         this.radio = radio;
 
         this.img = image;
-        
+
     }
 
-    draw(){
+    draw() {
         const bkgColor = "#FFFFFF"; // Color por defecto si no se encuentra
 
         this.img.onload = () => {
@@ -50,5 +52,5 @@ class BotonCircular {
         const dist = Math.sqrt((x - this.posx) ** 2 + (y - this.posy) ** 2);
         return dist <= this.radio;
     }
-    
+
 }

@@ -13,6 +13,7 @@ Xenlinea.innerText = x;
 let playerTurno = 1;
 let mouseDown = false;
 let fichaActiva = null;
+let fichaCayendo = false;
 let offSetX;
 let offSetY;
 let isInside = false;
@@ -89,7 +90,7 @@ btn_mas.addEventListener("click", () => {
 /* decrementa x en linea hasta 4 */
 
 btn_menos.addEventListener("click", () => {
-    if (x > 4) {
+    if (x > 2) {
         x--;
         Xenlinea.innerText = x;
     }
@@ -212,13 +213,16 @@ class Juego {
 
                 ficha.velocidadY = 0;
                 ficha.y = ficha.destinoY; // Asegura que queda en posición final
-                game.redibujarCanvas();
+
+                if (fichaCayendo == 1) {
+                    game.redibujarCanvas();
+                }
                 ficha.animandose = false;
+                fichaCayendo--;
                 return; // Detiene la animación
             }
         }
 
-        // Redibuja el canvas para actualizar la posición de la ficha
         game.redibujarCanvas();
 
         // Solicita el siguiente cuadro de la animación
@@ -227,12 +231,18 @@ class Juego {
 
     /* Finaliza el juego por tiempo */
     endGameTimeUp() {
-        game.gameOver = true;
-        const gameOverScreen = new GameOverScreen(game.UI.botonMenu, game.UI.botonReiniciar)
+        
         /* Empate */
-        gameOverScreen.text = "SE ACABO EL TIEMPO"
+        game.gameOver = true;
+        game.gameOverScreen = new GameOverScreen(
+            ctx,
+            false,
+            game.UI.botonMenu,
+            game.UI.botonReiniciar,
+            "TIEMPO AGOTADO"
+        )
 
-        gameOverScreen.draw()
+        game.redibujarCanvas()
     }
 
     /* Limpia eventListeners para cuando se vuelve al menu */
@@ -259,47 +269,54 @@ class Juego {
             document.getElementById("menu-inicial").classList.remove("hidden");
             document.getElementById("canvas-juego").classList.add("hidden");
             configuracionDefault()
-
+            return
         } else if (game.UI.botonReiniciar.isClicked(mouseX, mouseY)) {
             /* APRETE REINICIAR */
-
+            game.gameOver = false;
+            fichaCayendo = 0;
             game.tablero.casillas.forEach(fila => {
                 fila.forEach(casilla => {
                     casilla.ficha = null;
+                    
                 });
             });
+
 
             [...game.fichero1.fichas, ...game.fichero2.fichas].forEach(ficha => {
                 playerTurno = 1;
                 ficha.x = ficha.initialX
+                ficha.radio = ficha.initialRadio
                 ficha.y = ficha.initialY
                 ficha.colocada = false;
                 ficha.animandose = false;
+                game.UI.restaurarPosiciones()
                 game.UI.temporizador.restart()
                 game.UI.temporizador.draw()
             });
 
             game.redibujarCanvas()
+            return
+
         }
     }
 
     /* Maneja el evento al apretar el mouse */
     mouseDownCallback(e) {
-
+        
         game.clickBotonesCallback(e)
-
-        if (game.gameOver) {
+        
+        if (!game || game.gameOver) {
             return;
         }
-
+        
         const { offsetX: mouseX, offsetY: mouseY } = e;
         isInside = false;
-
+        
         // Buscar si se hizo clic en alguna ficha del jugador 1 o 2
         const fichasAll = [...game.fichero1.fichas, ...game.fichero2.fichas];
-
+        
         let i = fichasAll.length - 1;
-
+        
         while (i >= 0 && !fichaActiva) {
             const ficha = fichasAll[i];
             if (ficha.contienePunto(mouseX, mouseY)) {
@@ -307,7 +324,7 @@ class Juego {
                     return;
                 }
                 if (playerTurno == ficha.player) {
-
+                    
                     fichaActiva = ficha;
                     offSetX = mouseX - ficha.x; // Diferencia X entre el clic y el centro de la ficha
                     offSetY = mouseY - ficha.y; // Diferencia Y entre el clic y el centro de la ficha
@@ -316,7 +333,8 @@ class Juego {
             }
             i--;
         }
-
+        console.log(fichaActiva);
+        
         if (fichaActiva) {
             game.tablero.casillasDrop.forEach(dropArea => {
                 dropArea.visible = true;
@@ -327,7 +345,7 @@ class Juego {
             fichaActiva.y = mouseY;
 
         }
-        
+
     }
 
     /* Maneja el evento al mover el mouse por el canvas */
@@ -398,19 +416,19 @@ class Juego {
                     casilla.ficha = fichaActiva;
 
                     fichaActiva.animandose = true;
+                    fichaCayendo++;
                     game.animarFicha(fichaActiva)
                     const espacioCompleto = game.tablero.countFichaAndCheck();
                     const hayGanador = game.checkWin(fila, indiceDropArea);
 
                     if (espacioCompleto || hayGanador) {
+
                         game.gameOver = true;
                         game.UI.temporizador.stop()
-                        
-                        let gameOverScreen;
 
-                         if (hayGanador) {
+                        if (hayGanador) {
                             // Uno gano
-                            gameOverScreen = new GameOverScreen(
+                            game.gameOverScreen = new GameOverScreen(
                                 ctx,
                                 true,
                                 game.UI.botonMenu,
@@ -419,7 +437,8 @@ class Juego {
                             )
                         } else {
                             // Empate
-                            gameOverScreen = new GameOverScreen(
+                            game.gameOverScreen = new GameOverScreen(
+                                ctx,
                                 false,
                                 game.UI.botonMenu,
                                 game.UI.botonReiniciar,
@@ -427,15 +446,14 @@ class Juego {
                             )
                         }
 
-                        gameOverScreen.draw()
                     }
 
                     playerTurno = playerTurno == 1 ? 2 : 1;
                 }
             }
+
             else {
                 fichaActiva.y = fichaActiva.initialY
-
             }
 
             game.tablero.casillasDrop.forEach(dropArea => {
@@ -523,16 +541,16 @@ class Juego {
             } else {
                 count++;
             }
-
         }
-
 
         return count >= this.x;
     }
 
-    animateDropArea(){
-        if (game.tablero.casillasDrop[0].visible){
-            game.redibujarCanvas();
+    animateDropArea() {
+        if (game && game.tablero.casillasDrop[0].visible) {
+            if (fichaCayendo < 1) {
+                game.redibujarCanvas();
+            }
             requestAnimationFrame(() => this.animateDropArea());
         }
     }
@@ -564,6 +582,10 @@ class Juego {
         });
 
         this.UI.draw();
+
+        if(this.gameOver){
+            this.gameOverScreen.draw()
+        }
 
     }
 

@@ -11,7 +11,8 @@ class Temporizador {
     }
 
     restart() {
-        this.tiempo = 179
+        this.stop()
+        this.iniciarContador()
     }
 
     stop() {
@@ -20,7 +21,9 @@ class Temporizador {
     }
 
     iniciarContador() {
+        this.timerUp = false;
         this.visible = true;
+        this.tiempo = 179
 
         this.timerInterval = setInterval(() => {
             if (!this.timerUp) {
