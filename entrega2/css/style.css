@@ -1423,16 +1423,14 @@ text-decoration: underline;
   margin-bottom: 0px;
   justify-content: left;
   padding-left: 30px;
-  border-bottom: 1px solid #191b33d0;
+  border-bottom: 1px solid #505050d0;
 }
 
 .juego-div {
   margin-top: 0px;
   width: 900px;
   height: 500px;
-  background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../images/ImgBatallaOscura.png);
+  background-image: url(../images/fondoBatallaOscuro.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

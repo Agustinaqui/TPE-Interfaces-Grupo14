@@ -150,7 +150,7 @@ function iniciarJuego() {
 
     //prepara imagen de tablero
     const tableroImage = new Image();
-    tableroImage.src = '../images/iconos/CasilleroImg.png';
+    tableroImage.src = '../images/iconos/ladrillo.png';
 
     tableroImage.onload = () => {
         game = new Juego(x, tableroImage, name1, name2, img1, img2, ctx);
@@ -180,14 +180,14 @@ class Juego {
         this.fichero2 = new Fichero(2, x, jug2, ficha2, fichasCount, false, 700, 250, ctx);
 
         const imgBtnMenu = new Image();
-        imgBtnMenu.src = "../images/iconos/carritoVacio.png";
+        imgBtnMenu.src = "../images/flecha.png";
         const imgBtnRestart = new Image();
-        imgBtnRestart.src = "../images/iconos/carritoVacio.png";
+        imgBtnRestart.src = "../images/reiniciar.png";
 
         this.UI = new UI(
-            new BotonCircular(25, 25, 25, imgBtnMenu),
-            new BotonCircular(75, 25, 25, imgBtnRestart),
-            new Temporizador(420, 25, 60, 50, ctx, this)
+            new BotonCircular(50, 35, 25, imgBtnMenu),
+            new BotonCircular(105, 35, 25, imgBtnRestart),
+            new Temporizador(420, 40, 60, 50, ctx, this)
         )
 
     }

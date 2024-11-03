@@ -8,6 +8,7 @@ class Temporizador {
         this.ctx = ctx;
         this.juego = juego
         this.timerUp = false;
+        
     }
 
     restart() {
@@ -49,10 +50,24 @@ class Temporizador {
         if (!this.visible) {
             return
         }
-        this.ctx.clearRect(this.posx, this.posy - this.height, this.width, this.height);
+        const offsetY = 17;
+        const padding = 20; 
+        const backgroundWidth = this.width + padding * 2; // Ancho del fondo con padding
+        const backgroundHeight = 45; // Alto del fondo
+        const backgroundPosX = this.posx - 20;
+
+        this.ctx.fillStyle = "#600000"; 
+        this.ctx.fillRect(backgroundPosX, this.posy + offsetY - backgroundHeight, backgroundWidth, backgroundHeight); // Rectángulo del fondo
+        
+        // Dibuja el borde del rectángulo
+        this.ctx.strokeStyle = "black"; 
+        this.ctx.lineWidth = 3; 
+        this.ctx.strokeRect(backgroundPosX, this.posy + offsetY - backgroundHeight, backgroundWidth, backgroundHeight); // Rectángulo del borde
+        
+        
         // Configura el estilo del texto
         this.ctx.fillStyle = "black";
-        this.ctx.font = "20px Inter, sans serif";
+        this.ctx.font = "20px Inter, monospace";
 
         const minutos = Math.floor(this.tiempo / 60);
         const segundos = Math.floor(this.tiempo % 60);
@@ -60,6 +75,8 @@ class Temporizador {
         const sText = segundos > 9 ? `${segundos}` : `0${segundos}`
 
         // Dibuja el contador en el canvas
+        const textX = this.posx + padding; // Posición X del texto con padding
+        const textY = this.posy + offsetY - 10; // Posición Y del texto
         this.ctx.fillText(`${mText}:${sText}`, this.posx, this.posy);
     }
 }
