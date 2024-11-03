@@ -149,7 +149,7 @@ function iniciarJuego() {
 
     //prepara imagen de tablero
     const tableroImage = new Image();
-    tableroImage.src = '../images/iconos/CasilleroImg.png';
+    tableroImage.src = '../images/iconos/ladrillo.png';
 
     tableroImage.onload = () => {
         game = new Juego(x, tableroImage, name1, name2, img1, img2, ctx);
@@ -186,7 +186,7 @@ class Juego {
         this.UI = new UI(
             new BotonCircular(25, 25, 25, imgBtnMenu),
             new BotonCircular(75, 25, 25, imgBtnRestart),
-            new Temporizador(420, 25, 60, 50, ctx, this)
+            new Temporizador(420, 40, 60, 50, ctx, this)
         )
 
     }
