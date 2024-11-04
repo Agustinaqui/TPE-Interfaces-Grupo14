@@ -13,6 +13,7 @@ Xenlinea.innerText = x;
 let playerTurno = 1;
 let mouseDown = false;
 let fichaActiva = null;
+let fichaCayendo = 0;
 let offSetX;
 let offSetY;
 let isInside = false;
@@ -122,6 +123,7 @@ function configuracionDefault() {
     mouseDown = false;
     fichaActiva = null;
     isInside = false;
+    fichaCayendo = 0;
     indiceDropArea = 0;
     game = null;
     Xenlinea.innerText = x;
@@ -212,13 +214,16 @@ class Juego {
 
                 ficha.velocidadY = 0;
                 ficha.y = ficha.destinoY; // Asegura que queda en posición final
-                game.redibujarCanvas();
+
+                if (fichaCayendo == 1) {
+                    game.redibujarCanvas();
+                }
                 ficha.animandose = false;
+                fichaCayendo--;
                 return; // Detiene la animación
             }
         }
 
-        // Redibuja el canvas para actualizar la posición de la ficha
         game.redibujarCanvas();
 
         // Solicita el siguiente cuadro de la animación
@@ -227,12 +232,18 @@ class Juego {
 
     /* Finaliza el juego por tiempo */
     endGameTimeUp() {
-        game.gameOver = true;
-        const gameOverScreen = new GameOverScreen(game.UI.botonMenu, game.UI.botonReiniciar)
-        /* Empate */
-        gameOverScreen.text = "SE ACABO EL TIEMPO"
 
-        gameOverScreen.draw()
+        /* Empate */
+        game.gameOver = true;
+        game.gameOverScreen = new GameOverScreen(
+            ctx,
+            false,
+            game.UI.botonMenu,
+            game.UI.botonReiniciar,
+            "TIEMPO AGOTADO"
+        )
+
+        game.redibujarCanvas()
     }
 
     /* Limpia eventListeners para cuando se vuelve al menu */
@@ -259,27 +270,36 @@ class Juego {
             document.getElementById("menu-inicial").classList.remove("hidden");
             document.getElementById("canvas-juego").classList.add("hidden");
             configuracionDefault()
-
+            return
         } else if (game.UI.botonReiniciar.isClicked(mouseX, mouseY)) {
             /* APRETE REINICIAR */
-
+            game.gameOver = false;
+            fichaCayendo = 0;
             game.tablero.casillas.forEach(fila => {
                 fila.forEach(casilla => {
                     casilla.ficha = null;
+
                 });
             });
 
             [...game.fichero1.fichas, ...game.fichero2.fichas].forEach(ficha => {
                 playerTurno = 1;
                 ficha.x = ficha.initialX
+                ficha.radio = ficha.initialRadio
                 ficha.y = ficha.initialY
                 ficha.colocada = false;
                 ficha.animandose = false;
+                game.UI.restaurarPosiciones()
                 game.UI.temporizador.restart()
                 game.UI.temporizador.draw()
             });
 
+            game.fichero1.turno = playerTurno == 1;
+            game.fichero2.turno = playerTurno == 2;
+
             game.redibujarCanvas()
+            return
+
         }
     }
 
@@ -288,7 +308,7 @@ class Juego {
 
         game.clickBotonesCallback(e)
 
-        if (game.gameOver) {
+        if (!game || game.gameOver) {
             return;
         }
 
@@ -327,7 +347,7 @@ class Juego {
             fichaActiva.y = mouseY;
 
         }
-        
+
     }
 
     /* Maneja el evento al mover el mouse por el canvas */
@@ -398,19 +418,19 @@ class Juego {
                     casilla.ficha = fichaActiva;
 
                     fichaActiva.animandose = true;
+                    fichaCayendo++;
                     game.animarFicha(fichaActiva)
                     const espacioCompleto = game.tablero.countFichaAndCheck();
                     const hayGanador = game.checkWin(fila, indiceDropArea);
 
                     if (espacioCompleto || hayGanador) {
+
                         game.gameOver = true;
                         game.UI.temporizador.stop()
-                        
-                        let gameOverScreen;
 
-                         if (hayGanador) {
+                        if (hayGanador) {
                             // Uno gano
-                            gameOverScreen = new GameOverScreen(
+                            game.gameOverScreen = new GameOverScreen(
                                 ctx,
                                 true,
                                 game.UI.botonMenu,
@@ -419,7 +439,8 @@ class Juego {
                             )
                         } else {
                             // Empate
-                            gameOverScreen = new GameOverScreen(
+                            game.gameOverScreen = new GameOverScreen(
+                                ctx,
                                 false,
                                 game.UI.botonMenu,
                                 game.UI.botonReiniciar,
@@ -427,15 +448,16 @@ class Juego {
                             )
                         }
 
-                        gameOverScreen.draw()
                     }
 
                     playerTurno = playerTurno == 1 ? 2 : 1;
+                    game.fichero1.turno = playerTurno == 1;
+                    game.fichero2.turno = playerTurno == 2;
                 }
             }
+
             else {
                 fichaActiva.y = fichaActiva.initialY
-
             }
 
             game.tablero.casillasDrop.forEach(dropArea => {
@@ -523,16 +545,16 @@ class Juego {
             } else {
                 count++;
             }
-
         }
-
 
         return count >= this.x;
     }
 
-    animateDropArea(){
-        if (game.tablero.casillasDrop[0].visible){
-            game.redibujarCanvas();
+    animateDropArea() {
+        if (game && game.tablero.casillasDrop[0].visible) {
+            if (fichaCayendo < 1) {
+                game.redibujarCanvas();
+            }
             requestAnimationFrame(() => this.animateDropArea());
         }
     }
@@ -564,6 +586,10 @@ class Juego {
         });
 
         this.UI.draw();
+
+        if (this.gameOver) {
+            this.gameOverScreen.draw()
+        }
 
     }
 

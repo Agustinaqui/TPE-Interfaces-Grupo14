@@ -1,7 +1,9 @@
 class BotonCircular {
     constructor(posx, posy, radio, image) {
         this.posx = posx;
+        this.initialX = posx;
         this.posy = posy;
+        this.initialY = posy;
         this.radio = radio;
         this.img = image;
     }
