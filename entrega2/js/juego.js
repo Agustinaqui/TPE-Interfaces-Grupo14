@@ -282,7 +282,6 @@ class Juego {
                 });
             });
 
-
             [...game.fichero1.fichas, ...game.fichero2.fichas].forEach(ficha => {
                 playerTurno = 1;
                 ficha.x = ficha.initialX
@@ -294,6 +293,9 @@ class Juego {
                 game.UI.temporizador.restart()
                 game.UI.temporizador.draw()
             });
+
+            game.fichero1.turno = playerTurno == 1;
+            game.fichero2.turno = playerTurno == 2;
 
             game.redibujarCanvas()
             return
