@@ -44,8 +44,6 @@ class Temporizador {
         }, 1000)
     }
 
-
-
     draw() {
         if (!this.visible) {
             return

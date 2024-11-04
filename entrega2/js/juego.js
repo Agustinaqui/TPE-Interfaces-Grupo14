@@ -13,7 +13,7 @@ Xenlinea.innerText = x;
 let playerTurno = 1;
 let mouseDown = false;
 let fichaActiva = null;
-let fichaCayendo = false;
+let fichaCayendo = 0;
 let offSetX;
 let offSetY;
 let isInside = false;
@@ -90,7 +90,7 @@ btn_mas.addEventListener("click", () => {
 /* decrementa x en linea hasta 4 */
 
 btn_menos.addEventListener("click", () => {
-    if (x > 2) {
+    if (x > 4) {
         x--;
         Xenlinea.innerText = x;
     }
@@ -123,6 +123,7 @@ function configuracionDefault() {
     mouseDown = false;
     fichaActiva = null;
     isInside = false;
+    fichaCayendo = 0;
     indiceDropArea = 0;
     game = null;
     Xenlinea.innerText = x;
@@ -231,7 +232,7 @@ class Juego {
 
     /* Finaliza el juego por tiempo */
     endGameTimeUp() {
-        
+
         /* Empate */
         game.gameOver = true;
         game.gameOverScreen = new GameOverScreen(
@@ -277,7 +278,7 @@ class Juego {
             game.tablero.casillas.forEach(fila => {
                 fila.forEach(casilla => {
                     casilla.ficha = null;
-                    
+
                 });
             });
 
@@ -302,21 +303,21 @@ class Juego {
 
     /* Maneja el evento al apretar el mouse */
     mouseDownCallback(e) {
-        
+
         game.clickBotonesCallback(e)
-        
+
         if (!game || game.gameOver) {
             return;
         }
-        
+
         const { offsetX: mouseX, offsetY: mouseY } = e;
         isInside = false;
-        
+
         // Buscar si se hizo clic en alguna ficha del jugador 1 o 2
         const fichasAll = [...game.fichero1.fichas, ...game.fichero2.fichas];
-        
+
         let i = fichasAll.length - 1;
-        
+
         while (i >= 0 && !fichaActiva) {
             const ficha = fichasAll[i];
             if (ficha.contienePunto(mouseX, mouseY)) {
@@ -324,7 +325,7 @@ class Juego {
                     return;
                 }
                 if (playerTurno == ficha.player) {
-                    
+
                     fichaActiva = ficha;
                     offSetX = mouseX - ficha.x; // Diferencia X entre el clic y el centro de la ficha
                     offSetY = mouseY - ficha.y; // Diferencia Y entre el clic y el centro de la ficha
@@ -333,8 +334,7 @@ class Juego {
             }
             i--;
         }
-        console.log(fichaActiva);
-        
+
         if (fichaActiva) {
             game.tablero.casillasDrop.forEach(dropArea => {
                 dropArea.visible = true;
@@ -583,7 +583,7 @@ class Juego {
 
         this.UI.draw();
 
-        if(this.gameOver){
+        if (this.gameOver) {
             this.gameOverScreen.draw()
         }
 
