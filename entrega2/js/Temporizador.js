@@ -64,7 +64,7 @@ class Temporizador {
         
         // Configura el estilo del texto
         this.ctx.fillStyle = "black";
-        this.ctx.font = "20px Inter, monospace";
+        this.ctx.font = "20px monospace";
 
         const minutos = Math.floor(this.tiempo / 60);
         const segundos = Math.floor(this.tiempo % 60);
