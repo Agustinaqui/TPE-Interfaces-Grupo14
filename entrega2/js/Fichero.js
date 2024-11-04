@@ -16,7 +16,7 @@ class Fichero {
         this.fichas = [];
 
         // Inicializamos las fichas con espaciado ajustado
-        let fichaX = this.posx + this.width-20 / 2;
+        let fichaX = this.posx + this.width - 20 / 2;
         let fichaVerticalGap = this.calculateFichaGap();
         let fichaY = this.posy + this.height - 30;
 
@@ -45,38 +45,43 @@ class Fichero {
         const gradient = this.ctx.createLinearGradient(this.posx, this.posy, this.posx, this.posy + this.height);
         gradient.addColorStop(0, '#333');
         gradient.addColorStop(1, '#111');
-    
+
         this.ctx.fillStyle = gradient;
-        this.ctx.shadowColor = 'rgba(255, 255, 255, 0.3)';
-        this.ctx.shadowBlur = 15;
+
+        if (this.turno) {
+            this.ctx.shadowColor = 'rgba(255, 255, 255, 0.9)';
+            this.ctx.shadowBlur = 20;
+        } else {
+            this.ctx.shadowColor = 'rgba(255, 255, 255, 0.25)';
+            this.ctx.shadowBlur = 10;
+
+        }
         this.drawRoundedRect(this.posx + 50, this.posy, this.width - 20, this.height, 20);
         this.ctx.fill();
-    
+
         // Dibujamos el borde del rectángulo principal
         this.ctx.lineWidth = 3;
         this.ctx.strokeStyle = this.borderColor;
         this.ctx.stroke();
-    
+
         // Dibujamos el rectángulo del nombre con sombra y borde
         const rectX = this.posx;
         const rectY = this.posy - 70;
         const rectWidth = this.width + 70;
         const rectHeight = 50;
-    
+
         // Aplicamos sombra al rectángulo del nombre
-        this.ctx.shadowColor = 'rgba(255, 255, 255, 0.3)';
-        this.ctx.shadowBlur = 10;
-    
+
         // Dibujamos el fondo del rectángulo del nombre
         this.ctx.fillStyle = '#333333BB';
         this.drawRoundedRect(rectX, rectY, rectWidth, rectHeight, 15);
         this.ctx.fill();
-    
+
         // Dibujamos el borde del rectángulo del nombre
         this.ctx.lineWidth = 2;
         this.ctx.strokeStyle = '#02020267';
         this.ctx.stroke();
-    
+
         // Dibujamos el texto del nombre
         this.ctx.fillStyle = "white";
         this.ctx.font = "bold 24px 'Roboto', sans-serif";
@@ -85,12 +90,12 @@ class Fichero {
         const textX = rectX + (rectWidth / 2) - (textWidth / 2);
         const textY = rectY + (rectHeight / 2) + 8;
         this.ctx.fillText(title, textX, textY);
-    
+
         // Restablecemos las propiedades de sombra para evitar efectos no deseados en otros elementos
         this.ctx.shadowColor = 'transparent';
         this.ctx.shadowBlur = 0;
     }
-    
+
 
     drawRoundedRect(x, y, width, height, radius) {
         this.ctx.beginPath();

@@ -52,11 +52,11 @@ class GameOverScreen {
 
             this.dibujarFondo(textW, textH, 250 - textH / 2)
 
-            this.ctx.fillStyle = "#000000"; // Color del texto
-
+            this.ctx.fillStyle = "white"; // Color del texto
+            
             this.ctx.font = fontMenor;
             this.ctx.fillText(texto, textX1, textY1);
-
+            
             this.ctx.font = fontMayor;
             this.ctx.fillText(ganador, textX2, textY2);
 
@@ -74,7 +74,7 @@ class GameOverScreen {
 
             this.dibujarFondo(textW, textH, 250 - textH / 2)
 
-            this.ctx.fillStyle = "#000000"; // Color del texto
+            this.ctx.fillStyle = "white"; // Color del texto
 
             this.ctx.fillText(this.text, textX, textY);
 

@@ -449,6 +449,8 @@ class Juego {
                     }
 
                     playerTurno = playerTurno == 1 ? 2 : 1;
+                    game.fichero1.turno = playerTurno == 1;
+                    game.fichero2.turno = playerTurno == 2;
                 }
             }
 
