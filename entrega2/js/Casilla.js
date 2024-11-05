@@ -5,14 +5,19 @@ class Casilla {
         this.posx = x;
         this.posy = y;
         this.ctx = ctx
-        this.imagen = imagen;
+        this.img = imagen;
         this.ficha = ficha;
         this.cellSize = cellSize;
     }
 
     draw() {
-        // Dibujar la imagen del casillero
-        ctx.drawImage(this.imagen, this.posx, this.posy, this.cellSize, this.cellSize);
-        
+        // Dibujar la img del casillero
+        this.ctx.drawImage(this.img, this.posx, this.posy, this.cellSize, this.cellSize);
+    }
+
+    drawFondo() {
+        // Dibujar la img del casillero
+        this.ctx.style = "black";
+        this.ctx.fillRect(this.posx, this.posy, this.cellSize, this.cellSize);
     }
 }
