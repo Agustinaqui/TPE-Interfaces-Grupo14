@@ -16,8 +16,8 @@ class Casilla {
     }
 
     drawFondo() {
+        this.ctx.fillStyle = "rgb(0,0,0,0.85)";
         // Dibujar la img del casillero
-        this.ctx.style = "black";
         this.ctx.fillRect(this.posx, this.posy, this.cellSize, this.cellSize);
     }
 }
