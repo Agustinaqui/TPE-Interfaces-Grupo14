@@ -143,8 +143,8 @@ function configuracionDefault() {
 /* Ejecuta una partida con los datos cargados */
 function iniciarJuego() {
 
-    name1 = player_1_name_input.value;
-    name2 = player_2_name_input.value;
+    name1 = player_1_name_input.value == "" ? "Jugador1" : player_1_name_input.value ;
+    name2 = player_2_name_input.value == "" ? "Jugador2" : player_2_name_input.value ;
 
     img1 = player_1_ficha_node.src;
     img2 = player_2_ficha_node.src;
@@ -567,6 +567,7 @@ class Juego {
         // this.tablero.drawFondo();
 
         this.tablero.drawDropAreas();
+        this.tablero.drawFondo();
 
         this.fichero1.draw();
         this.fichero2.draw();
