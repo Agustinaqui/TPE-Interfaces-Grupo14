@@ -151,7 +151,7 @@ function iniciarJuego() {
 
     //prepara imagen de tablero
     const tableroImage = new Image();
-    tableroImage.src = '../images/iconos/ladrillo.png';
+    tableroImage.src = '../images/casilleroMuro.png';
 
     tableroImage.onload = () => {
         game = new Juego(x, tableroImage, name1, name2, img1, img2, ctx);

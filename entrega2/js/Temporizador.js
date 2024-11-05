@@ -48,20 +48,33 @@ class Temporizador {
         if (!this.visible) {
             return
         }
-        const offsetY = 17;
+        const offsetY = 8;
         const padding = 20; 
         const backgroundWidth = this.width + padding * 2; // Ancho del fondo con padding
-        const backgroundHeight = 45; // Alto del fondo
+        const backgroundHeight = 33; // Alto del fondo
         const backgroundPosX = this.posx - 20;
+        const borderRadius = 15; 
 
-        this.ctx.fillStyle = "#600000"; 
-        this.ctx.fillRect(backgroundPosX, this.posy + offsetY - backgroundHeight, backgroundWidth, backgroundHeight); // Rectángulo del fondo
-        
-        // Dibuja el borde del rectángulo
+        this.ctx.fillStyle = "#911813"; 
+        this.ctx.beginPath();
+
+        // Dibuja el rectángulo con esquinas redondeadas
+        this.ctx.moveTo(backgroundPosX + borderRadius, this.posy + offsetY - backgroundHeight);
+        this.ctx.lineTo(backgroundPosX + backgroundWidth - borderRadius, this.posy + offsetY - backgroundHeight);
+        this.ctx.arcTo(backgroundPosX + backgroundWidth, this.posy + offsetY - backgroundHeight, backgroundPosX + backgroundWidth, this.posy + offsetY - backgroundHeight + backgroundHeight, borderRadius);
+        this.ctx.lineTo(backgroundPosX + backgroundWidth, this.posy + offsetY - backgroundHeight + backgroundHeight - borderRadius);
+        this.ctx.arcTo(backgroundPosX + backgroundWidth, this.posy + offsetY - backgroundHeight + backgroundHeight, backgroundPosX + backgroundWidth - borderRadius, this.posy + offsetY - backgroundHeight + backgroundHeight, borderRadius);
+        this.ctx.lineTo(backgroundPosX + borderRadius, this.posy + offsetY - backgroundHeight + backgroundHeight);
+        this.ctx.arcTo(backgroundPosX, this.posy + offsetY - backgroundHeight + backgroundHeight, backgroundPosX, this.posy + offsetY - backgroundHeight + backgroundHeight - borderRadius, borderRadius);
+        this.ctx.lineTo(backgroundPosX, this.posy + offsetY - backgroundHeight + borderRadius);
+        this.ctx.arcTo(backgroundPosX, this.posy + offsetY - backgroundHeight, backgroundPosX + borderRadius, this.posy + offsetY - backgroundHeight, borderRadius);
+        this.ctx.closePath();
+        this.ctx.fill(); 
+
+        // Dibuja el borde del rectángulo con esquinas redondeadas
         this.ctx.strokeStyle = "black"; 
         this.ctx.lineWidth = 3; 
-        this.ctx.strokeRect(backgroundPosX, this.posy + offsetY - backgroundHeight, backgroundWidth, backgroundHeight); // Rectángulo del borde
-        
+        this.ctx.stroke(); // Dibuja el borde
         
         // Configura el estilo del texto
         this.ctx.fillStyle = "black";
