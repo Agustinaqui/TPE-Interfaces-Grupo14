@@ -143,15 +143,15 @@ function configuracionDefault() {
 /* Ejecuta una partida con los datos cargados */
 function iniciarJuego() {
 
-    name1 = player_1_name_input.value;
-    name2 = player_2_name_input.value;
+    name1 = player_1_name_input.value == "" ? "Jugador1" : player_1_name_input.value ;
+    name2 = player_2_name_input.value == "" ? "Jugador2" : player_2_name_input.value ;
 
     img1 = player_1_ficha_node.src;
     img2 = player_2_ficha_node.src;
 
     //prepara imagen de tablero
     const tableroImage = new Image();
-    tableroImage.src = '../images/iconos/ladrillo.png';
+    tableroImage.src = '../images/casilleroMuro.png';
 
     tableroImage.onload = () => {
         game = new Juego(x, tableroImage, name1, name2, img1, img2, ctx);
@@ -567,6 +567,7 @@ class Juego {
         // this.tablero.drawFondo();
 
         this.tablero.drawDropAreas();
+        this.tablero.drawFondo();
 
         this.fichero1.draw();
         this.fichero2.draw();
