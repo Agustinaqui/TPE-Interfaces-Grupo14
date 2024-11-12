@@ -1,5 +1,6 @@
 body{
     height: 1080px;
+    width: 1280px;
     margin: 0;
     padding: 0;
 }
@@ -38,6 +39,15 @@ body{
     width: 150px;
     height: 86px;
 }
+
+.titulo-seccion{
+    font-size: 60px;
+    color: black;
+}
+
+.subrayado {
+    text-decoration: underline;
+  }
 
 /*FOOTER*/
 footer{
@@ -83,3 +93,116 @@ footer p, footer a{
     color: #242424;
 }
 
+/*SECCION SUSCRIPCION*/
+.seccion-suscripcion{
+    width: 1280px;
+    position: relative;
+}
+
+.img-fondo-suscripcion {
+    width: 100%; 
+    margin-top: 200px;
+}
+
+.img-piso-suscripcion{
+    width: 100%; 
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+    margin-top: 200px;
+
+}
+
+.personaje2-suscripcion{
+    position: absolute;
+    top: 790px;
+    left: 10px; 
+    margin-top: 200px;
+
+}
+
+.personaje3-suscripcion{
+    position: absolute;
+    top: 750px;
+    left: 360px; 
+    margin-top: 200px;
+
+}
+
+.personaje7-suscripcion{
+    position: absolute;
+    top: 340px;
+    left: 710px; 
+    margin-top: 200px;
+
+}
+
+.nube1-suscripcion{
+    position: absolute;
+    top: 520px;
+    left: 0; 
+    margin-top: 200px;
+
+}
+
+.nube2-suscripcion{
+    position: absolute;
+    top: 290px;
+    right: 0; 
+    margin-top: 200px;
+
+}
+
+.nube3-suscripcion{
+    position: absolute;
+    top: 245px;
+    left: 800px; 
+    margin-top: 200px;
+
+}
+
+.contenido-suscripcion{
+    position: absolute;
+    padding-left: 100px;
+    padding-right: 350px;
+}
+
+.texto-suscripcion{
+    width: 530px;
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+/*SECCION PERSONAJES*/
+.contenedor-personajes{
+    padding-top: 240px;
+    padding-bottom: 150px;
+}
+
+/*SECCION EFECTOS 3D*/
+.seccion-efectos3D{
+    display: flex;
+    flex-direction: row;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 200px;
+    position: relative;
+}
+
+.titulo3D{
+    color: #9D2121;
+}
+
+#texto-seccion-3d{
+    max-width: 490px;
+}
+
+.contenido-efectos3D{
+    padding-right: 400px;
+}
+
+.imgSeccion3D{
+    position: absolute;
+   top: 40px;
+    left: 600px; 
+}
