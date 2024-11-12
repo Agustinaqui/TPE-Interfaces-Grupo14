@@ -568,6 +568,10 @@ img.card-tag-fav-icono {
   flex-direction: row;
 }
 
+.seccionLinks{
+  width: 60%;
+}
+
 .contenedorImgLogIn {
   overflow: hidden;
   width: 50%;
@@ -665,21 +669,27 @@ footer {
 .seccionFooter {
   display: flex;
   flex-direction: column;
-  padding: 40px;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
   padding-top: 6%;
 }
 
 .seccionFooterMedia {
   display: flex;
-  flex-direction: row;
-  padding: 40px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
   padding-top: 5%;
 }
 
 .seccionFooterIzquierda {
   display: flex;
   flex-direction: column;
-  padding: 40px;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
   padding-top: 8%;
 }
 
@@ -701,6 +711,8 @@ footer {
 .links2{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 200px;
   padding-left: 2px;
   padding-right: 2px;
@@ -716,8 +728,7 @@ footer {
 .logoFooter {
   width: 254px;
   height: 170px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 20%;
 }
 
 .iconoFooter {
@@ -1997,20 +2008,22 @@ text-decoration: underline;
 
   .seccionFooter {
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: center;
     padding-bottom: 0px;
-    padding-top: 5px;
   }
 
   .seccionFooterMedia {
     display: flex;
+    width: 100%;
     flex-direction: row;
     padding-bottom: 0px;
     padding-top: 0px;
   }
 
   .seccionFooterIzquierda {
+    width: 100%;
     padding-top: 0px;
   }
 
@@ -2104,6 +2117,10 @@ text-decoration: underline;
   .textoFooter {
     padding-top: 5px;
     padding-bottom: 0px;
+  }
+
+  #textoFooterRedes{
+    visibility: hidden;
   }
 
   /*GALERIA CATEGORIAS*/
