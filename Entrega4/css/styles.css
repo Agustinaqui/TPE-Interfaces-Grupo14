@@ -137,29 +137,46 @@ footer p, footer a{
 
 }
 
-.nube1-suscripcion{
+.nube {
     position: absolute;
-    top: 520px;
-    left: 0; 
-    margin-top: 200px;
-
+    height: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: moverNube linear infinite;
 }
 
-.nube2-suscripcion{
-    position: absolute;
-    top: 290px;
-    right: 0; 
-    margin-top: 200px;
-
+.nube1-suscripcion {
+    width: 387px;
+    height: 181px;
+    top: 720px;
+    left: -800px; 
+    animation-duration: 40s;
+    z-index: 0;
 }
 
-.nube3-suscripcion{
-    position: absolute;
-    top: 245px;
-    left: 800px; 
-    margin-top: 200px;
-
+.nube2-suscripcion {
+    width: 265px;
+    height: 124px;
+    top: 435px;
+    left: -500px; 
+    animation-duration: 38s;
+    z-index: 0;
 }
+
+.nube3-suscripcion {
+    width: 387px;
+    height: 181px;
+    top: 480px;
+    left: -400px; 
+    animation-duration: 34s;
+    z-index: 0;
+}
+
+@keyframes moverNube {
+    0% { transform: translateX(0); } 
+    100% { transform: translateX(2000px); }
+}
+
 
 .contenido-suscripcion{
     position: absolute;
