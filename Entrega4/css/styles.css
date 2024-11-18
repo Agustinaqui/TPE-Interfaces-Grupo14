@@ -1,4 +1,5 @@
 body{
+    height: 1080px;
     width: 1280px;
     margin: 0;
     padding: 0;
@@ -263,6 +264,15 @@ body{
 
 
 
+.titulo-seccion{
+    font-size: 60px;
+    color: black;
+}
+
+.subrayado {
+    text-decoration: underline;
+  }
+
 /*FOOTER*/
 footer{
     height: 595px;
@@ -306,3 +316,247 @@ footer p, footer a{
     color: #242424;
 }
 
+/*SECCION SUSCRIPCION*/
+.seccion-suscripcion{
+    width: 1280px;
+    position: relative;
+}
+
+.img-fondo-suscripcion {
+    width: 100%; 
+    margin-top: 200px;
+}
+
+.img-piso-suscripcion{
+    width: 100%; 
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+    margin-top: 200px;
+}
+
+.personaje2-suscripcion{
+    position: absolute;
+    top: 790px;
+    left: 10px; 
+    margin-top: 200px;
+}
+
+.personaje3-suscripcion{
+    position: absolute;
+    top: 750px;
+    left: 360px; 
+    margin-top: 200px;
+}
+
+.personaje7-suscripcion{
+    position: absolute;
+    top: 340px;
+    left: 710px; 
+    margin-top: 200px;
+}
+
+.nube {
+    position: absolute;
+    height: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: moverNube linear infinite;
+}
+
+.nube1-suscripcion {
+    width: 387px;
+    height: 181px;
+    top: 720px;
+    left: -800px; 
+    animation-duration: 40s;
+    z-index: 0;
+}
+
+.nube2-suscripcion {
+    width: 265px;
+    height: 124px;
+    top: 435px;
+    left: -500px; 
+    animation-duration: 38s;
+    z-index: 0;
+}
+
+.nube3-suscripcion {
+    width: 387px;
+    height: 181px;
+    top: 480px;
+    left: -400px; 
+    animation-duration: 34s;
+    z-index: 0;
+}
+
+@keyframes moverNube {
+    0% { transform: translateX(0); } 
+    100% { transform: translateX(2000px); }
+}
+
+
+.contenido-suscripcion{
+    position: absolute;
+    padding-left: 100px;
+    padding-right: 350px;
+}
+
+.texto-suscripcion{
+    width: 530px;
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+/*SECCION PERSONAJES*/
+.contenedor-personajes{
+    display: flex;
+    width: 1280px;
+    height: 770px;
+    margin-top: 240px;
+    margin-bottom: 150px;
+    flex-direction: column;
+    justify-content: space-between;
+   background-image: url(../images/seccion-personajes/recortesPersonajes/Diseño\ sin\ título.png);
+   background-size: 1280px 770px; 
+}
+
+.seccion-grilla{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.grilla-top{
+    padding-bottom: 30px;
+}
+
+.div-personaje-grilla{
+    position: relative; 
+    display: flex;
+    height: 370px;
+    width: 231px;
+    align-items: center;
+    display: inline-block; 
+    overflow: hidden; 
+    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.137) inset;
+}
+
+.recorte-personaje{
+    bottom: 0;
+    position: absolute;
+    width: 100%; 
+    transition: transform 0.9s ease; 
+    }
+
+.personaje-celeste{
+    right: 0;
+    }
+
+.recorte-personaje:hover{
+    cursor: pointer;
+    bottom: 2px;
+    transform: scale(1.1); 
+    filter:drop-shadow( 0 0 25px rgba(255, 255, 255, 0.753)); 
+}
+
+.div-personaje-rojo{
+    background-color: rgba(175,26,27,255);
+}
+
+.div-personaje-naranja{
+    background-color: #d58432;
+}
+
+.div-personaje-amarillo{
+    background-color: #b8a40d;
+}
+
+.div-personaje-rosa{
+    background-color:#ac1e72;
+    position: relative; 
+}
+
+.div-personaje-violeta{
+    background-color: #411c90;
+}
+
+.div-personaje-celeste{
+    background-color: #1aa3ad;
+    position: relative; 
+}
+
+.div-personaje-gris{
+    background-color: #6c6764;
+}
+.div-personaje-verde{
+    background-color: #38ae00;
+}
+
+.div-personaje-blanco{
+    background-color: #ffffff;
+    box-shadow: none;
+}
+
+.div-personaje-colorido{
+    display: flex;
+    flex-direction: column;
+}
+
+.div-rojo{
+    width: 100%;
+    background-color: #fb0605;
+    height: 74px;
+}
+
+.div-naranja{
+    width: 100%;
+    height: 74px;
+    background-color: #fc7607;
+}
+
+.div-amarillo{
+    width: 100%;
+    height: 74px;
+    background-color: #f4eb0a;
+}
+
+.div-azul{
+    width: 100%;
+    height: 74px;
+    background-color: #00f5c9;
+}
+.div-verde{
+    width: 100%;
+    height: 74px;
+    background-color: #5df105;
+}
+
+/*SECCION EFECTOS 3D*/
+.seccion-efectos3D{
+    display: flex;
+    flex-direction: row;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 200px;
+    position: relative;
+}
+
+.titulo3D{
+    color: #9D2121;
+}
+
+#texto-seccion-3d{
+    max-width: 490px;
+}
+
+.contenido-efectos3D{
+    padding-right: 400px;
+}
+
+.imgSeccion3D{
+    position: absolute;
+   top: 40px;
+    left: 600px; 
+}
