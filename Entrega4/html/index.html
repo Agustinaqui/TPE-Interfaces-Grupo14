@@ -3,6 +3,8 @@
 
 <head>
     <link rel="icon" href="../images/logo.png" alt="logopestaña">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Number Blocks</title>
@@ -33,8 +35,24 @@
         <h1 class="titulo-seccion titulo3D">¡Experimenta Efectos 3D Asombrosos en NumberBlocks: Una Aventura Matemática Inmersiva!</h1>
         <p class="texto-suscripcion" id="texto-seccion-3d">En NumberBlocks, la aventura no solo está en el aprendizaje, ¡sino también en la experiencia visual! Disfruta de efectos 3D asombrosos que dan vida a cada número y desafío, haciendo que las matemáticas cobren una nueva dimensión. A medida que los niños interactúan con los personajes y los bloques, verán cómo sus acciones tienen un impacto real en el entorno, creando un aprendizaje dinámico y emocionante. ¡Cada sesión de juego se convierte en una experiencia inolvidable llena de color y diversión!</p>
     </div>
-        <img src="../images/seccion-3d/imgSeccion3D.png" class="imgSeccion3D" alt="">
+    <model-viewer
+        id="modelo-numberblocks"
+        loading="eager"
+        camera-controls
+        touch-action="pan-y"
+        auto-rotate
+        poster="../images/seccion-3d/imgSeccion3D.png"
+        src="../models/one.glb" 
+        shadow-intensity="2"
+        environment-image="../images/environment.hdr" 
+        camera-orbit="0deg 75deg 2.5m"
+        camera-target="0 0 0"
+        field-of-view="45deg"
+        exposure="1.2"
+        alt="Modelo 3D de NumberBlocks interactivo">
+    </model-viewer>
     </div>
+</div>
 
     <div class="contenedor-personajes" >
         <div class="seccion-grilla grilla-top">
@@ -88,7 +106,16 @@
     
         <div class="contenido-suscripcion">
             <h1 class="titulo-seccion">¿Quieres ser el primero en enterarse de todas las novedades?</h1>
-            <img src="../images/seccion-suscripcion/inputCorreoElectronico.png" alt="">
+            <div class="div-sombra"></div>
+            <div class="input-suscripcion">
+                <div class="caja-texto">
+                    <input type="text" placeholder="Ingresa aquí tu correo">
+                </div>
+                <div class="caja-boton-suscribirse">
+                    <p>SUSCRIBIRSE</p>
+                </div>
+            </div>
+
             <p class="texto-suscripcion">Al inscribirse en nuestra lista de correo, nos autoriza a ponernos en contacto con usted para enviarle ofertas y actualizaciones de marketing por correo electrónico, y también acepta nuestra <span class="subrayado">Política de privacidad</span> y las <span class="subrayado">Condiciones del servicio.</span></p>
             <img src="../images/seccion-suscripcion/imgTeen.png" alt="">
         </div>
@@ -122,5 +149,7 @@
         </div>
         <img class="redes-footer" src="../images/redes-footer.png">
     </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="cargaGlb"></script>
 </body>

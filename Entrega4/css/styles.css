@@ -1,9 +1,10 @@
-body{
-    height: 1080px;
-    width: 1280px;
+html, body {
     margin: 0;
     padding: 0;
+    width: 1280px;
+    overflow-x: hidden;
 }
+
 
 /*HEADER*/
 .header{
@@ -185,6 +186,88 @@ footer p, footer a{
     font-size: 20px;
     padding-top: 10px;
 }
+
+.div-sombra {
+    position: absolute;
+    width: 784px;
+    height: 105px;
+    background-color: #02187e;
+    border-radius: 50px;
+    top: 293px; 
+    left: 104px;
+    z-index: 1; 
+  }
+  
+  .input-suscripcion {
+    display: flex;
+    width: 784px;
+    height: 105px;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    justify-content: space-between;
+    padding-left: 9px;
+    padding-right: 6px;
+    border-radius: 50px;
+    z-index: 2; 
+    box-sizing: border-box; 
+    font-size: 20px;
+  }
+  
+  .input-suscripcion input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 10px;
+    background-color: #ECECEC;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    font-size: 20px;
+    padding-left: 38px; 
+
+  }
+
+.caja-texto{
+    display: flex;
+    width: 74%;
+    height: 80%;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border: 5px #ffffff;
+    justify-content: center;
+}
+
+.caja-boton-suscribirse {
+    display: flex;
+    background-color: #83c152;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    width: 24%;
+    height: 84px;
+    border: 5px #ffffff solid;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+  }
+  
+  .caja-boton-suscribirse:hover {
+    background-color: #60913c; 
+    transform: scale(1.05); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .caja-boton-suscribirse:active {
+    background-color: #679a3e; 
+    transform: scale(0.95); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
 
 /*SECCION PERSONAJES*/
 .contenedor-personajes{
