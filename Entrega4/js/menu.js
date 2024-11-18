@@ -87,5 +87,53 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(changeImage, 3000);
 });
 
+//inciso 7
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll('.card1, .card2, .card3');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 300);
+            } else {
+                entry.target.classList.remove('visible'); //se elimina laclase visible si la card ya no esta visible
+            }
+        });
+    }, {
+        threshold: 0.1 // se detecta cuando se "ve" el 10% de la card
+    });
+
+    cards.forEach(card => observer.observe(card));
+});
+
+//inciso 8
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.querySelector('.conteiner2');
+    const image = document.getElementById('floating-image');
+
+    container.addEventListener('mousemove', (event) => {
+        //obtiene el tamaño del container
+        const rect = container.getBoundingClientRect();
+
+        //calcula la pos del mouse en base al cantainer
+        const mouseX = event.clientX - rect.left;
+        const mouseY = event.clientY - rect.top;
+
+        //invierte las direcciones 
+        const offsetX = (mouseX / rect.width - 0.5) * 50; // la imagen se mueve a la izquierda cuando el mouse va a la derecha
+        const offsetY = (mouseY / rect.height - 0.5) * 50; // laimagen se mueve hacia abajo cuando el mouse sube
+
+
+        const scale = 1 + (Math.abs(mouseX / rect.width - 0.5) * 0.3); 
+        // aplica transformaciones
+        image.style.transform = `translate(${-offsetX}px, ${-offsetY}px) scale(${scale})`;
+    });
+
+    container.addEventListener('mouseleave', () => {
+        image.style.transform = 'translate(0, 0) scale(1)';
+    });
+});
+
 
 

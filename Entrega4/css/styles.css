@@ -245,6 +245,16 @@ body{
 .conteiner-cards p{
     font-size: 20px;
 }
+.card1, .card2, .card3 {
+    opacity: 0;
+    transform: translateY(50px); 
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.card1.visible, .card2.visible, .card3.visible {
+    opacity: 1;
+    transform: translateY(0); 
+}
 
 .conteiner2{
     background-image: url(../images/fondoVioleta.png);
@@ -253,7 +263,18 @@ body{
     text-align: center;
     align-items: centers;
     height: 1157px;
+    position: relative;
+    text-align: center;
+    overflow: hidden; 
 }
+
+#floating-image {
+    position: relative; 
+    transition: transform 0.1s ease-out; 
+    will-change: transform; 
+    transform-origin: center center; 
+}
+
 .conteiner2 p{
     margin-top: 124px;
     font-size: 61.14px;
