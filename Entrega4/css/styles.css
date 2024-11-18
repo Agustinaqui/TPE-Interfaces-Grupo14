@@ -257,7 +257,7 @@ footer p, footer a{
   }
   
   .caja-boton-suscribirse:hover {
-    background-color: #60913c; 
+    background-color: #9ad86b; 
     transform: scale(1.05); 
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
   }
@@ -394,29 +394,35 @@ footer p, footer a{
 }
 
 /*SECCION EFECTOS 3D*/
-.seccion-efectos3D{
+.seccion-efectos3D {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; 
     padding-left: 100px;
     padding-right: 100px;
     padding-top: 200px;
     position: relative;
+    justify-content: space-between; 
+    align-items: center;
 }
 
-.titulo3D{
+.titulo3D {
     color: #9D2121;
 }
 
-#texto-seccion-3d{
-    max-width: 490px;
+#texto-seccion-3d {
+    max-width: 440px;
 }
 
-.contenido-efectos3D{
-    padding-right: 400px;
+.titulo-seccion{
+    width: 700px;
 }
 
-.imgSeccion3D{
+#img-3d {
     position: absolute;
-   top: 40px;
-    left: 600px; 
+    width: 800px; 
+    height: 1400px; 
+    flex-shrink: 0;
+    object-fit: contain;
+    left: 500px;
+    bottom: -400px;
 }

@@ -3,8 +3,6 @@
 
 <head>
     <link rel="icon" href="../images/logo.png" alt="logopestaña">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Number Blocks</title>
@@ -32,27 +30,27 @@
     
     <div class="seccion-efectos3D">
         <div class="contenido-efectos3D">
-        <h1 class="titulo-seccion titulo3D">¡Experimenta Efectos 3D Asombrosos en NumberBlocks: Una Aventura Matemática Inmersiva!</h1>
-        <p class="texto-suscripcion" id="texto-seccion-3d">En NumberBlocks, la aventura no solo está en el aprendizaje, ¡sino también en la experiencia visual! Disfruta de efectos 3D asombrosos que dan vida a cada número y desafío, haciendo que las matemáticas cobren una nueva dimensión. A medida que los niños interactúan con los personajes y los bloques, verán cómo sus acciones tienen un impacto real en el entorno, creando un aprendizaje dinámico y emocionante. ¡Cada sesión de juego se convierte en una experiencia inolvidable llena de color y diversión!</p>
+            <h1 class="titulo-seccion titulo3D">¡Experimenta Efectos 3D Asombrosos en NumberBlocks: Una Aventura Matemática Inmersiva!</h1>
+            <p class="texto-suscripcion" id="texto-seccion-3d">En NumberBlocks, la aventura no solo está en el aprendizaje, ¡sino también en la experiencia visual! Disfruta de efectos 3D asombrosos que dan vida a cada número y desafío, haciendo que las matemáticas cobren una nueva dimensión. A medida que los niños interactúan con los personajes y los bloques, verán cómo sus acciones tienen un impacto real en el entorno, creando un aprendizaje dinámico y emocionante. ¡Cada sesión de juego se convierte en una experiencia inolvidable llena de color y diversión!</p>
+        </div>
+            <model-viewer 
+                id="img-3d" 
+                loading="eager" 
+                camera-controls 
+                touch-action="pan-y"
+                auto-rotate 
+                poster="../images/seccion-3d/imgSeccion3D.png" 
+                tone-mapping="aces" 
+                src="../models/one.glb" 
+                shadow-intensity="1" 
+                alt="A 3D model of a shishkebab"
+                disable-zoom
+                camera-orbit="-75deg 85deg"
+                camera-target="1 1 1">
+            </model-viewer>
+            <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+            <script type="nomodule" src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
     </div>
-    <model-viewer
-        id="modelo-numberblocks"
-        loading="eager"
-        camera-controls
-        touch-action="pan-y"
-        auto-rotate
-        poster="../images/seccion-3d/imgSeccion3D.png"
-        src="../models/one.glb" 
-        shadow-intensity="2"
-        environment-image="../images/environment.hdr" 
-        camera-orbit="0deg 75deg 2.5m"
-        camera-target="0 0 0"
-        field-of-view="45deg"
-        exposure="1.2"
-        alt="Modelo 3D de NumberBlocks interactivo">
-    </model-viewer>
-    </div>
-</div>
 
     <div class="contenedor-personajes" >
         <div class="seccion-grilla grilla-top">
@@ -151,5 +149,5 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="cargaGlb"></script>
 </body>
+</html>
