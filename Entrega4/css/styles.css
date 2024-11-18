@@ -1,43 +1,267 @@
 body{
-    height: 1080px;
+    width: 1280px;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, red , rgb(255, 115, 0) , yellow , rgb(39, 216, 3) , rgb(30, 99, 228), rgb(167, 16, 255));
+    z-index: 1000;
+  }
+  
+  .spinner {
+    border: 12px solid #ffffff;
+    border-top: 12px solid #00000057;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
+  @keyframes spin {
+    0% {
+        transform: rotate(0deg); /* Comienza sin rotar */
+    }
+    100% {
+        transform: rotate(360deg); /* Gira 360 grados */
+    }
+}
+
+#loader img {
+    height: 200px;
 }
 
 /*HEADER*/
 .header{
+    position: sticky;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background: linear-gradient(180deg, #00D1D5 0%, rgba(0, 209, 213, 0.12) 87.91%, rgba(1, 208, 213, 0) 100%);
+    background: #00D1D5;
+    z-index: 1000;
+    top: 0;
+    height: 0px;
+    transition: all 0.4s ease-in-out;
 }
-
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(180deg, #00D1D5 0%, rgba(0, 209, 213, 0.12) 87.91%, rgba(1, 208, 213, 0) 100%);
+  z-index: -1;
+}
 .header .comprar{
     width: 200px;
     height: 50px;
     font-size: 22px;
     display: flex;
     align-items: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
     font-weight: 900;
     background-color: #83C252;
-    text-align: center;
     justify-content: center;
     border-radius: 111px;
     border: 8px solid white;
     box-shadow: 4px 5px 0px #02187E;
-    margin-right: 70px;
+    margin-right: 100px;
+}
+.header .logoPrincipal{
+    width: 560px;
+    height: 320px;
+    margin-left: 120px;
+    transition: all 0.4s ease-in-out;
+}
+.logoMenu{
+    display: flex;
+    justify-content: center;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+.logoMenu img{
+    width: 48px;
+    height: 40px;
 }
 
-.header .menu{
-    margin-left: 70px;
+/* HEADER*/
+
+/*CONTEINERS*/
+
+
+.conteiner1{
+    background-image: url(../images/fondoNubes2.png);
+    width: 1280px;
+    height: 959px;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+.personajes1{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-right: 600px;
 }
 
-.header img{
-    width: 150px;
-    height: 86px;
+.personaje11 img{
+    position: absolute;
+    height: 314px;
+    transform: rotate(-6.51deg);
+    margin-top: 527px;
+    z-index: 2;
 }
+.personaje22 img{
+    position: absolute;
+    height: 270px;
+    margin-top: 430px;
+    transform: rotate(-6.72deg);
+    margin-left: 165px;
+    z-index: 1;
+}
+.personaje33 img{
+    position: absolute;
+    height: 384px;
+    margin-top: 360px;
+    transform: rotate(8.73deg);
+    margin-left: 340px;
+}
+
+.conteiner3{
+    background-image: url(../images/fondoVerdeGradrient.png);
+    background-repeat: no-repeat; 
+    width: 1280px;
+    height: 894px;
+    padding-bottom: 210px;
+    
+}
+
+.cont3 h2{
+    font-size: 47px;
+    font-weight: 600;
+    line-height: 44.41px;
+    color: #1B428F;
+    margin: 0;
+    margin-left: 100px;
+}
+.cont3 p{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #1B428F;
+    margin-left: 100px;
+}
+.cardGrande img{
+    width: 547.38px;
+    height: 295.35px;
+    margin-left: 206px;
+    border-radius: 77px;
+    border: 29px;
+    opacity: 0px;
+    border: 29px solid #1B5F99
+}
+
+.personajes{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    z-index: 10;
+}
+.personajes img{
+    position: relative;
+    top: -800px;
+}
+.personaje4 {
+    margin-left: 48px;
+    z-index: 11;
+}
+.personaje5 {
+    z-index: 11;
+    margin-left: 200px;
+    object-fit: contain;
+}
+
+
+.conteiner-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 100px;
+    margin-top: 80px;
+}
+.conteiner-cards img{
+    width: 332.96px;
+    height: 302.69px;
+    object-fit: cover;
+    border-radius: 41px;
+    border: 9px;
+    opacity: 0px;
+    border: 9px solid #2982FF;
+    box-shadow: 4px 5px 0px #02187E;
+}
+.conteiner-cards p{
+    font-size: 20px;
+}
+
+.conteiner2{
+    background-image: url(../images/fondoVioleta.png);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: centers;
+    height: 1157px;
+}
+.conteiner2 p{
+    margin-top: 124px;
+    font-size: 61.14px;
+    font-weight: 600;
+    text-align: center;
+    color: white;
+    margin-bottom: 0;
+}
+
+.conteiner2 .italic-text{
+    font-style: italic;
+}
+.conteiner2 h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 60px;
+    color: white;
+    background-color: #83C252;
+    border-radius: 111px;
+    border: 8px solid white;
+    box-shadow: 4px 5px 0px #02187E;
+    margin-bottom: 0;
+
+
+}
+.conteiner2 img{
+    width: 1280px;
+    height: 767px;
+}
+
+/*CONTEINERS*/
+
+
 
 /*FOOTER*/
 footer{
@@ -72,7 +296,6 @@ footer .desc-footer{
 
 footer p, footer a{
     font-size: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
     line-height: 18.9px;
     letter-spacing: 1.6px;
