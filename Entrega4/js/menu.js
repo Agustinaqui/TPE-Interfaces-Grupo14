@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Obtener los elementos
+    const header = document.getElementById('header');
     const loader = document.getElementById('loader');
     const content = document.querySelector('.indexLoad');
     const progressImage = document.getElementById('progress'); 
@@ -17,9 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
             clearInterval(loadingInterval);
             loader.style.display = 'none';
             content.style.display = 'block';
+            document.body.style.overflow='auto';
+            header.classList.remove('hidden');
         }
-    }, 90); 
+    }, 70); 
 });
+
 
 
 
@@ -67,7 +70,5 @@ window.addEventListener('scroll', function () {
 });
 
 
-
-//container1
 
 
