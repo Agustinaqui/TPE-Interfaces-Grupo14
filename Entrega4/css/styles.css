@@ -267,7 +267,29 @@ footer p, footer a{
     transform: scale(0.95); 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
-  
+
+  .spritesheet-sol {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: url(../images/seccion-suscripcion/sol.png);
+    background-size: cover; /* Tamaño proporcional */
+    width: 64px; /* Ancho de un frame */
+    height: 64px; /* Alto de un frame */
+    left: 50%;
+    top: 50%;
+    animation: move 2s steps(4) infinite; /* Animación */
+    z-index: 2;
+}
+
+@keyframes move {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -256px 0; /* Ajusta según el ancho total */
+    }
+}
+
 
 /*SECCION PERSONAJES*/
 .contenedor-personajes{
