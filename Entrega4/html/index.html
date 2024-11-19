@@ -33,24 +33,25 @@
             <h1 class="titulo-seccion titulo3D">¡Experimenta Efectos 3D Asombrosos en NumberBlocks: Una Aventura Matemática Inmersiva!</h1>
             <p class="texto-suscripcion" id="texto-seccion-3d">En NumberBlocks, la aventura no solo está en el aprendizaje, ¡sino también en la experiencia visual! Disfruta de efectos 3D asombrosos que dan vida a cada número y desafío, haciendo que las matemáticas cobren una nueva dimensión. A medida que los niños interactúan con los personajes y los bloques, verán cómo sus acciones tienen un impacto real en el entorno, creando un aprendizaje dinámico y emocionante. ¡Cada sesión de juego se convierte en una experiencia inolvidable llena de color y diversión!</p>
         </div>
-            <model-viewer 
-                id="img-3d" 
-                loading="eager" 
-                camera-controls 
-                touch-action="pan-y"
-                auto-rotate 
-                poster="../images/seccion-3d/imgSeccion3D.png" 
-                tone-mapping="aces" 
-                src="../models/one.glb" 
-                shadow-intensity="1" 
-                alt="A 3D model of a shishkebab"
-                disable-zoom
-                camera-orbit="-75deg 85deg"
-                camera-target="1 1 1">
-            </model-viewer>
-            <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-            <script type="nomodule" src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
-    </div>
+        <model-viewer 
+        id="img-3d" 
+        loading="eager" 
+        camera-controls 
+        touch-action="pan-y"
+        auto-rotate 
+        poster="../images/seccion-3d/imgSeccion3D.png" 
+        tone-mapping="aces" 
+        src="../models/one.glb" 
+        shadow-intensity="1" 
+        alt="A 3D model of a shishkebab"
+        disable-zoom
+        camera-orbit="-75deg 85deg"
+        camera-target="1 1 1">
+    </model-viewer>
+    
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script type="nomodule" src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+     </div>
 
     <div class="contenedor-personajes" >
         <div class="seccion-grilla grilla-top">
@@ -96,7 +97,7 @@
     </div>
 
     <div class="seccion-suscripcion">
-        <div class="sprisheet-sol">
+        <div class="spritesheet-sol">
             
         </div>
 
@@ -151,5 +152,6 @@
         </div>
         <img class="redes-footer" src="../images/redes-footer.png">
     </footer>
+
  </body>
 </html>

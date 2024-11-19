@@ -115,22 +115,22 @@ footer p, footer a{
 
 .personaje2-suscripcion{
     position: absolute;
-    top: 790px;
+    top: 1040px;
     left: 10px; 
     margin-top: 200px;
 }
 
 .personaje3-suscripcion{
     position: absolute;
-    top: 750px;
+    top: 1000px;
     left: 360px; 
     margin-top: 200px;
 }
 
-.personaje7-suscripcion{
+.personaje7-suscripcion {
     position: absolute;
-    top: 340px;
-    left: 710px; 
+    top: 600px;
+    left: 710px;
     margin-top: 200px;
 }
 
@@ -145,7 +145,7 @@ footer p, footer a{
 .nube1-suscripcion {
     width: 387px;
     height: 181px;
-    top: 720px;
+    top: 970px;
     left: -800px; 
     animation-duration: 40s;
     z-index: 0;
@@ -154,7 +154,7 @@ footer p, footer a{
 .nube2-suscripcion {
     width: 265px;
     height: 124px;
-    top: 435px;
+    top: 685px;
     left: -500px; 
     animation-duration: 38s;
     z-index: 0;
@@ -163,7 +163,7 @@ footer p, footer a{
 .nube3-suscripcion {
     width: 387px;
     height: 181px;
-    top: 480px;
+    top: 730px;
     left: -400px; 
     animation-duration: 34s;
     z-index: 0;
@@ -269,26 +269,27 @@ footer p, footer a{
   }
 
   .spritesheet-sol {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    background: url(../images/seccion-suscripcion/sol.png);
-    background-size: cover; /* Tamaño proporcional */
-    width: 64px; /* Ancho de un frame */
-    height: 64px; /* Alto de un frame */
-    left: 50%;
-    top: 50%;
-    animation: move 2s steps(4) infinite; /* Animación */
-    z-index: 2;
+    position: relative;
+    width: 256px; /* Aumenta el ancho del frame (puedes ajustar este valor) */
+    height: 256px; /* Aumenta el alto del frame (puedes ajustar este valor) */
+    top: 750px;
+    left: 560px;
+    background: url('../images/seccion-suscripcion/sol.png') no-repeat; /* Ruta correcta */
+    background-size: 1024px 256px; /* Tamaño total del spritesheet escalado a mayor tamaño */
+    animation: play-spritesheet 2s steps(4) infinite; /* Ajusta la duración según lo que prefieras */
+    z-index: 0;
 }
 
-@keyframes move {
+@keyframes play-spritesheet {
     from {
-        background-position: 0 0;
+        background-position: 0 0; /* Primer frame */
     }
     to {
-        background-position: -256px 0; /* Ajusta según el ancho total */
+        background-position: -1024px 0; /* Desplazamiento total para 4 frames más grandes */
     }
 }
+
+
 
 
 /*SECCION PERSONAJES*/
@@ -297,7 +298,6 @@ footer p, footer a{
     width: 1280px;
     height: 770px;
     margin-top: 240px;
-    margin-bottom: 150px;
     flex-direction: column;
     justify-content: space-between;
    background-image: url(../images/seccion-personajes/recortesPersonajes/Diseño\ sin\ título.png);
