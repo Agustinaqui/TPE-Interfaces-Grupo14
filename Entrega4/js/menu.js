@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const progressImage = document.getElementById('progress'); 
     let progress = 0;
     const totalImages = 11;
+    document.body.style.overflow = 'hidden';
     content.style.display='none';
     const loadingInterval = setInterval(() => {
         progress++;
@@ -19,10 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
             content.style.display = 'block';
             document.body.style.overflow='auto';
             header.classList.remove('hidden');
+            window.scrollTo(0, 0); //hace que al recargar la pagina siempre vuelva al principio de la misma
         }
     }, 70); 
 });
-
 
 function toggleMenu() {
     const menuLogo = document.getElementById('logo-menu');

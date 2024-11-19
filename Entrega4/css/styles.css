@@ -69,21 +69,46 @@ html, body {
 .header.hidden{
     display: none;
 }
-.header .comprar{
+.header .comprar {
     width: 200px;
     height: 50px;
     font-size: 22px;
     display: flex;
     align-items: center;
+    justify-content: center;
     color: white;
     font-weight: 900;
-    background-color: #83C252;
-    justify-content: center;
+    background: linear-gradient(45deg, #83C252, #72A82A); 
+    background-size: 400% 400%; 
     border-radius: 111px;
     border: 8px solid white;
     box-shadow: 4px 5px 0px #02187E;
     margin-right: 100px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
+.header .comprar:hover {
+    background: linear-gradient(45deg, red, rgb(255, 115, 0), rgb(39, 216, 3), rgb(30, 99, 228), rgb(167, 16, 255));
+    background-size: 400% 400%; 
+    background-position: 100% 100%; 
+    animation: gradientMovement 3s ease infinite; 
+    transform: scale(1); 
+    box-shadow: 4px 5px 15px #02187E; 
+}
+
+@keyframes gradientMovement {
+    0% {
+        background-position: 0% 0%; /* comienza en la posición inicial del gradiente */
+    }
+    50% {
+        background-position: 100% 100%; /* el gradiente se mueve hacia la esquina contrariak */
+    }
+    100% {
+        background-position: 0% 0%; /* vuelve a la posición inicial */
+    }
+}
+
 .header .logoPrincipal{
     width: 560px;
     height: 320px;
