@@ -26,15 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function toggleMenu() {
-    const menuLogo = document.getElementById('logo-menu');
-    if (menuLogo) {
-        const currentSrc = menuLogo.src;
-        if (currentSrc.includes('logoMenu.png')) {
-            menuLogo.src = '../images/logoCruz.png';
-        } else {
-            menuLogo.src = '../images/logoMenu.png';
-        }
-    }
+    const menu = document.getElementById('menu'); 
+    const menuItemsContainer = document.getElementById('menu-items-container'); 
+
+    menu.classList.toggle('open'); // cambia la forma de las 3 lineas a una cruz
+    menuItemsContainer.classList.toggle('active'); // aca se desplgiea el menu con los items
 }
 
 window.addEventListener('scroll', function () {
