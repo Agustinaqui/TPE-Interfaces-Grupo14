@@ -147,31 +147,25 @@
             inolvidable llena de color y diversión!
           </p>
         </div>
-        <model-viewer
-          id="img-3d"
-          loading="eager"
-          camera-controls
-          touch-action="pan-y"
-          auto-rotate
-          poster="../images/seccion-3d/imgSeccion3D.png"
-          tone-mapping="aces"
-          src="../models/one.glb"
-          shadow-intensity="1"
-          alt="A 3D model of a shishkebab"
-          disable-zoom
-          camera-orbit="-75deg 85deg"
-          camera-target="1 1 1"
-        >
-        </model-viewer>
-        <script
-          type="module"
-          src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
-        ></script>
-        <script
-          type="nomodule"
-          src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
-        ></script>
-      </div>
+        <model-viewer 
+        id="img-3d" 
+        loading="eager" 
+        camera-controls 
+        touch-action="pan-y"
+        auto-rotate 
+        poster="../images/seccion-3d/imgSeccion3D.png" 
+        tone-mapping="aces" 
+        src="../models/one.glb" 
+        shadow-intensity="1" 
+        alt="A 3D model of a shishkebab"
+        disable-zoom
+        camera-orbit="-75deg 85deg"
+        camera-target="1 1 1">
+    </model-viewer>
+    
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script type="nomodule" src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+     </div>
 
       <div class="contenedor-personajes">
         <div class="seccion-grilla grilla-top">
@@ -256,7 +250,11 @@
         </div>
       </div>
 
-      <div class="seccion-suscripcion">
+    <div class="seccion-suscripcion">
+        <div class="spritesheet-sol">
+            
+        </div>
+
         <div class="parallax-nubes">
           <img
             src="../images/seccion-suscripcion/nube1.png"
