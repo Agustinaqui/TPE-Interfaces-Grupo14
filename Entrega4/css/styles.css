@@ -151,12 +151,7 @@ body {
     box-shadow: 4px 5px 0px #02187E;
 }
 
-.menu.open {
-    top: 100px;
-    left: 190px;
-}
-
-.menu.open .linea1 {
+.menu.open .linea1{
     position: absolute;
     box-shadow: none;
     animation: rotarLinea1 0.3s forwards;
@@ -220,8 +215,8 @@ body {
 /*MENU - inciso 2*/
 .menu-items-container {
     position: fixed;
-    margin-top: 110px;
-    left: -100%;
+    margin-top: 80px;
+    left: -100%; 
     width: 300px;
     height: 50%;
     display: flex;
