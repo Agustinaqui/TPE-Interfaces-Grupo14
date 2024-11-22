@@ -11,6 +11,7 @@ body {
 /*LOADER - inciso 1*/
 #loader {
     position: fixed;
+    width: 1280px;
     top: 0;
     left: 0;
     right: 0;
@@ -323,7 +324,7 @@ body {
     transform: rotate(-6.51deg);
     top: 515px;
     left: 407px;
-    z-index: 2;
+    z-index: 3;
 }
 
 .personaje22 {
@@ -332,7 +333,7 @@ body {
     top: 410px;
     left: 565px;
     transform: rotate(-6.72deg);
-    z-index: 1;
+    z-index: 2;
 }
 
 .personaje33 {
@@ -341,6 +342,7 @@ body {
     top: 350px;
     left: 730px;
     transform: rotate(8.73deg);
+    z-index: 1;
 }
 
 .arbol1 {
@@ -417,15 +419,24 @@ body {
     z-index: 1;
 }
 
-.parallax-layer {
-    will-change: transform;
-    opacity: 0;
-    /* Comienza invisible */
-    transform: translateY(0);
-    /* Posición exacta inicial */
-    transition: transform 0.2s linear;
-    /* Suaviza pequeños cambios */
+.sombra1{
+    position: absolute;
+    top: 780px;
+    left: 440px;
 }
+
+.sombra2{
+    position: absolute;
+    top: 700px;
+    left: 580px;
+}
+
+.sombra3{
+    position:absolute;
+    top: 700px;
+    left: 720px;
+}
+  
 
 .fade-in {
     animation: fadeIn 1s ease-out forwards;
