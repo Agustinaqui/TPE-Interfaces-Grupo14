@@ -271,14 +271,14 @@ html, body {
     margin-right: 600px;
 }
 
-.personaje11 img{
+.personaje11 .p1 {
     position: absolute;
     height: 314px;
     transform: rotate(-6.51deg);
     margin-top: 527px;
     z-index: 2;
 }
-.personaje22 img{
+.personaje22 .p2 {
     position: absolute;
     height: 270px;
     margin-top: 430px;
@@ -286,12 +286,17 @@ html, body {
     margin-left: 165px;
     z-index: 1;
 }
-.personaje33 img{
+.personaje33 .p3 {
     position: absolute;
     height: 384px;
     margin-top: 360px;
     transform: rotate(8.73deg);
     margin-left: 340px;
+}
+
+.sombra{
+    width: 140px;
+    height: 30px;
 }
 
 .conteiner3{
@@ -372,6 +377,7 @@ html, body {
     margin-left: 200px;
     object-fit: contain;
 }
+
 
 
 .conteiner-cards{

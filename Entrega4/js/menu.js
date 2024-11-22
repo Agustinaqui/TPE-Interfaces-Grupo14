@@ -33,6 +33,8 @@ function toggleMenu() {
     menuItemsContainer.classList.toggle('active'); // aca se desplgiea el menu con los items
 }
 
+  
+
 window.addEventListener('scroll', function () {
     const header = document.getElementById('header');
     const logo = document.getElementById('logo');
