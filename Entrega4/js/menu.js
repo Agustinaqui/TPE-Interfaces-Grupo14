@@ -27,36 +27,78 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-const textContainer = document.querySelector(".text-container");
-const dynamicImage = document.getElementById("dynamic-image");
-textContainer.addEventListener("scroll", () => {
-    const textContainer = document.querySelector(".text-container");
-    const dynamicImage = document.getElementById("dynamic-image");
 
-    // Calcular la posición del scroll relativo al contenedor de texto
-    const maxScroll = textContainer.scrollHeight - textContainer.offsetHeight;
-    const scrollFraction = textContainer.scrollTop / maxScroll;
+function playVideo() {
+    const iframe = document.getElementById("youtube-video");
+    const playButton = document.querySelector(".play-button");
+    const videoImage = document.querySelector(".video-image");
+    // Ocultar el botón de reproducción
+    playButton.style.display = "none";
+    videoImage.style.zIndex = "1";
 
-    // Calcular el índice de la imagen basado en el scroll
-    const totalImages = 11; // Imágenes de 0.png a 10.png
-    const imageIndex = Math.min(
-        totalImages - 1,
-        Math.floor(scrollFraction * totalImages)
+    // Enviar el comando "play" al iframe
+    iframe.contentWindow.postMessage(
+        JSON.stringify({ event: "command", func: "playVideo", args: [] }),
+        "*"
     );
+}
 
-    // Cambiar la imagen con un efecto fade
-    const newImageSrc = `../images/${imageIndex}.png`;
+const imagen = document.getElementById("dynamic-image");
 
-    if (dynamicImage.src.includes(`/${imageIndex}.png`)) {
-        return; // Evitar cambios innecesarios
+document.addEventListener("scroll", () => {
+    // Para los parrafos de la seccion scroll de numeros y textos
+    const paragraphs = document.querySelectorAll(".text");
+
+    let imagenCambiada = false;
+
+    paragraphs.forEach((p, index) => {
+        const rect = p.getBoundingClientRect();
+        const isVisible = rect.top >= 130 && rect.bottom <= window.innerHeight - 150;
+
+        if (isVisible) {
+
+            p.classList.add("visible");
+
+            if (!imagenCambiada) {
+                imagen.src = `../images/${index}.png`;
+                imagenCambiada = !imagenCambiada;
+            }
+        } else {
+            p.classList.remove("visible");
+        }
+    });
+
+    // =========
+
+    // Para la seccion de video y personaje
+
+    const parallaxSection = document.querySelector(".conteiner5");
+    const image = document.querySelector(".personaje");
+    const video = document.querySelector(".video");
+  
+    const sectionTop = parallaxSection.offsetTop;
+    const sectionHeight = parallaxSection.offsetHeight;
+    const scrollY = window.scrollY;
+  
+    // Calcula cuánto scroll se ha hecho dentro de la sección
+    const scrollInSection = scrollY - sectionTop;
+  
+    // Si el scroll está dentro de la sección, aplica el efecto parallax
+    if (scrollY >= sectionTop - 300 && scrollY < sectionTop + sectionHeight) {
+      const imageSpeed = 0.1; // Más lento
+      const videoSpeed = 0.3; // Más rápido
+      
+      // Aplica la transformación solo mientras se está dentro de la sección
+      image.style.transform = `translateY(-${scrollInSection * imageSpeed}px)`;
+      video.style.transform = `translateY(-${scrollInSection * videoSpeed}px)`;
+      console.log(imge);
+    } else {
+      // Restablece las transformaciones si está fuera de la sección
+      image.style.transform = "translateY(0)";
+      video.style.transform = "translateY(0)";
     }
-
-    dynamicImage.style.opacity = 0; // Desvanecer imagen actual
-    setTimeout(() => {
-        dynamicImage.src = newImageSrc; // Cambiar la imagen
-        dynamicImage.style.opacity = 1; // Volver a hacerla visible
-    }, 250); // El tiempo debe coincidir con la transición de CSS
 });
+
 function toggleMenu() {
     const menu = document.getElementById('menu');
     const menuItemsContainer = document.getElementById('menu-items-container');
@@ -157,9 +199,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const offsetY = (mouseY / rect.height - 0.5) * 50; // laimagen se mueve hacia abajo cuando el mouse sube
 
 
-        const scale = 1 + (Math.abs(mouseX / rect.width - 0.5) * 0.3);
+        //const scale = 1 + (Math.abs(mouseX / rect.width - 0.5) * 0.3);
         // aplica transformaciones
-        image.style.transform = `translate(${-offsetX}px, ${-offsetY}px) scale(${scale})`;
+        image.style.transform = `translate(${-offsetX}px, ${-offsetY}px)`// scale(${scale})`;
     });
 
     container.addEventListener('mouseleave', () => {
