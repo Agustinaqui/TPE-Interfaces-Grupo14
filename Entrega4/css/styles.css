@@ -300,15 +300,14 @@ body {
 .conteiner1 {
     background-image: url(../images/fondoNubes2.png);
     width: 100%;
-    height: 950px; /* Ajusta si el contenido necesita desplazarse */
+    height: 950px;
     position: relative;
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
     overflow-x: hidden;
-    overflow-y: scroll; /* Permitir desplazamiento */
   }
-  
+
 .personajes1{
     display: flex;
     justify-content: center;
@@ -432,6 +431,11 @@ body {
     top: 700px;
     left: 720px;
 }
+.parallax-layer {
+    position: absolute;
+    transition: transform 0.5s ease-out; /* Animación suave */
+    will-change: transform; /* Mejora el rendimiento */
+  }
   
 
 .conteiner3{
