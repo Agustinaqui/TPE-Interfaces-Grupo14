@@ -58,9 +58,18 @@ document.addEventListener("scroll", () => {
         if (isVisible) {
 
             p.classList.add("visible");
+            let imgSrcIndex = imagen.src.split("/");
+            imgSrcIndex = imgSrcIndex[imgSrcIndex.length-1];
+            imgSrcIndex = imgSrcIndex.split(".")[0]
 
-            if (!imagenCambiada) {
-                imagen.src = `../images/${index}.png`;
+            if (!imagenCambiada && (Number)(imgSrcIndex) != index) {
+                imagen.style.opacity = 0;
+
+                setTimeout(() => {
+                    imagen.src = `../images/${index}.png`;
+                    imagen.style.opacity = 1; 
+                }, 250); 
+
                 imagenCambiada = !imagenCambiada;
             }
         } else {
@@ -75,27 +84,27 @@ document.addEventListener("scroll", () => {
     const parallaxSection = document.querySelector(".conteiner5");
     const image = document.querySelector(".personaje");
     const video = document.querySelector(".video");
-  
+
     const sectionTop = parallaxSection.offsetTop;
     const sectionHeight = parallaxSection.offsetHeight;
     const scrollY = window.scrollY;
-  
+
     // Calcula cuánto scroll se ha hecho dentro de la sección
     const scrollInSection = scrollY - sectionTop;
-  
+
     // Si el scroll está dentro de la sección, aplica el efecto parallax
     if (scrollY >= sectionTop - 300 && scrollY < sectionTop + sectionHeight) {
-      const imageSpeed = 0.1; // Más lento
-      const videoSpeed = 0.3; // Más rápido
-      
-      // Aplica la transformación solo mientras se está dentro de la sección
-      image.style.transform = `translateY(-${scrollInSection * imageSpeed}px)`;
-      video.style.transform = `translateY(-${scrollInSection * videoSpeed}px)`;
-      console.log(imge);
+        const imageSpeed = 0.1; // Más lento
+        const videoSpeed = 0.3; // Más rápido
+
+        // Aplica la transformación solo mientras se está dentro de la sección
+        image.style.transform = `translateY(-${scrollInSection * imageSpeed}px)`;
+        video.style.transform = `translateY(-${scrollInSection * videoSpeed}px)`;
+        console.log(imge);
     } else {
-      // Restablece las transformaciones si está fuera de la sección
-      image.style.transform = "translateY(0)";
-      video.style.transform = "translateY(0)";
+        // Restablece las transformaciones si está fuera de la sección
+        image.style.transform = "translateY(0)";
+        video.style.transform = "translateY(0)";
     }
 });
 
