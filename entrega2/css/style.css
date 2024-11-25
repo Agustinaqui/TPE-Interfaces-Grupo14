@@ -193,7 +193,7 @@ p {
 }
 
 .flecha-r {
-  left: 94.8%;
+  left: calc(100% - 4.5rem);
   background: linear-gradient(to left,
       rgba(0, 0, 0, 0.9),
       rgba(0, 0, 0, 0.7),
