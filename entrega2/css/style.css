@@ -508,31 +508,39 @@ img.card-tag-fav-icono {
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 7px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
 }
 
-.botonRegistrar::after{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: linear-gradient(to bottom, rgba(255,255,255,0,.5), rgba(255,255,255,0));
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
 
 .botonRegistrar:hover {
-  background-color: #c434dd;
-  transform: scale(1.1) rotateY(360deg);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
+    background: linear-gradient(45deg, #800096, #800096,#800096, #ae41c2,#800096,#800096, rgb(167, 16, 255));
+    background-size: 400% 400%;
+    background-position: 100% 100%;
+    border-radius: 7px;
+    animation: gradientMovement 3s ease infinite;
+    transform: scale(1.1);
 }
 
-.botonRegistrar:active {
-  transform: scale(1.05);
+@keyframes gradientMovement {
+    0% {
+        background-position: 0% 0%;
+        /* comienza en la posición inicial del gradiente */
+    }
+
+    50% {
+        background-position: 100% 100%;
+        /* el gradiente se mueve hacia la esquina contrariak */
+    }
+
+    100% {
+        background-position: 0% 0%;
+        /* vuelve a la posición inicial */
+    }
 }
+
+
 
 .contenedorRedesRegistrar {
   display: flex;
@@ -910,7 +918,7 @@ form{
   width: 100%;
   position: absolute;
   top: 2.8rem;
-  box-shadow: 0px 8px 16px 0px rgba(32, 8, 99, 0.404);
+  box-shadow: -4px 4px 10px rgba(32, 8, 99, 0.404);
   z-index: 10;
   background-color: #04031d;
   justify-content: flex-end;
@@ -967,7 +975,7 @@ form{
   border-bottom: 1px solid #140633;
   background-color: #04031d;
   z-index: 1000;
-  box-shadow: 0px 8px 16px 0px rgba(32, 8, 99, 0.404);
+  box-shadow: 4px 4px 10px rgba(32, 8, 99, 0.404);
 }
 
 .menu svg {
@@ -1263,7 +1271,7 @@ input {
     padding-top: 10px;
     width: 219px;
     height: 76px;
-    margin: 0px;
+   
   }
 
   input::placeholder {
@@ -1294,18 +1302,31 @@ input {
     width: 50px;
     height: 50px;
   }
+.menu {
+  position: absolute;
+  width: 275px;
+  height: 830px;
+  top: 90px;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  z-index: 20; 
 
-  .menu {
-    width: 275px;
-    top: 90px;
-    
-    margin: 0;
-    padding: 0;
-    left: 0;
-    border-right: 1px solid #140633;
-    z-index: 1000;
-  }
+}
+.overlay {
+  position: absolute;
+  top: 90px; 
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 10; 
+  display: none; 
+}
 
+
+.overlay.active {
+  display: block; 
+}
   .menu svg {
     width: 25px;
     height: 25px;
@@ -1339,7 +1360,7 @@ input {
     height: auto;
     background-color: #04031d;
     margin-top: 10px;
-    z-index: 2;
+    z-index: 20;
   }
 
   .containerMenuPerfil {

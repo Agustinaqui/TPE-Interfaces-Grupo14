@@ -1,401 +1,483 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="icon" href="../images/logo.png" alt="logopestaña" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Number Blocks</title>
 
-    <link rel="stylesheet" href="../css/styles.css" />
-  </head>
+<head>
+  <link rel="icon" href="../images/logo.png" alt="logopestaña" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Number Blocks</title>
 
-  <body>
-    <div id="loader">
-      <div class="spinner"></div>
-      <img id="progress" src="../images/0.png" />
-    </div>
-    <div class="indexLoad">
-      <header class="header hidden" id="header">
-        <div class="menu" id="menu" onclick="toggleMenu()">
-          <img class="linea1" id="linea1" src="../images/linea.png" />
-          <img class="linea2" id="linea2" src="../images/linea.png" />
-          <img class="linea3" id="linea3" src="../images/linea.png" />
-        </div>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
 
-        <div>
-          <img class="logoPrincipal" id="logo" src="../images/logo.png" />
-        </div>
+<body>
+  <div id="loader">
+    <div class="spinner"></div>
+    <img id="progress" src="../images/0.png" />
+  </div>
+  <div class="indexLoad">
+    <header class="header hidden" id="header">
+      <div class="menu" id="menu" onclick="toggleMenu()">
+        <img class="linea1" id="linea1" src="../images/linea.png" />
+        <img class="linea2" id="linea2" src="../images/linea.png" />
+        <img class="linea3" id="linea3" src="../images/linea.png" />
+      </div>
 
-        <div><h1 class="comprar">COMPRAR</h1></div>
-      </header>
+      <div>
+        <img class="logoPrincipal" id="logo" src="../images/logo.png" />
+      </div>
+
+      <div>
+        <h1 class="comprar">COMPRAR</h1>
+      </div>
+    </header>
 
     <div class="menu-items-container" id="menu-items-container">
-        <a href="#inicio" class="menu-item" id="item1">Inicio</a>
-        <a href="#acerca" class="menu-item" id="item2">Acerca del juego</a>
-        <a href="#caracteristicas" class="menu-item" id="item3">Características</a>
-        <a href="#descargas" class="menu-item" id="item4">Descargas</a>
-        <a href="#contacto" class="menu-item" id="item5">Contacto</a>
+      <a href="#inicio" class="menu-item" id="item1">Inicio</a>
+      <a href="#acerca" class="menu-item" id="item2">Acerca del juego</a>
+      <a href="#caracteristicas" class="menu-item" id="item3">Características</a>
+      <a href="#descargas" class="menu-item" id="item4">Descargas</a>
+      <a href="#contacto" class="menu-item" id="item5">Contacto</a>
     </div>
 
-      <div class="conteiner1" id="conteiner1">
-        <div class="personajes1">
-          <div class="personaje11">
-              <img class="p1" src="../images/11.png" />
-              <img class="sombra" src="../images/sombrap1.png">
-          </div>
-          <div class="personaje22">
-            <img class="p2" src="../images/22.png" />
-            <img class="sombra" src="../images/sombrap2.png">
-          </div>
-          <div class="personaje33">
-            <img  class="p3" src="../images/33.png" />
-            <img class="sombra" src="../images/sombrap3.png">
-          </div>
-        </div>
-      </div>
-
-      <div class="conteiner3">
-        <div class="cont3">
-          <h2>
-            La app más divertida y <br />educativa y para niños <br />de 3 años
-          </h2>
-          <p>
-            Numberblocks World es una divertida aplicación de vídeo a la carta y
-            juegos por<br />
-            suscripción dirigida a niños a partir de 3 años, con un grupo de
-            edad principal de<br />
-            4 a 6 años, creada por el equipo de Alphablocks Ltd. y Blue Zoo
-            Animations<br />
-            Studio, ganador de un premio BAFTA.
-          </p>
-        </div>
-        <div class="cardGrande">
-          <img id="card-image" src="../images/cardGrande.png" />
-        </div>
-        <div class="personajes">
-          <img
-            class="personaje4"
-            width="601.64px"
-            height="543.24px"
-            src="../images/44.png"
-          />
-          <img
-            class="personaje5"
-            width="572px"
-            height="1259px"
-            src="../images/5.png"
-          />
-        </div>
-      </div>
-
-      <div class="conteiner-cards">
-        <div class="card1">
-          <img src="../images/card1.png" />
-          <p>
-            Los niños descubrirán lo divertido que<br />
-            puede ser aprender matemáticas. A<br />
-            través de personajes animados y<br />
-            desafíos interactivos, podrán sumar,<br />
-            restar y entender conceptos básicos<br />
-            de manera fácil y entretenida. ¡Cada<br />
-            número cobra vida para hacer que las<br />
-            matemáticas sean emocionantes!
-          </p>
-        </div>
-        <div class="card2">
-          <img src="../images/card2.png" />
-          <p>
-            Con NumberBlocks, los niños<br />
-            encontrarán emocionantes retos en<br />
-            cada nivel, diseñados para hacer que<br />
-            el aprendizaje sea tan divertido como<br />
-            un juego. ¡Cada desafío es una nueva<br />
-            aventura matemática!<br />
-            Diviértete e invita a tus amigos,<br />
-            desafíalos y gana premios.
-          </p>
-        </div>
-        <div class="card3">
-          <img src="../images/card3.png" />
-          <p>
-            Entrena a UNO y Comparte lo que<br />
-            Aprendes!<br />
-            En NumberBlocks, deberás enseñar a<br />
-            UNO cada lección que aprendas,<br />
-            ayudándolo a crecer y superar nuevos<br />
-            desafíos matemáticos. ¡Conviértete<br />
-            en su mejor guía! Se su mejor amigo y<br />
-            diviértete con él.
-          </p>
-        </div>
-      </div>
-
-      <div class="conteiner2">
-        <p>
-          Descubre el juego que convierte <br />
-          las <span class="italic-text">Matemáticas</span> en diversión
-        </p>
-        <h2>¡Descarga NumberBlocks hoy!</h2>
-        <img id="floating-image" src="../images/personajes1.png" />
-      </div>
-
-      <div class="seccion-efectos3D">
-        <div class="contenido-efectos3D">
-          <h1 class="titulo-seccion titulo3D">
-            ¡Experimenta Efectos 3D Asombrosos en NumberBlocks: Una Aventura
-            Matemática Inmersiva!
-          </h1>
-          <p class="texto-suscripcion" id="texto-seccion-3d">
-            En NumberBlocks, la aventura no solo está en el aprendizaje, ¡sino
-            también en la experiencia visual! Disfruta de efectos 3D asombrosos
-            que dan vida a cada número y desafío, haciendo que las matemáticas
-            cobren una nueva dimensión. A medida que los niños interactúan con
-            los personajes y los bloques, verán cómo sus acciones tienen un
-            impacto real en el entorno, creando un aprendizaje dinámico y
-            emocionante. ¡Cada sesión de juego se convierte en una experiencia
-            inolvidable llena de color y diversión!
-          </p>
-        </div>
-        <model-viewer 
-        id="img-3d" 
-        loading="eager" 
-        camera-controls 
-        touch-action="pan-y"
-        auto-rotate 
-        poster="../images/seccion-3d/imgSeccion3D.png" 
-        tone-mapping="aces" 
-        src="../models/one.glb" 
-        shadow-intensity="1" 
-        alt="A 3D model of a shishkebab"
-        disable-zoom
-        camera-orbit="-75deg 85deg"
-        camera-target="1 1 1">
-    </model-viewer>
+    <div class="conteiner1" id="conteiner1">
+      
     
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <script type="nomodule" src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
-     </div>
-
-      <div class="contenedor-personajes">
-        <div class="seccion-grilla grilla-top">
-          <div class="div-personaje-grilla div-personaje-rojo">
-            <img
-              class="recorte-personaje"
-              src="../images/seccion-personajes/recortesPersonajes/personajeRojo.png"
-              alt=""
-            />
-          </div>
-          <div class="div-personaje-grilla div-personaje-naranja">
-            <img
-              class="recorte-personaje"
-              src="../images/seccion-personajes/recortesPersonajes/personajeNaranja.png"
-              alt=""
-            />
-          </div>
-          <div class="div-personaje-grilla div-personaje-amarillo">
-            <img
-              class="recorte-personaje"
-              src="../images/seccion-personajes/recortesPersonajes/personajeAmarillo.png"
-              alt=""
-            />
-          </div>
-          <div class="div-personaje-grilla div-personaje-verde">
-            <img
-              class="recorte-personaje"
-              src="../images/seccion-personajes/recortesPersonajes/personajeVerde.png"
-              alt=""
-            />
-          </div>
-          <div class="div-personaje-grilla div-personaje-celeste">
-            <img
-              class="recorte-personaje personaje-celeste"
-              src="../images/seccion-personajes/recortesPersonajes/personajeCeleste.png"
-              alt=""
-            />
-          </div>
-        </div>
-
-        <div class="seccion-grilla">
-          <div class="div-personaje-grilla div-personaje-violeta">
-            <img
-              class="recorte-personaje"
-              src="../images/seccion-personajes/recortesPersonajes/personajeVioleta.png"
-              alt=""
-            />
-          </div>
-          <div class="div-personaje-grilla div-personaje-colorido">
-            <div class="div-rojo"></div>
-            <div class="div-naranja"></div>
-            <div class="div-amarillo"></div>
-            <div class="div-verde"></div>
-            <div class="div-azul"></div>
-            <img
-              class="recorte-personaje"
-              src="../images/seccion-personajes/recortesPersonajes/personajeColorido.png"
-              alt=""
-            />
-          </div>
-          <div class="div-personaje-grilla div-personaje-rosa">
-            <img
-              class="recorte-personaje"
-              src="../images/seccion-personajes/recortesPersonajes/personajeRosa.png"
-              alt=""
-            />
-          </div>
-          <div class="div-personaje-grilla div-personaje-gris">
-            <img
-              class="recorte-personaje"
-              src="../images/seccion-personajes/recortesPersonajes/personajeGris.png"
-              alt=""
-            />
-          </div>
-          <div class="div-personaje-grilla div-personaje-blanco">
-            <img
-              class="recorte-personaje"
-              src="../images/seccion-personajes/recortesPersonajes/personajeBlanco.png"
-              alt=""
-            />
-          </div>
+        <div class="parallax-container">
+          <img class="personaje11 parallax-layer1" src="../images/11.png" alt="Personaje 11" data-speed="0.1">
+          <img class="personaje22 parallax-layer1" src="../images/22.png" alt="Personaje 22" data-speed="0.2">
+          <img class="personaje33 parallax-layer1" src="../images/33.png" alt="Personaje 33" data-speed="0.15">
+      
+          <img class="arbol1 parallax-layer izquierda" src="../images/parallax-inicio/arbol 1.png" alt="Árbol 1" data-speed="0.3">
+          <img class="arbol2 parallax-layer" src="../images/parallax-inicio/arbol 2.png" alt="Árbol 2" data-speed="0.25">
+          <img class="arbol3 parallax-layer" src="../images/parallax-inicio/arbol 3.png" alt="Árbol 3" data-speed="0.35">
+      
+          <img class="piedra1 parallax-layer izquierda" src="../images/parallax-inicio/piedra1.png" alt="Piedra 1" data-speed="0.5">
+          <img class="piedra2 parallax-layer" src="../images/parallax-inicio/piedra2.png" alt="Piedra 2" data-speed="0.55">
+          <img class="piedra3 parallax-layer" src="../images/parallax-inicio/piedra3.png" alt="Piedra 3" data-speed="0.6">
+          <img class="piedra4 parallax-layer" src="../images/parallax-inicio/piedra4.png" alt="Piedra 4" data-speed="0.45">
+      
+          <img class="planta1 parallax-layer izquierda" src="../images/parallax-inicio/planta1.png" alt="Planta 1" data-speed="0.4">
+          <img class="planta2 parallax-layer izquierda" src="../images/parallax-inicio/planta2.png" alt="Planta 2" data-speed="0.35">
+          <img class="planta3 parallax-layer" src="../images/parallax-inicio/planta3.png" alt="Planta 3" data-speed="0.5">
+          <img class="planta4 parallax-layer" src="../images/parallax-inicio/planta4.png" alt="Planta 4" data-speed="0.45">
         </div>
       </div>
+      
+
+    <div class="conteiner3">
+      <div class="cont3">
+        <h2>
+          La app más divertida y <br />educativa y para niños <br />de 3 años
+        </h2>
+        <p>
+          Numberblocks World es una divertida aplicación de vídeo a la carta y
+          juegos por<br />
+          suscripción dirigida a niños a partir de 3 años, con un grupo de
+          edad principal de<br />
+          4 a 6 años, creada por el equipo de Alphablocks Ltd. y Blue Zoo
+          Animations<br />
+          Studio, ganador de un premio BAFTA.
+        </p>
+      </div>
+      <div class="cardGrande">
+        <img id="card-image" src="../images/cardGrande.png" />
+      </div>
+      <div class="personajes">
+        <img class="personaje4" width="601.64px" height="543.24px" src="../images/44.png" />
+        <img class="personaje5" width="572px" height="1259px" src="../images/5.png" />
+      </div>
+    </div>
+
+    <div class="conteiner-cards">
+      <div class="card1">
+        <img src="../images/card1.png" />
+        <p>
+          Los niños descubrirán lo divertido que<br />
+          puede ser aprender matemáticas. A<br />
+          través de personajes animados y<br />
+          desafíos interactivos, podrán sumar,<br />
+          restar y entender conceptos básicos<br />
+          de manera fácil y entretenida. ¡Cada<br />
+          número cobra vida para hacer que las<br />
+          matemáticas sean emocionantes!
+        </p>
+      </div>
+      <div class="card2">
+        <img src="../images/card2.png" />
+        <p>
+          Con NumberBlocks, los niños<br />
+          encontrarán emocionantes retos en<br />
+          cada nivel, diseñados para hacer que<br />
+          el aprendizaje sea tan divertido como<br />
+          un juego. ¡Cada desafío es una nueva<br />
+          aventura matemática!<br />
+          Diviértete e invita a tus amigos,<br />
+          desafíalos y gana premios.
+        </p>
+      </div>
+      <div class="card3">
+        <img src="../images/card3.png" />
+        <p>
+          Entrena a UNO y Comparte lo que<br />
+          Aprendes!<br />
+          En NumberBlocks, deberás enseñar a<br />
+          UNO cada lección que aprendas,<br />
+          ayudándolo a crecer y superar nuevos<br />
+          desafíos matemáticos. ¡Conviértete<br />
+          en su mejor guía! Se su mejor amigo y<br />
+          diviértete con él.
+        </p>
+      </div>
+    </div>
+
+    <div class="conteiner2">
+      <p>
+        Descubre el juego que convierte <br />
+        las <span class="italic-text">Matemáticas</span> en diversión
+      </p>
+      <h2>¡Descarga NumberBlocks hoy!</h2>
+      <img id="floating-image" src="../images/personajes1.png" />
+    </div>
+
+    <div class="conteiner4">
+      <h2>
+        Más amigos, más diversión!
+      </h2>
+      <div class="scroll-container">
+        <div class="image-container">
+          <img id="dynamic-image" src="../images/0.png" alt="Dynamic">
+        </div>
+        <div class="text-container">
+          <div class="text-item">
+            <h3>
+              Sumas Mágicas
+            </h3>
+            <p>
+              Ayuda a UNO y sus amigos a juntar bloques y ver cómo sus números crecen al sumar. Cada
+              vez que sumas correctamente, los NumberBlocks ganan fuerza y desbloquean sorpresas mágicas. ¡Descubre cómo
+              los números se combinan para formar resultados increíbles!
+            </p>
+          </div>
+          <div class="text-item">
+            <h3>
+              Rompecabezas de Restas
+            </h3>
+            <p>
+              Acompaña a UNO en un recorrido lleno de obstáculos donde solo podrás avanzar restando bloques
+              correctamente. Observa cómo los personajes se transforman cuando restan, ¡y resuelve cada rompecabezas
+              para llegar a la meta!
+            </p>
+          </div>
+          <div class="text-item">
+            <h3>
+              Carrera de Conteo
+            </h3>
+            <p>
+              Corre contra el reloj mientras cuentas bloques en secuencia para ayudar a los NumberBlocks a llegar al
+              final. ¡Cada número correcto te da una ventaja extra! Con cada carrera, aprenderás a contar y a pensar
+              rápido.
+            </p>
+          </div>
+          <div class="text-item">
+            <h3>
+              Encuentra el Número
+            </h3>
+            <h3>
+              Oculto
+            </h3>
+
+            <p>
+              Busca entre los escenarios y ayuda a UNO a encontrar el número perdido para completar la secuencia. ¡Cada
+              número oculto revela una sorpresa especial! Observa bien y explora cada rincón para descubrir dónde se
+              esconde.
+            </p>
+          </div>
+          <div class="text-item">
+            <h3>
+              Desafío de Comparación
+            </h3>
+            <p>
+              En este reto, debes ayudar a UNO a identificar qué NumberBlock es mayor o menor. Aprende sobre la
+              comparación de números mientras los personajes se colocan en orden de tamaño, ¡y desbloquea recompensas
+              cada vez que aciertes!
+            </p>
+          </div>
+          <div class="text-item">
+            <h3>
+              Forma el Número
+            </h3>
+            <h3>
+              Correcto
+            </h3>
+            <p>
+              ¿Puedes combinar los bloques para crear el número solicitado? Elige los números correctos y únelos para
+              formar nuevos resultados. ¡Es una forma divertida de practicar la construcción de números y descubrir cómo
+              encajan!
+            </p>
+          </div>
+          <div class="text-item">
+            <h3>
+              Encuentra el Número
+            </h3>
+            <h3>
+              Oculto
+            </h3>
+
+            <p>
+              Busca entre los escenarios y ayuda a UNO a encontrar el número perdido para completar la secuencia. ¡Cada
+              número oculto revela una sorpresa especial! Observa bien y explora cada rincón para descubrir dónde se
+              esconde.
+            </p>
+          </div>
+          <div class="text-item">
+            <h3>
+              Salto de Sumas
+            </h3>
+            <p>
+              Lleva a UNO a saltar de bloque en bloque sumando números a medida que avanzas. La meta es llegar al otro
+              lado, ¡y solo podrás hacerlo si sumas correctamente! Cada salto exitoso te acerca a un nuevo nivel.
+            </p>
+          </div>
+          <div class="text-item">
+            <h3>
+              Rompecabezas de
+            </h3>
+            <h3>
+              Secuencias
+            </h3>
+            <p>
+              Ayuda a UNO a completar series de números en orden ascendente o descendente. Observa los patrones y
+              arrastra el número correcto para terminar la secuencia. ¡Cada secuencia completada revela una animación
+              especial!
+            </p>
+          </div>
+          <div class="text-item">
+            <h3>
+              El Desafío del Doble
+            </h3>
+            <p>
+              Descubre qué sucede cuando multiplicas un NumberBlock por dos. Ayuda a UNO a duplicar números y ver cómo
+              crecen rápidamente. ¡Una manera emocionante de aprender el concepto de "el doble" y multiplicación básica!
+            </p>
+          </div>
+          <div class="text-item">
+            <h3>
+              Aventura de Divisiones
+            </h3>
+            <p>
+              Guía a UNO y sus amigos mientras dividen bloques en partes iguales. Divide los bloques correctamente para
+              que cada NumberBlock tenga su parte justa. Un desafío perfecto para entender la división de una forma
+              divertida y visual.
+            </p>
+          </div>
+          <div class="text-item-last">
+            <h3>
+              Suma de Amigos
+            </h3>
+            <p>
+              Haz que UNO se junte con otros personajes para ver cómo los números crecen en equipo. Los niños aprenderán
+              cómo las sumas se construyen cuando se unen varios bloques, ¡formando un número mayor cada vez!
+            </p>
+          </div>
+          <!-- Más párrafos aquí -->
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="conteiner5">
+      <h2>Mira el video y descubre el sorprendente mundo de los NumberBlocks!</h2>
+      <div class="video">
+        <iframe width="804" height="452" src="https://www.youtube.com/embed/0YKa9DQYdRg"
+          title="Numberblocks World #5 - Meet Numberblocks 55-100 and Learn How to Trace Their Numerals | BlueZoo"
+          frameborder="5"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+        <div class="fondo"></div>
+      </div>
+      <img src="../images/3_video.png" alt="BlockNumber 3 showing us a video">
+    </div>
+
+    <div class="seccion-efectos3D">
+      <div class="contenido-efectos3D">
+        <h1 class="titulo-seccion titulo3D">
+          ¡Experimenta Efectos 3D Asombrosos en NumberBlocks: Una Aventura
+          Matemática Inmersiva!
+        </h1>
+        <p class="texto-suscripcion" id="texto-seccion-3d">
+          En NumberBlocks, la aventura no solo está en el aprendizaje, ¡sino
+          también en la experiencia visual! Disfruta de efectos 3D asombrosos
+          que dan vida a cada número y desafío, haciendo que las matemáticas
+          cobren una nueva dimensión. A medida que los niños interactúan con
+          los personajes y los bloques, verán cómo sus acciones tienen un
+          impacto real en el entorno, creando un aprendizaje dinámico y
+          emocionante. ¡Cada sesión de juego se convierte en una experiencia
+          inolvidable llena de color y diversión!
+        </p>
+      </div>
+      <model-viewer id="img-3d" loading="eager" camera-controls touch-action="pan-y" auto-rotate
+        poster="../images/seccion-3d/imgSeccion3D.png" tone-mapping="aces" src="../models/one.glb" shadow-intensity="1"
+        alt="A 3D model of a shishkebab" disable-zoom camera-orbit="-75deg 85deg" camera-target="1 1 1">
+      </model-viewer>
+
+      <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+      <script type="nomodule" src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    </div>
+
+    <div class="contenedor-personajes">
+      <div class="seccion-grilla grilla-top">
+        <div class="div-personaje-grilla div-personaje-rojo">
+          <img class="recorte-personaje" src="../images/seccion-personajes/recortesPersonajes/personajeRojo.png"
+            alt="" />
+        </div>
+        <div class="div-personaje-grilla div-personaje-naranja">
+          <img class="recorte-personaje" src="../images/seccion-personajes/recortesPersonajes/personajeNaranja.png"
+            alt="" />
+        </div>
+        <div class="div-personaje-grilla div-personaje-amarillo">
+          <img class="recorte-personaje" src="../images/seccion-personajes/recortesPersonajes/personajeAmarillo.png"
+            alt="" />
+        </div>
+        <div class="div-personaje-grilla div-personaje-verde">
+          <img class="recorte-personaje" src="../images/seccion-personajes/recortesPersonajes/personajeVerde.png"
+            alt="" />
+        </div>
+        <div class="div-personaje-grilla div-personaje-celeste">
+          <img class="recorte-personaje personaje-celeste"
+            src="../images/seccion-personajes/recortesPersonajes/personajeCeleste.png" alt="" />
+        </div>
+      </div>
+
+      <div class="seccion-grilla">
+        <div class="div-personaje-grilla div-personaje-violeta">
+          <img class="recorte-personaje" src="../images/seccion-personajes/recortesPersonajes/personajeVioleta.png"
+            alt="" />
+        </div>
+        <div class="div-personaje-grilla div-personaje-colorido">
+          <div class="div-rojo"></div>
+          <div class="div-naranja"></div>
+          <div class="div-amarillo"></div>
+          <div class="div-verde"></div>
+          <div class="div-azul"></div>
+          <img class="recorte-personaje" src="../images/seccion-personajes/recortesPersonajes/personajeColorido.png"
+            alt="" />
+        </div>
+        <div class="div-personaje-grilla div-personaje-rosa">
+          <img class="recorte-personaje" src="../images/seccion-personajes/recortesPersonajes/personajeRosa.png"
+            alt="" />
+        </div>
+        <div class="div-personaje-grilla div-personaje-gris">
+          <img class="recorte-personaje" src="../images/seccion-personajes/recortesPersonajes/personajeGris.png"
+            alt="" />
+        </div>
+        <div class="div-personaje-grilla div-personaje-blanco">
+          <img class="recorte-personaje" src="../images/seccion-personajes/recortesPersonajes/personajeBlanco.png"
+            alt="" />
+        </div>
+      </div>
+    </div>
 
     <div class="seccion-suscripcion">
-        <div class="spritesheet-sol">
-            
-        </div>
-        <div class="spritesheet-flores">
+      <div class="spritesheet-sol">
 
-        </div>
-        <div class="spritesheet-ave">
-            
-        </div>
-
-        <div class="parallax-nubes">
-          <img
-            src="../images/seccion-suscripcion/nube1.png"
-            class="nube nube1-suscripcion"
-            alt=""
-          />
-          <img
-            src="../images/seccion-suscripcion/nube2.png"
-            class="nube nube2-suscripcion"
-            alt=""
-          />
-          <img
-            src="../images/seccion-suscripcion/nube3.png"
-            class="nube nube3-suscripcion"
-            alt=""
-          />
-        </div>
-
-        <div class="contenido-suscripcion">
-          <h1 class="titulo-seccion">
-            ¿Quieres ser el primero en enterarse de todas las novedades?
-          </h1>
-          <div class="div-sombra"></div>
-          <div class="input-suscripcion">
-            <div class="caja-texto">
-              <input type="text" placeholder="Ingresa aquí tu correo" />
-            </div>
-            <div class="caja-boton-suscribirse">
-              <p>SUSCRIBIRSE</p>
-            </div>
-          </div>
-
-          <p class="texto-suscripcion">
-            Al inscribirse en nuestra lista de correo, nos autoriza a ponernos
-            en contacto con usted para enviarle ofertas y actualizaciones de
-            marketing por correo electrónico, y también acepta nuestra
-            <span class="subrayado">Política de privacidad</span> y las
-            <span class="subrayado">Condiciones del servicio.</span>
-          </p>
-          <img src="../images/seccion-suscripcion/imgTeen.png" alt="" />
-        </div>
-        <img
-          src="../images/seccion-suscripcion/Rectangle 11.png"
-          class="img-fondo-suscripcion"
-          alt=""
-        />
-        <img
-          src="../images/seccion-suscripcion/bkg 1.png"
-          class="img-piso-suscripcion"
-          alt=""
-        />
-        <img
-          src="../images/seccion-suscripcion/gif2.webp"
-          width="480px"
-          height="480px"
-          class="personaje2-suscripcion"
-          alt=""
-        />
-        <img
-          src="../images/seccion-suscripcion/gif3.webp"
-          width="509px"
-          height="509px"
-          class="personaje3-suscripcion"
-          alt=""
-        />
-        <img
-          src="../images/seccion-suscripcion/gif7.webp"
-          width="524px"
-          height="997px"
-          class="personaje7-suscripcion"
-          alt=""
-        />
       </div>
-    
-      <footer>
-        <div class="div-barra">
-          <img class="barra-footer" src="../images/appsfooter.png" />
+      <div class="spritesheet-flores">
+
+      </div>
+      <div class="spritesheet-ave">
+
+      </div>
+
+      <div class="parallax-nubes">
+        <img src="../images/seccion-suscripcion/nube1.png" class="nube nube1-suscripcion" alt="" />
+        <img src="../images/seccion-suscripcion/nube2.png" class="nube nube2-suscripcion" alt="" />
+        <img src="../images/seccion-suscripcion/nube3.png" class="nube nube3-suscripcion" alt="" />
+      </div>
+
+      <div class="contenido-suscripcion">
+        <h1 class="titulo-seccion">
+          ¿Quieres ser el primero en enterarse de todas las novedades?
+        </h1>
+        <div class="div-sombra"></div>
+        <div class="input-suscripcion">
+          <div class="caja-texto">
+            <input type="text" placeholder="Ingresa aquí tu correo" />
+          </div>
+          <div class="caja-boton-suscribirse">
+            <p>SUSCRIBIRSE</p>
+          </div>
         </div>
-        <div class="desc-footer">
-          <p>
-            ©SEGA. All rights reserved. SEGA is registered in the U.S. Patent
-            and<br />
-            Trademark Office. SEGA, the SEGA logo and SONIC SUPERSTARS are
-            either <br />
-            registered trademarks or trademarks of SEGA CORPORATION or its
-            <br />
-            affiliates. All other trademarks, logos and copyrights are property
-            of their <br />
-            respective owners.©2023 The LEGO Group. LEGO, the LEGO logo, the
-            <br />
-            Minifigure, and the Brick and Knob configurations are trademarks
-            and/or <br />
-            copyrights of the LEGO Group. All other marks and trademarks are the
-            <br />
-            property of their respective owners. All rights reserved."PS", "PS5"
-            and <br />
-            "PS4" are registered trademarks or trademarks of Sony Interactive
-            <br />
-            Entertainment Inc.Microsoft, the Xbox Sphere mark, the Series X
-            logo, Xbox <br />
-            One, and Xbox Series X are trademarks of the Microsoft group of
-            <br />
-            companies.Nintendo Switch is a trademark of NintendoEPIC GAMES and
-            <br />
-            the EPIC STORE LOGO are trademarks or registered trademarks of EPIC
-            <br />
-            GAMES INC.©2023 Valve Corporation. Steam and the Steam logo are
-            <br />
-            trademarks and/or registered trademarks of Valve Corporation in the
-            U.S. <br />
-            and/or other countries.The ESRB rating icons are registered
-            trademarks of <br />
-            the Entertainment Software Association.
-          </p>
-          <a
-            href="https://privacy.sega.com/en/sega-cookie-policy"
-            class="link-footer"
-            >COOKIE POLICY</a
-          >
-          <a href="https://privacy.sega.com/en/our-games" class="link-footer"
-            >PRIVACY POLICY</a
-          >
-        </div>
-        <img class="redes-footer" src="../images/redes-footer.png" />
-      </footer>
+
+        <p class="texto-suscripcion">
+          Al inscribirse en nuestra lista de correo, nos autoriza a ponernos
+          en contacto con usted para enviarle ofertas y actualizaciones de
+          marketing por correo electrónico, y también acepta nuestra
+          <span class="subrayado">Política de privacidad</span> y las
+          <span class="subrayado">Condiciones del servicio.</span>
+        </p>
+        <img src="../images/seccion-suscripcion/imgTeen.png" alt="" />
+      </div>
+      <img src="../images/seccion-suscripcion/Rectangle 11.png" class="img-fondo-suscripcion" alt="" />
+      <img src="../images/seccion-suscripcion/bkg 1.png" class="img-piso-suscripcion" alt="" />
+      <img src="../images/seccion-suscripcion/gif2.webp" width="480px" height="480px" class="personaje2-suscripcion"
+        alt="" />
+      <img src="../images/seccion-suscripcion/gif3.webp" width="509px" height="509px" class="personaje3-suscripcion"
+        alt="" />
+      <img src="../images/seccion-suscripcion/gif7.webp" width="524px" height="997px" class="personaje7-suscripcion"
+        alt="" />
     </div>
-    <script src="../js/menu.js"></script>
-  </body>
+
+    <footer>
+      <div class="div-barra">
+        <img class="barra-footer" src="../images/appsfooter.png" />
+      </div>
+      <div class="desc-footer">
+        <p>
+          ©SEGA. All rights reserved. SEGA is registered in the U.S. Patent
+          and<br />
+          Trademark Office. SEGA, the SEGA logo and SONIC SUPERSTARS are
+          either <br />
+          registered trademarks or trademarks of SEGA CORPORATION or its
+          <br />
+          affiliates. All other trademarks, logos and copyrights are property
+          of their <br />
+          respective owners.©2023 The LEGO Group. LEGO, the LEGO logo, the
+          <br />
+          Minifigure, and the Brick and Knob configurations are trademarks
+          and/or <br />
+          copyrights of the LEGO Group. All other marks and trademarks are the
+          <br />
+          property of their respective owners. All rights reserved."PS", "PS5"
+          and <br />
+          "PS4" are registered trademarks or trademarks of Sony Interactive
+          <br />
+          Entertainment Inc.Microsoft, the Xbox Sphere mark, the Series X
+          logo, Xbox <br />
+          One, and Xbox Series X are trademarks of the Microsoft group of
+          <br />
+          companies.Nintendo Switch is a trademark of NintendoEPIC GAMES and
+          <br />
+          the EPIC STORE LOGO are trademarks or registered trademarks of EPIC
+          <br />
+          GAMES INC.©2023 Valve Corporation. Steam and the Steam logo are
+          <br />
+          trademarks and/or registered trademarks of Valve Corporation in the
+          U.S. <br />
+          and/or other countries.The ESRB rating icons are registered
+          trademarks of <br />
+          the Entertainment Software Association.
+        </p>
+        <a href="https://privacy.sega.com/en/sega-cookie-policy" class="link-footer">COOKIE POLICY</a>
+        <a href="https://privacy.sega.com/en/our-games" class="link-footer">PRIVACY POLICY</a>
+      </div>
+      <img class="redes-footer" src="../images/redes-footer.png" />
+    </footer>
+  </div>
+  <script src="../js/menu.js"></script>
+
+  
+</body>
 </html>

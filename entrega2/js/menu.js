@@ -1,26 +1,46 @@
 document.addEventListener('DOMContentLoaded', function () {
     const profileButton = document.querySelector('.botonMenuPerfil');
     const profileMenu = document.querySelector('.menuPerfil');
+    const overlay = document.querySelector('#overlay');
+    const menuCategory = document.querySelector('.menu'); 
 
-
-    // Función para mostrar u ocultar el menú del perfil
-    function toggleProfileMenu() {
-        profileMenu.classList.toggle("hidden");
-    }
-
-    // Cerrar el menú si se hace clic en cualquier parte fuera de él
-    function closeProfileMenu(event) {
-        if (!event.target.closest('.profileMenu')) {
-            profileMenu.classList.add("hidden");
+    function toggleMenuProfile() {
+        if (!profileMenu.classList.contains('hidden')) {
+            profileMenu.classList.add('hidden');
+            if (menuCategory.classList.contains('hidden')) {
+                overlay.classList.remove('active');
+            }
+        } else {
+            if (!overlay.classList.contains('active')) {
+                const totalHeight = document.documentElement.offsetHeight;
+                overlay.style.height = `${totalHeight - 90}px`;
+                overlay.classList.add('active');
+            }
+            if (!menuCategory.classList.contains('hidden')) {
+                menuCategory.classList.add('hidden');
+            }
+            profileMenu.classList.remove('hidden');
         }
     }
 
-    // Escuchar el clic en el botón del perfil
+    function closeMenuProfiley(event) {
+        if (!event.target.closest('.menuPerfil') && !event.target.closest('.botonMenuPerfil')) {
+            profileMenu.classList.add('hidden');
+            if (menuCategory.classList.contains('hidden')) {
+                overlay.classList.remove('active');
+            }
+        }
+    }
+
     profileButton.addEventListener('click', function (event) {
-        event.stopPropagation(); // Evita que el evento cierre el menú cuando hacemos clic en el botón
-        toggleProfileMenu();
+        event.stopPropagation();
+        toggleMenuProfile();
     });
 
-    // Cerrar el menú si se hace clic fuera de él
-    document.addEventListener('click', closeProfileMenu);
+    overlay.addEventListener('click', closeMenuProfiley);
+    
+    document.addEventListener('click', closeMenuProfiley);
 });
+
+
+
