@@ -11,6 +11,7 @@ body {
 /*LOADER - inciso 1*/
 #loader {
     position: fixed;
+    width: 1280px;
     top: 0;
     left: 0;
     right: 0;
@@ -299,15 +300,14 @@ body {
 .conteiner1 {
     background-image: url(../images/fondoNubes2.png);
     width: 100%;
-    height: 950px; /* Ajusta si el contenido necesita desplazarse */
+    height: 950px;
     position: relative;
-    background-size: cover; 
-    background-position: center; 
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     overflow-x: hidden;
-    overflow-y: scroll; /* Permitir desplazamiento */
   }
-  
+
 .personajes1{
     display: flex;
     justify-content: center;
@@ -315,188 +315,224 @@ body {
     margin-right: 600px;
 }
 
-.personaje11{
+.personaje11 {
     position: absolute;
     height: 314px;
     transform: rotate(-6.51deg);
     top: 515px;
     left: 407px;
-    z-index: 2;
+    z-index: 3;
 }
-.personaje22{
+
+.personaje22 {
     position: absolute;
     height: 270px;
     top: 410px;
     left: 565px;
     transform: rotate(-6.72deg);
-    z-index: 1;
+    z-index: 2;
 }
-.personaje33{
+
+.personaje33 {
     position: absolute;
     height: 384px;
     top: 350px;
     left: 730px;
     transform: rotate(8.73deg);
+    z-index: 1;
 }
 
-.arbol1{
+.arbol1 {
     position: absolute;
     left: -150px;
     z-index: 1;
 }
 
-.arbol2{
+.arbol2 {
     position: absolute;
     left: 850px;
     top: 120px;
     z-index: 2;
 }
 
-.arbol3{
+.arbol3 {
     position: absolute;
     left: 1060px;
     top: 250px;
     z-index: 1;
 }
 
-.piedra1{
+.piedra1 {
     position: absolute;
     top: 800px;
     left: 130px;
     z-index: 1;
 }
 
-.piedra2{
+.piedra2 {
     position: absolute;
     top: 730px;
     left: 1000px;
     z-index: 2;
 }
 
-.piedra3{
+.piedra3 {
     position: absolute;
     top: 720px;
     left: 1050px;
-    z-index: 2;    
+    z-index: 2;
 }
 
-.piedra4{
+.piedra4 {
     position: absolute;
     top: 770px;
     left: 1010px;
     z-index: 2;
 }
 
-.planta1{
+.planta1 {
     left: 160px;
     position: absolute;
     top: 730px;
 }
 
-.planta2{
+.planta2 {
     left: 200px;
     position: absolute;
     top: 830px;
     z-index: 1;
 }
 
-.planta3{
+.planta3 {
     position: absolute;
     top: 620px;
     left: 1000px;
 }
 
-.planta4{
+.planta4 {
     position: absolute;
     top: 660px;
     left: 1050px;
     z-index: 1;
 }
 
+.sombra1{
+    position: absolute;
+    top: 780px;
+    left: 440px;
+}
+
+.sombra2{
+    position: absolute;
+    top: 700px;
+    left: 580px;
+}
+
+.sombra3{
+    position:absolute;
+    top: 700px;
+    left: 720px;
+}
 .parallax-layer {
     position: absolute;
+    transition: transform 0.5s ease-out; /* Animación suave */
     will-change: transform; /* Mejora el rendimiento */
-    transform-origin: center center; /* Escala desde el centro */
-    transition: transform 0.1s linear; /* Movimiento suave */
   }
   
-  
 
-.conteiner3{
+.fade-in {
+    animation: fadeIn 1s ease-out forwards;
+    /* Animación de entrada */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(0);
+        /* Mantiene la posición exacta */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        /* Sin desplazamiento */
+    }
+}
+
+
+.conteiner3 {
     background-image: url(../images/fondoVerdeGradrient.png);
     background-repeat: no-repeat;
     width: 1280px;
     height: 894px;
     padding-bottom: 210px;
-    overflow: hidden;
+
 }
 
 .conteiner4 {
     width: 1080px;
     margin: 0px;
     margin-left: 100px;
-
-}
-
-.conteiner4 img {
-    height: 436px;
-    width: auto;
-    margin: 0px;
-    margin-top: 79px;
-}
-
-#dynamic-image {
-    opacity: 1;
-    /* Imagen completamente visible */
-    transition: opacity 0.25s ease-in-out;
-    /* Transición suave */
 }
 
 .conteiner4 h2 {
     margin: 0px;
     margin-top: 174px;
     font-size: 60px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .conteiner4 h3 {
     font-size: 40px;
     margin: 0px;
-    font-weight: 100;
+    font-weight: 400;
 }
 
 .conteiner4 p {
     font-size: 20px;
+    font-weight: 400;
     margin: 0px;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
 
 .scroll-container {
+    height: fit-content;
     display: flex;
-    height: 100vh;
-    overflow: hidden;
     position: relative;
     margin: 0px;
+    justify-content: space-between;
 }
 
+
 .image-container {
-    flex: 1;
+    width: 500px;
+    height: auto;
     display: flex;
-    height: fit-content;
     justify-content: center;
-    align-items: center;
+    margin-top: 68px;
+}
+
+#dynamic-image {
+    opacity: 1;
+    height: 436px;
+    width: auto;
+    position: sticky;
+    transition: opacity 0.25s ease-in-out;
+    top: 150px;
+    margin-bottom: 200px;
+}
+
+
+.text.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 .text-container {
     margin-top: 159px;
-    flex: 1;
-    overflow-y: scroll;
-    padding: 20px;
-    height: 300px;
+    display: flex;
+    flex-direction: column;
+    width: 467px;
     /* Ocultar la barra de scroll en diferentes navegadores */
     scrollbar-width: none;
     /* Firefox */
@@ -510,65 +546,84 @@ body {
     /* Chrome, Safari y Opera */
 }
 
-.text-item {
+.text {
     margin-bottom: 300px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.5s ease;
 }
-
-.text-item-last {
-    margin-bottom: 100px;
+.text p {
+    line-height: 94.5%;
+}
+.text h3 {
+    line-height: 94.5%;
 }
 
 .conteiner5 {
+    background-image: url("../images/fondo-conteiner5.png");
     position: relative;
     margin: 0px;
     padding-left: 100px;
     height: 1443.83px;
     display: flex;
-    background-color: #EFB71E;
     box-sizing: border-box;
 }
 
 .conteiner5 h2 {
+    position: absolute;
     margin: 0px;
-    margin-top: 309px;
+    top: 309px;
     font-size: 60px;
-    font-weight: 500;
+    font-weight: 600;
     color: #FFFFFF;
     width: 802px;
     text-wrap: wrap;
-    position: absolute;
+    line-height: 94.5%;
 }
 
 
 .conteiner5 .video {
     position: relative;
-    top:526px;
+    top: 526px;
+    width: fit-content;
+    height: fit-content;
 }
 
 .conteiner5 .video iframe {
     position: absolute;
     max-width: 746px;
     max-height: 394px;
-    left : 29px;
-    top : 29px;
+    left: 29px;
+    top: 29px;
     z-index: 2;
-    border-radius: 25px;
+    border-radius: 15px;
 }
-.conteiner5 .video .fondo{
+
+.conteiner5 .video .video-image {
     position: absolute;
-    background-color: white;
     width: 804px;
     height: 452px;
     border-radius: 45px;
-    z-index: 1;
+    z-index: 5;
 
 }
 
-.conteiner5 img {
-    position:absolute;
+.play-button {
+    position: absolute;
+    left: 373px;
+    top: 186px;
+    width: 77px;
+    height: 87;
+    /* Ajusta el tamaño según tu diseño */
+    cursor: pointer;
+    z-index: 10;
+}
+
+.conteiner5 .personaje {
+    position: absolute;
     left: 731px;
     top: 352px;
-    z-index: 3;
+    z-index: 10;
 }
 
 .cont3 h2 {
