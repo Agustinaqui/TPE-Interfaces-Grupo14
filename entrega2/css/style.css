@@ -51,6 +51,23 @@ p {
 
 }
 
+#carrito-text{
+  top: -1px;
+  display: flex;
+  position: absolute;
+  left: 12px;
+  text-align: center;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 100%;
+  padding: 0.1rem;
+  margin: 0px;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+}
+
 .link {
   font-weight: bold;
   color: #5e68de;
@@ -471,12 +488,12 @@ img.card-tag-fav-icono {
 }
 
 .contenedorFormulario {
-  position: absolute;
   right: 10%;
   top: 30%;
 }
 
 .formulario {
+  position: relative;
   display: flex;
   background-color: #1e2039;
   width: 300px;
@@ -484,6 +501,8 @@ img.card-tag-fav-icono {
   padding: 40px;
   flex-direction: column;
   align-items: center;
+  margin-left: 190px;
+  margin-top: 100px;
 }
 
 .formularioRegistro {
@@ -574,6 +593,7 @@ img.card-tag-fav-icono {
 .seccionLogIn {
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 
 .seccionLinks{
@@ -584,6 +604,95 @@ img.card-tag-fav-icono {
   overflow: hidden;
   width: 50%;
   position: relative;
+}
+
+.advertencia-form {
+  display: none; 
+  background-color: #ac00007e; 
+  color: #f7f5f5; 
+  font-size: 0.9em; 
+  margin-top: 5px; 
+  padding: 8px 12px; 
+  border-left: 4px solid #b71c1c; 
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(255, 252, 252, 0.1); 
+  font-family: Arial, sans-serif; 
+  animation: fadeIn 0.3s ease-in-out; 
+  width: fit-content;
+  white-space: nowrap; 
+  overflow: hidden; 
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-5px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.adver-nombre {
+  position: absolute;
+  top: 11px;
+  left: 270px;
+}
+
+.adver-apellido {
+  position: absolute;
+  top: 67px;
+  left: 270px;
+}
+
+.adver-nickname {
+  position: absolute;
+  top: 123px;
+  left: 270px;
+}
+
+.adver-edad {
+  position: absolute;
+  top: 179px;
+  left: 270px;
+}
+
+.adver-email {
+  position: absolute;
+  top: 231px;
+  left: 270px;
+}
+
+.adver-contraseña {
+  position: absolute;
+  top: 291px;
+  left: 270px;
+}
+
+.adver-contraseña2 {
+  position: absolute;
+  top: 347px;
+  left: 270px;
+}
+
+.adver-emailSesion{
+  position: absolute;
+  top: 12px;
+  left: 270px;
+}
+
+.adver-contraseñaSesion{
+  position: absolute;
+  top: 68px;
+  left: 270px;
+}
+
+.input-error {
+  border: 2px solid #b71c1c; 
+  box-shadow: 0 0 8px 1px rgba(238, 34, 34, 0.7); 
+  outline: none; 
+  transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; 
 }
 
 .imgForm {
@@ -635,7 +744,7 @@ form:not(.hidden) {
 
 .mensajeExito {
   position: absolute;
-  top: 95%;
+  top: 500px;
   left: 75%;
   transform: translate(-50%, -50%);
   background-color: #2ecc71;
@@ -825,7 +934,8 @@ ul img {
   width: 110px;
   height: 41px;
   padding-top: 3px;
-  padding-left: 10px;
+  padding-left: 94px;
+
 }
 
 .conteiner-izquierda .logoMenu {
@@ -873,7 +983,7 @@ form{
 .conteiner-derecha {
   display: flex;
   padding: 0px;
-  margin-left: 80px;
+  margin-left: 60px;
   margin-right: 30px;
 }
 
@@ -897,19 +1007,6 @@ form{
 
 .logoCarrito {
   position: relative;
-}
-
-#carrito-text {
-  display: inline;
-  position: absolute;
-  left: 3.5rem;
-  text-align: center;
-  width: 1rem;
-  height: 1rem;
-  background-color: red;
-  border-radius: 100%;
-  padding: 0.1rem;
-  margin: 0px;
 }
 
 .menuPerfil {
@@ -1281,8 +1378,9 @@ input {
   }
 
   ul img {
-    margin-right: 200px;
     padding-top: 10px;
+    padding-left: 0px;
+    padding-right: 55px;
     width: 219px;
     height: 76px;
    
@@ -1345,6 +1443,10 @@ input {
     padding-left: 10px;
   }
 
+  .logoHeader{
+    padding-right: 115px;
+  }
+
   .elementoMenuPerfil {
     display: flex;
     flex-direction: row;
@@ -1371,8 +1473,17 @@ input {
     opacity: 1;
   }
 
+  #carrito-text {
+    left: 56px;
+    display: flex;
+    top: -1px;
+    width: 15px;
+    height: 15px;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
 }
-
+}
 .menu-list li a:hover,
 .category-list li a:hover {
   color: #6f74a7;

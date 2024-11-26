@@ -6,64 +6,47 @@ const mensajeExito = document.getElementById('mensajeExito');
 const switchToLogin = document.getElementById('switchToLogin');
 const switchToRegister = document.getElementById('switchToRegister');
 
-const formRegistro = document.getElementById("form-registro")
-const formLogin = document.getElementById("form-login")
+const formRegistro = document.getElementById("form-registro");
+const formLogin = document.getElementById("form-login");
 
-// Simular registro exitoso
-botonRegistrar.forEach((btn) => {
-    let formDeseado = btn.id.split("-")[1];
-
-    let form = formDeseado == "registro" ? formRegistro : formLogin;
-
-    btn.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        if (verificarDatos(form)) {
-            formularioRegistro.classList.add('hidden');
-            formularioLogin.classList.add('hidden');
-            setTimeout(() => {
-                mensajeExito.classList.add('show');
-                setTimeout(() => {
-                    window.location.href = "../index.html";
-                }, 2000);
-            }, 500);
-        } else {
-            const error = getErrorVerificacionForm(form);
-            mostrarAyudaForm(form, error);
-        }
-    });
-})
-
+// Función para obtener los errores de validación
 function getErrorVerificacionForm(form) {
     const error = {};
-    for (let i = 0; i < form.children.length; i++) {
-        const hijo = form.children[i];
-        if (hijo.required && hijo.value == "") {
-            error[`${hijo.title}`] = `Faltó ingresar el valor de "${hijo.title}"`
+    const inputs = form.querySelectorAll('.inputRegistro');
+    inputs.forEach(input => {
+        if (input.required && input.value.trim() === "") {
+            error[input.title] = `Ingrese ${input.title}`;
         }
-    }
+    });
     return error;
 }
 
+// Mostrar mensajes de ayuda debajo de los campos
 function mostrarAyudaForm(form, error) {
+    const inputs = form.querySelectorAll('.inputRegistro');
+    const advertencias = form.querySelectorAll('.advertencia-form');
 
-    console.log(form);
-    console.log(error);
-
+    inputs.forEach((input, index) => {
+        const advertencia = advertencias[index];
+        if (error[input.title]) {
+            advertencia.style.display = 'block';
+            advertencia.textContent = error[input.title];
+        } else {
+            advertencia.style.display = 'none';
+        }
+    });
 }
 
-
+// Verificar si los datos son válidos
 function verificarDatos(form) {
-
-    for (let i = 0; i < form.children.length; i++) {
-        const hijo = form.children[i];
-        if (hijo.required && hijo.value == "") {
+    const inputs = form.querySelectorAll('.inputRegistro');
+    for (let i = 0; i < inputs.length; i++) {
+        const input = inputs[i];
+        if (input.required && input.value.trim() === "") {
             return false;
         }
     }
-
     return true;
-
 }
 
 // Cambiar entre formularios de Login y Registro
@@ -89,6 +72,54 @@ recaptchas.forEach((recaptcha) => {
         }
     });
 });
+function mostrarAyudaForm(form, error) {
+    const inputs = form.querySelectorAll(".inputRegistro"); // Seleccionar todos los inputs
+    const advertencias = form.querySelectorAll(".advertencia-form"); // Seleccionar advertencias
+  
+    // Limpiar estilos y mensajes previos
+    inputs.forEach((input) => {
+      input.classList.remove("input-error");
+    });
+    advertencias.forEach((adv) => {
+      adv.style.display = "none";
+    });
+  
+    // Aplicar errores
+    Object.keys(error).forEach((key) => {
+      const input = [...inputs].find((inp) => inp.title === key);
+      const advertencia = input.nextElementSibling;
+  
+      if (input) {
+        input.classList.add("input-error"); // Agregar borde rojo resplandeciente
+      }
+  
+      if (advertencia) {
+        advertencia.style.display = "block"; // Mostrar mensaje de error
+        advertencia.textContent = error[key]; // Asignar texto de error
+      }
+    });
+  }
+  
+  // Simular registro exitoso
+botonRegistrar.forEach((btn) => {
+    let formDeseado = btn.id.split("-")[1];
+    let form = formDeseado == "registro" ? formRegistro : formLogin;
 
+    btn.addEventListener('click', (event) => {
+        event.preventDefault();
 
-
+        if (verificarDatos(form)) {
+            formularioRegistro.classList.add('hidden');
+            formularioLogin.classList.add('hidden');
+            setTimeout(() => {
+                mensajeExito.classList.add('show');
+                setTimeout(() => {
+                    window.location.href = "../index.html";
+                }, 2000);
+            }, 500);
+        } else {
+            const error = getErrorVerificacionForm(form);
+            mostrarAyudaForm(form, error);
+        }
+    });
+});
