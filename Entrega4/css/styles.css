@@ -706,7 +706,8 @@ body {
 }
 
 
-.conteiner-cards {
+
+.conteiner-cards{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

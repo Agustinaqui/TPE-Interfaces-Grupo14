@@ -51,6 +51,23 @@ p {
 
 }
 
+#carrito-text{
+  top: -1px;
+  display: flex;
+  position: absolute;
+  left: 12px;
+  text-align: center;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 100%;
+  padding: 0.1rem;
+  margin: 0px;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+}
+
 .link {
   font-weight: bold;
   color: #5e68de;
@@ -471,12 +488,12 @@ img.card-tag-fav-icono {
 }
 
 .contenedorFormulario {
-  position: absolute;
   right: 10%;
   top: 30%;
 }
 
 .formulario {
+  position: relative;
   display: flex;
   background-color: #1e2039;
   width: 300px;
@@ -484,6 +501,8 @@ img.card-tag-fav-icono {
   padding: 40px;
   flex-direction: column;
   align-items: center;
+  margin-left: 190px;
+  margin-top: 100px;
 }
 
 .formularioRegistro {
@@ -508,31 +527,39 @@ img.card-tag-fav-icono {
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 7px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
 }
 
-.botonRegistrar::after{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: linear-gradient(to bottom, rgba(255,255,255,0,.5), rgba(255,255,255,0));
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
 
 .botonRegistrar:hover {
-  background-color: #c434dd;
-  transform: scale(1.1) rotateY(360deg);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
+    background: linear-gradient(45deg, #800096, #800096,#800096, #ae41c2,#800096,#800096, rgb(167, 16, 255));
+    background-size: 400% 400%;
+    background-position: 100% 100%;
+    border-radius: 7px;
+    animation: gradientMovement 3s ease infinite;
+    transform: scale(1.1);
 }
 
-.botonRegistrar:active {
-  transform: scale(1.05);
+@keyframes gradientMovement {
+    0% {
+        background-position: 0% 0%;
+        /* comienza en la posición inicial del gradiente */
+    }
+
+    50% {
+        background-position: 100% 100%;
+        /* el gradiente se mueve hacia la esquina contrariak */
+    }
+
+    100% {
+        background-position: 0% 0%;
+        /* vuelve a la posición inicial */
+    }
 }
+
+
 
 .contenedorRedesRegistrar {
   display: flex;
@@ -566,6 +593,7 @@ img.card-tag-fav-icono {
 .seccionLogIn {
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 
 .seccionLinks{
@@ -576,6 +604,95 @@ img.card-tag-fav-icono {
   overflow: hidden;
   width: 50%;
   position: relative;
+}
+
+.advertencia-form {
+  display: none; 
+  background-color: #ac00007e; 
+  color: #f7f5f5; 
+  font-size: 0.9em; 
+  margin-top: 5px; 
+  padding: 8px 12px; 
+  border-left: 4px solid #b71c1c; 
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(255, 252, 252, 0.1); 
+  font-family: Arial, sans-serif; 
+  animation: fadeIn 0.3s ease-in-out; 
+  width: fit-content;
+  white-space: nowrap; 
+  overflow: hidden; 
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-5px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.adver-nombre {
+  position: absolute;
+  top: 11px;
+  left: 270px;
+}
+
+.adver-apellido {
+  position: absolute;
+  top: 67px;
+  left: 270px;
+}
+
+.adver-nickname {
+  position: absolute;
+  top: 123px;
+  left: 270px;
+}
+
+.adver-edad {
+  position: absolute;
+  top: 179px;
+  left: 270px;
+}
+
+.adver-email {
+  position: absolute;
+  top: 231px;
+  left: 270px;
+}
+
+.adver-contraseña {
+  position: absolute;
+  top: 291px;
+  left: 270px;
+}
+
+.adver-contraseña2 {
+  position: absolute;
+  top: 347px;
+  left: 270px;
+}
+
+.adver-emailSesion{
+  position: absolute;
+  top: 12px;
+  left: 270px;
+}
+
+.adver-contraseñaSesion{
+  position: absolute;
+  top: 68px;
+  left: 270px;
+}
+
+.input-error {
+  border: 2px solid #b71c1c; 
+  box-shadow: 0 0 8px 1px rgba(238, 34, 34, 0.7); 
+  outline: none; 
+  transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; 
 }
 
 .imgForm {
@@ -627,7 +744,7 @@ form:not(.hidden) {
 
 .mensajeExito {
   position: absolute;
-  top: 95%;
+  top: 500px;
   left: 75%;
   transform: translate(-50%, -50%);
   background-color: #2ecc71;
@@ -817,7 +934,8 @@ ul img {
   width: 110px;
   height: 41px;
   padding-top: 3px;
-  padding-left: 10px;
+  padding-left: 50px;
+
 }
 
 .conteiner-izquierda .logoMenu {
@@ -865,7 +983,7 @@ form{
 .conteiner-derecha {
   display: flex;
   padding: 0px;
-  margin-left: 80px;
+  margin-left: 20px;
   margin-right: 30px;
 }
 
@@ -891,26 +1009,13 @@ form{
   position: relative;
 }
 
-#carrito-text {
-  display: inline;
-  position: absolute;
-  left: 3.5rem;
-  text-align: center;
-  width: 1rem;
-  height: 1rem;
-  background-color: red;
-  border-radius: 100%;
-  padding: 0.1rem;
-  margin: 0px;
-}
-
 .menuPerfil {
   justify-content: flex-end;
   flex-direction: column;
   width: 100%;
   position: absolute;
   top: 2.8rem;
-  box-shadow: 0px 8px 16px 0px rgba(32, 8, 99, 0.404);
+  box-shadow: -4px 4px 10px rgba(32, 8, 99, 0.404);
   z-index: 10;
   background-color: #04031d;
   justify-content: flex-end;
@@ -967,7 +1072,7 @@ form{
   border-bottom: 1px solid #140633;
   background-color: #04031d;
   z-index: 1000;
-  box-shadow: 0px 8px 16px 0px rgba(32, 8, 99, 0.404);
+  box-shadow: 4px 4px 10px rgba(32, 8, 99, 0.404);
 }
 
 .menu svg {
@@ -1259,11 +1364,12 @@ input {
   }
 
   ul img {
-    margin-right: 200px;
     padding-top: 10px;
+    padding-left: 0px;
+    padding-right: 55px;
     width: 219px;
     height: 76px;
-    margin: 0px;
+   
   }
 
   input::placeholder {
@@ -1294,18 +1400,31 @@ input {
     width: 50px;
     height: 50px;
   }
+.menu {
+  position: absolute;
+  width: 275px;
+  height: 830px;
+  top: 90px;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  z-index: 20; 
 
-  .menu {
-    width: 275px;
-    top: 90px;
-    
-    margin: 0;
-    padding: 0;
-    left: 0;
-    border-right: 1px solid #140633;
-    z-index: 1000;
-  }
+}
+.overlay {
+  position: absolute;
+  top: 90px; 
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 10; 
+  display: none; 
+}
 
+
+.overlay.active {
+  display: block; 
+}
   .menu svg {
     width: 25px;
     height: 25px;
@@ -1321,6 +1440,10 @@ input {
     text-decoration: none;
     color: #dedede;
     padding-left: 10px;
+  }
+
+  .logoHeader{
+    padding-right: 115px;
   }
 
   .elementoMenuPerfil {
@@ -1339,7 +1462,7 @@ input {
     height: auto;
     background-color: #04031d;
     margin-top: 10px;
-    z-index: 2;
+    z-index: 20;
   }
 
   .containerMenuPerfil {
@@ -1349,8 +1472,17 @@ input {
     opacity: 1;
   }
 
+  #carrito-text {
+    left: 56px;
+    display: flex;
+    top: -1px;
+    width: 15px;
+    height: 15px;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
 }
-
+}
 .menu-list li a:hover,
 .category-list li a:hover {
   color: #6f74a7;
