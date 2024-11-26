@@ -1337,6 +1337,20 @@ input {
 #btn-jugar:hover {
   background-color: #971d1d; /* Verde oscuro al pasar el mouse */
 }
+.overlay {
+  position: absolute;
+  top: 90px; 
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 10; 
+  display: none; 
+}
+
+
+.overlay.active {
+  display: block; 
+}
 
 /*HEADER DESKTOP*/
 @media screen and (min-width: 600px) {
@@ -1411,20 +1425,7 @@ input {
   z-index: 20; 
 
 }
-.overlay {
-  position: absolute;
-  top: 90px; 
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-  z-index: 10; 
-  display: none; 
-}
 
-
-.overlay.active {
-  display: block; 
-}
   .menu svg {
     width: 25px;
     height: 25px;
