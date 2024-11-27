@@ -1108,6 +1108,7 @@ form{
   text-decoration: none;
   color: #dedede;
   margin-left: 10px;
+  font-size: 15px;
 }
 
 .menu-list li span,
@@ -1115,6 +1116,7 @@ form{
 .ver-categorias {
   text-decoration: underline;
   color: #dedede;
+  font-size: 15px;
 }
 
 .category-item,
