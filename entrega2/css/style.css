@@ -8,7 +8,7 @@ body {
 }
 
 main {
-  padding: 0px 50px;
+  padding: 0px;
 }
 
 body {
@@ -121,8 +121,9 @@ p {
 
 .carrousel-container {
   position: relative;
+  left:5%;
   overflow: hidden;
-  width: 100%;
+  width: 90%;
   user-select: none;
 }
 
@@ -184,8 +185,9 @@ p {
 
   position: absolute;
   top: 2.2rem;
+  left: 0px;
   z-index: 1;
-  width: 4.5rem;
+  width: 4.5em;
   height: 13.75rem;
   display: flex;
   align-items: center;
@@ -193,7 +195,7 @@ p {
 }
 
 .flecha-r {
-  left: calc(100% - 4.5rem);
+  left: calc(100% - 4.5em);
   background: linear-gradient(to left,
       rgba(0, 0, 0, 0.9),
       rgba(0, 0, 0, 0.7),
@@ -1236,6 +1238,33 @@ input {
 /*HEADER DESKTOP*/
 @media screen and (min-width: 600px) {
 
+  .flecha-l,
+.flecha-r {
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0));
+
+  position: absolute;
+  top: 2.2rem;
+  z-index: 1;
+  width: 4.5rem;
+  height: 13.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flecha-r {
+  left: calc(100% - 4.5rem);
+  background: linear-gradient(to left,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0));
+}
   #imgCarrito {
     padding: 0px;
     margin: 0px;
