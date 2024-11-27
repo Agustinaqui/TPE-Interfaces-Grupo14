@@ -116,6 +116,35 @@ function toggleMenu() {
     menuItemsContainer.classList.toggle('active'); // aca se desplgiea el menu con los items
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    // Selecciona los elementos que deseas animar
+    const elementos = document.querySelectorAll(".parallax-layer");
+  
+    const handleScroll = () => {
+      const scrollY = window.scrollY; // Obtener el desplazamiento vertical
+  
+      elementos.forEach((elemento, index) => {
+        const scale = 1 + scrollY * 0.001; // Aumenta el tamaño proporcionalmente al scroll
+  
+        let offsetX;
+        if (elemento.classList.contains("izquierda")) {
+          // Si es el árbol 1, muévelo hacia la izquierda
+          offsetX = -scrollY * (0.1 + index * 0.02);
+        } else {
+          // Los demás se mueven hacia la derecha
+          offsetX = scrollY * (0.1 + index * 0.02);
+        }
+  
+        // Combina el aumento de tamaño y el desplazamiento lateral
+        elemento.style.transform = `scale(${scale}) translateX(${offsetX}px)`;
+      });
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+  
+    handleScroll();
+  });
+  
 
 
 
