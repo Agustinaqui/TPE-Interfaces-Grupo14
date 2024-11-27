@@ -1379,12 +1379,37 @@ input {
 
   ul img {
     padding-top: 10px;
-    padding-left: 0px;
-    padding-right: 55px;
+    padding-left: 20px;
+    padding-right: 140px;
     width: 219px;
     height: 76px;
-   
   }
+
+  .logoIndex{
+    padding-right: 0px;
+    padding-left: 20px;
+  }
+    .logoJuego {
+        padding-right: 0px;
+        padding-left: 20px;
+        filter: drop-shadow(0 0 10px rgba(55, 0, 87, 0.3)); /* Aplica la sombra por defecto */
+        transition: filter 0.3s ease-in-out; /* Suaviza la transición del efecto */
+    }
+
+    ul img {
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-right: 140px;
+        width: 219px;
+        height: 76px;
+        filter: drop-shadow(0 0 10px rgba(55, 0, 87, 0.3)); /* Aplica la sombra por defecto */
+        transition: filter 0.3s ease-in-out; /* Suaviza la transición del efecto */
+    }
+
+    .logoJuego:hover,
+    ul img:hover {
+        filter: drop-shadow(0 4px 15px rgba(44, 0, 80, 0.726)); /* Incrementa la sombra en el hover */
+    }
 
   input::placeholder {
     font-size: 15px;
@@ -2067,34 +2092,59 @@ text-decoration: underline;
   height: 50%;
   width: 100%;
 }
-
 .botonComentario {
-  height: 30px;
-  padding-left: 5px;
-  padding-right: 5px;
-  background-color: #912eb8;
-  color: rgb(248, 248, 248);
+  height: 40px; 
+  width: 40px; 
+  background-color: #73168a;
+  color: #ffffff;
   border: none;
   font-size: 16px;
   font-weight: bold;
-  border-radius: 12px;
+  border-radius: 20px; 
   cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; 
+  position: relative;
+  transition: width 0.5s ease, border-radius 0.5s ease;
 }
 
-/* Efecto de rebote y brillo en hover */
+.botonComentario::before {
+  content: url(../images/enviar-mensaje.png);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 54%; 
+  left: 54%; 
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.botonComentario span {
+  opacity: 0; 
+  white-space: nowrap;
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  color: #e0c1f1; 
+  transition: opacity 0.3s ease, color 0.5s ease; 
+}
+
 .botonComentario:hover {
-  background-color: #a559b3;
-  transform: scale(1.1) translateY(-5px); /* Salto hacia arriba */
+  width: 150px;
+  border-radius: 12px;
+  background-color: rgba(124, 16, 146, 0.986);
+  filter: drop-shadow(0 0 10px rgba(57, 4, 68, 0.986));
+}
+
+.botonComentario:hover::before {
+  opacity: 0; 
+}
+
+.botonComentario:hover span {
+  opacity: 1; 
   color: #ffffff;
-  box-shadow: 0 0 20px rgba(145, 46, 184, 0.8), 0 0 30px rgba(145, 46, 184, 0.6); /* Efecto de brillo */
 }
-
-/* Efecto de rebote al hacer clic */
-.botonComentario:active {
-  transform: scale(1.05) translateY(2px); /* Rebote hacia abajo */
-}
-
 
 .comentar {
   display: flex;
