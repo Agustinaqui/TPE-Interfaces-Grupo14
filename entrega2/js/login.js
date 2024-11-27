@@ -15,7 +15,7 @@ function getErrorVerificacionForm(form) {
     const inputs = form.querySelectorAll('.inputRegistro');
     inputs.forEach(input => {
         if (input.required && input.value.trim() === "") {
-            error[input.title] = `Ingrese ${input.title}`;
+            error[input.title] = `X`;
         }
     });
     return error;
