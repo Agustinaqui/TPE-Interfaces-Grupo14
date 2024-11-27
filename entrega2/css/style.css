@@ -205,7 +205,7 @@ p {
   left: 0px;
   z-index: 1;
   width: 4.5em;
-  height: 13.75rem;
+  height: 178px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -354,6 +354,14 @@ img.card-tag-fav-icono {
   border-radius: 18px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoIndex {
+  position: absolute;
+  left: calc(50% - 50px);
+  top: 3px;
 }
 
 .card-categoria:hover {
@@ -436,8 +444,10 @@ img.card-tag-fav-icono {
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 40px;
+
 }
 
 
@@ -925,14 +935,13 @@ nav ul.navigation {
   list-style-type: none;
   margin: 0px;
   padding: 0px;
+  position: relative;
+  height: 100%;
 }
 
 ul img {
   width: 110px;
   height: 41px;
-  padding-top: 3px;
-  padding-left: 50px;
-
 }
 
 .conteiner-izquierda .logoMenu {
@@ -1369,7 +1378,7 @@ input {
 }
 
 /*HEADER DESKTOP*/
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 900px) {
 
   .card {
     width: fit-content;
@@ -1554,18 +1563,19 @@ input {
     height: 40px;
   }
 
-  ul img {
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 140px;
-    width: 219px;
-    height: 76px;
+  .logoIndex {
+    position: absolute;
+    left: calc(50% - 70.5px);
+    top: 10px;
   }
 
-  .logoIndex{
-    padding-right: 0px;
-    padding-left: 20px;
+  .categorias-recomendadas{
+    display: block;
+    width: 90%;
+    padding-left: 5%;
+    padding-top:5% ;
   }
+  
     .logoJuego {
         padding-right: 0px;
         padding-left: 20px;
@@ -1574,9 +1584,6 @@ input {
     }
 
     ul img {
-        padding-top: 10px;
-        padding-left: 20px;
-        padding-right: 140px;
         width: 219px;
         height: 76px;
         filter: drop-shadow(0 0 10px rgba(55, 0, 87, 0.3)); /* Aplica la sombra por defecto */
@@ -1615,6 +1622,20 @@ input {
   .logoMenu svg {
     width: 50px;
     height: 50px;
+  }
+
+  .categorias-recomendadas{
+    display: block;
+    width: 90%;
+    padding-left: 5%;
+    padding-top:5% ;
+  }
+  
+
+  .card-categoria{
+    margin-left: 20px;
+    margin-right: 20px;
+    
   }
 
   .menu {
