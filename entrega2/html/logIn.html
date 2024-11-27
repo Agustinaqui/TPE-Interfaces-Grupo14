@@ -14,13 +14,14 @@
                 <nav>
                     <ul class="navigation , items">
                         <div class="conteiner-izquierda">
-                            <li class="logoMenu">
+                            <li><button class="logoMenu">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="#DEDEDE" class="bi bi-list"
                                     viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
                                         d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
                                 </svg>
-                            </li>
+                            </button>
+                        </li>
                             <li class="busqueda">
                                 <input type="text" name="buscador" placeholder="Buscar juegos..."><svg viewBox="0 0 50 50"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,6 +38,8 @@
                 </nav>
             </div>
         </header>
+
+        <div id="overlay" class="overlay"></div>
         
         <div class="menu hidden">
             <div class="menu-lista">
@@ -309,19 +312,33 @@
                 <h1>Registrate</h1>
                 <form  class="formularioRegistro" id="form-registro">
                     <label for="nombre" class="textoLabel">Nombre:</label>
-                    <input type="text" title="Nombre" class="inputRegistro">
+                    <input type="text" required title="Nombre" class="inputRegistro">
+                    <div class="advertencia-form adver-nombre"><p>Ingrese nombre</p></div>
+
                     <label for="apellido" class="textoLabel">Apellido:</label>
-                    <input type="text" title="Apellido" class="inputRegistro">
+                    <input type="text" required title="Apellido" class="inputRegistro">
+                    <div class="advertencia-form adver-apellido"><p>Ingrese apellido</p></div>
+
                     <label for="nickname" class="textoLabel">Nickname:</label>
                     <input type="text" required title="Nickname" class="inputRegistro">
+                    <div class="advertencia-form adver-nickname"><p>Ingrese nickname</p></div>
+
                     <label for="edad"  class="textoLabel">Edad:</label>
                     <input type="number" required title="Edad" class="inputRegistro">
+                    <div class="advertencia-form adver-edad"><p>Ingrese edad</p></div>
+
                     <label for="Email" class="textoLabel">Email:</label>
                     <input type="email" required title="Email" class="inputRegistro">
+                    <div class="advertencia-form adver-email" ><p>Ingrese email</p></div>
+
                     <label for="paswword" class="textoLabel">Contraseña:</label>
-                    <input type="password" required title="Password" class="inputRegistro">
+                    <input type="password" required title="Contraseña" class="inputRegistro">
+                    <div class="advertencia-form adver-contraseña"><p>Ingrese contraseña</p></div>
+
                     <label for="repetirContraseña" class="textoLabel">Repetir contraseña:</label>
-                    <input type="password" required title="RepetirPassword" class="inputRegistro">
+                    <input type="password" required title="Contraseña otra vez" class="inputRegistro">
+                    <div class="advertencia-form adver-contraseña2"><p>Reingrese contraseña</p></div>
+
                 </form>
                 <div class="contenedorBajoForm">
                     <div class="contenedorRecaptcha">
@@ -343,9 +360,13 @@
                 <h1>Inicia Sesión</h1>
                 <form id="form-login" class="formularioRegistro">
                     <label for="email"  class="textoLabel">Email:</label>
-                    <input type="email" required title="email" class="inputRegistro">
+                    <input type="email" required title="Email" class="inputRegistro">
+                    <div class="advertencia-form adver-emailSesion" ><p>Ingrese email</p></div>
+
                     <label for="paswword" class="textoLabel">Contraseña:</label>
-                    <input type="password" required title="Paswword" class="inputRegistro">
+                    <input type="password" required title="Contraseña" class="inputRegistro">
+                    <div class="advertencia-form adver-contraseñaSesion"><p>Reingrese contraseña</p></div>
+
                 </form>
                 <div class="contenedorBajoForm">
                     <div class="contenedorRecaptcha">
@@ -474,7 +495,7 @@
                     y eventos especiales!</p>
             </div>
         </footer>
-        <script src="../js/menuCategoria.js"></script>
+        <script src="../js/menuCatLogin.js"></script>
         <script src="../js/login.js"></script>
         
 
