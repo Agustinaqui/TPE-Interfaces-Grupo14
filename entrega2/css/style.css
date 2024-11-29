@@ -610,21 +610,16 @@ img.card-tag-fav-icono {
   position: relative;
 }
 
-.advertencia-form {
-  display: none;
+.label-error {
   background-color: #ac00007e;
   color: #f7f5f5;
   font-size: 0.9em;
   margin-top: 5px;
-  padding: 8px 12px;
+  padding: 5px 12px;
   border-left: 4px solid #b71c1c;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(255, 252, 252, 0.1);
   font-family: Arial, sans-serif;
-  animation: fadeIn 0.3s ease-in-out;
-  width: fit-content;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 @keyframes fadeIn {

@@ -11,11 +11,15 @@ const formLogin = document.getElementById("form-login");
 
 // Función para obtener los errores de validación
 function getErrorVerificacionForm(form) {
-    const error = {};
+    const error = [];
     const inputs = form.querySelectorAll('.inputRegistro');
-    inputs.forEach(input => {
-        if (input.required && input.value.trim() === "") {
-            error[input.title] = `X`;
+    inputs.forEach((input, index) => {
+        if (input.title == "Confirmacion de clave" && input.value != [...inputs].find(inp => inp.title == "Clave").value) {
+            error[index] = `La confirmacion de clave es incorrecta:`;
+        } else if (input.required && input.value.trim() === "") {
+            error[index] = `Ingrese ${input.title}:`;
+        } else {
+            error[index] = null;
         }
     });
     return error;
@@ -42,10 +46,13 @@ function verificarDatos(form) {
     const inputs = form.querySelectorAll('.inputRegistro');
     for (let i = 0; i < inputs.length; i++) {
         const input = inputs[i];
-        if (input.required && input.value.trim() === "") {
+        if (input.required && input.value.trim() === ""
+            || input.title == "Confirmacion de clave"
+            && input.value != [...inputs].find(inp => inp.title == "Clave").value) {
             return false;
         }
     }
+
     return true;
 }
 
@@ -65,42 +72,58 @@ const recaptchas = document.querySelectorAll('.recaptcha');
 
 recaptchas.forEach((recaptcha) => {
     recaptcha.addEventListener("click", () => {
-        if (recaptcha.src.includes("recaptcha.jpg")) {
+        if (recaptcha.getAttribute("status") == "unchecked") {
+
+            recaptcha.setAttribute("status", "checked");
             recaptcha.src = "../images/recaptchaGreen.jpg";
         } else {
+
+            recaptcha.setAttribute("status", "unchecked");
             recaptcha.src = "../images/recaptcha.jpg";
         }
     });
 });
+
 function mostrarAyudaForm(form, error) {
     const inputs = form.querySelectorAll(".inputRegistro"); // Seleccionar todos los inputs
-    const advertencias = form.querySelectorAll(".advertencia-form"); // Seleccionar advertencias
-  
+    const labels = form.querySelectorAll(".textoLabel"); // Seleccionar labels
+
     // Limpiar estilos y mensajes previos
     inputs.forEach((input) => {
-      input.classList.remove("input-error");
+        input.classList.remove("input-error");
     });
-    advertencias.forEach((adv) => {
-      adv.style.display = "none";
-    });
-  
-    // Aplicar errores
-    Object.keys(error).forEach((key) => {
-      const input = [...inputs].find((inp) => inp.title === key);
-      const advertencia = input.nextElementSibling;
-  
-      if (input) {
-        input.classList.add("input-error"); // Agregar borde rojo resplandeciente
-      }
-  
-      if (advertencia) {
-        advertencia.style.display = "block"; // Mostrar mensaje de error
-        advertencia.textContent = error[key]; // Asignar texto de error
-      }
-    });
-  }
-  
-  // Simular registro exitoso
+
+    error.forEach((mensaje, index) => {
+        labels[index].classList.remove("label-error");
+        labels[index].textContent = inputs[index].title;
+
+        if (error[index]) {
+            inputs[index].classList.add("input-error")
+            labels[index].classList.add("label-error");
+            labels[index].textContent = mensaje;
+        }
+
+        
+    })
+
+    /* 
+         // Aplicar errores
+        Object.keys(error).forEach((key) => {
+            const input = [...inputs].find((inp) => inp.title === key);
+            const advertencia = input.nextElementSibling;
+    
+            if (input) {
+                input.classList.add("input-error"); // Agregar borde rojo resplandeciente
+            }
+    
+            if (advertencia) {
+                advertencia.style.display = "block"; // Mostrar mensaje de error
+                advertencia.textContent = error[key]; // Asignar texto de error
+            }
+        }); */
+}
+
+// Simular registro exitoso
 botonRegistrar.forEach((btn) => {
     let formDeseado = btn.id.split("-")[1];
     let form = formDeseado == "registro" ? formRegistro : formLogin;
